@@ -36,23 +36,27 @@ const Banner = (props) => {
             <CardContent className={styles.Content}>
                 <Image src={props.item.Image} layout="fill" objectFit="" priority loading="eager" className={styles.CarImage} />
                 <Container maxWidth="lg" className={styles.Container} >
-                    <Typography className={styles.Title}>
-                        {props.item.Name}
-                    </Typography>
+                
+                   
+                  
+                        <Typography className={styles.Title}>
+                            {props.item.Name}
+                        </Typography>
+                    <br />
 
-                    <div id="divCaption" style={{ "marginTop": "21px" }}>
-                        {props.item.Caption.split('.').map((item, index) => {
-                            return (
-                                <Typography key={index} className={styles.Caption}>
-                                    {item}
-                                </Typography>
-                            )
-                        })}
-                    </div>
-                    <Button variant="outlined" className={styles.ViewButton}>
-                        {props.item.Button}
-                    </Button>
-                    <Grid container spacing={8}>
+                        <div id="divCaption" style={{ "marginTop": "21px" }}>
+                            {props.item.Caption.split('.').map((item, index) => {
+                                return (
+                                    <Typography key={index} className={styles.Caption} >
+                                        {item}
+                                    </Typography>
+                                )
+                            })}
+                        </div>
+                        <Button variant="outlined" className={styles.ViewButton}>
+                            {props.item.Button}
+                        </Button>
+                      <Grid container spacing={8}>
 
                         <Grid item xs={6}>
                             {
@@ -97,7 +101,7 @@ const Banner = (props) => {
                                     </Card> : null
                             }
 
-                        </Grid>
+                        </Grid> 
                     </Grid>
                 </Container>
             </CardContent>
@@ -113,23 +117,12 @@ const Banner = (props) => {
     }
 
     return (
-        <Box sx={{
-            width: {
-                xs: 100, // theme.breakpoints.up('xs')
-                sm: 200, // theme.breakpoints.up('sm')
-                md: 300, // theme.breakpoints.up('md')
-                lg: 400, // theme.breakpoints.up('lg')
-                xl: 500, // theme.breakpoints.up('xl')
-            },
-        }}>
 
-            <Card raised className={styles.Banner} >
-                <Grid container spacing={0} className={styles.BannerGrid}>
-                    {items}
-                </Grid>
-            </Card>
-        </Box>
-
+        <Card raised className={styles.Banner} >
+            <Grid container spacing={0} className={styles.BannerGrid}>
+                {items}
+            </Grid>
+        </Card>
     )
 }
 

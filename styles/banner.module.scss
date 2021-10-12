@@ -5,8 +5,8 @@
 
    
     .Container {
-        // margin-left: 150px;
-        // margin-top: 50px;
+        margin-left: 150px;
+        margin-top: 50px;
         z-index: 3;
     }
     .BannerGrid {
@@ -75,9 +75,10 @@
             background-color: rgba(47, 47, 47, 0.83);
             height: 180px;
             width: 383px;
-            margin-top: 20px;
+            margin-top: 65px;
             color: #fff;
             z-index: 3;
+
 
             .RatingTitle {
                 font-size: $small-font-size;
@@ -117,6 +118,7 @@
         border: none;
         box-shadow: none;
         z-index: 3;
+        margin-top: 65px;
     }
 
     .TripAdvisorTitle {

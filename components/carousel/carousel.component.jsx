@@ -56,7 +56,7 @@ const Slider = (props) => {
 
                     }
                 }}
-            >
+                >
                 {/* // fullHeightHover={false}
                     // navButtonsProps={{style: {backgroundColor: 'cornflowerblue', borderRadius: 0}}}
                     // navButtonsWrapperProps={{style: {bottom: '0', top: 'unset', }}}
@@ -65,7 +65,7 @@ const Slider = (props) => {
                 {
 
                     Items.map((item, index) => {
-                        return <Banner item={item} key={index} contextPosition={item.contentPosition} />
+                         return <Banner item={item} key={index} contextPosition={item.contentPosition} />
                     })
                 }
             </Carousel>
