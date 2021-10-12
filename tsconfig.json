@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "baseUrl": "./src"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/banner/banner.component.jsx", "components/carousel/carousel.component.jsx"],
   "exclude": ["node_modules"]
 }
