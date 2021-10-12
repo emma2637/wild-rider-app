@@ -4,7 +4,7 @@ import  Banner from "../banner/banner.component";
 import Items from './carousel.data'
 
 const Slider = () => {
-    const [autoPlay, setAutoPlay] = React.useState(true);
+    const [autoPlay, setAutoPlay] = React.useState(false);
     const [animation, setAnimation] = React.useState("slide");
     const [indicator, setIndicator] = React.useState(true);
     const [timeout, setTimeout] = React.useState(500);
@@ -15,7 +15,6 @@ const Slider = () => {
 
   return (
     <div>
-        <h2>Example of carousel</h2>
         <Carousel
             autoPlay={autoPlay}
             animation={animation}

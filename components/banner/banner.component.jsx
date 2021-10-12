@@ -22,7 +22,7 @@ const  Banner= (props)=> {
 
     console.log(props.item.image);
     let items = [];
-    let background ={"background-image":`url('${props.item.Image}')`,"background-repeat":"round"}
+    let background ={"background-image":`url('${props.item.Image}')`,"backgroundRepeat":"no-repeat","backgroundSize":"cover","backgroundPosition":"center"};
     const content = (
         <Grid item xs={12 / totalItems} key="content">
             <CardContent className={styles.Content} style={background}>
