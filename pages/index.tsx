@@ -10,8 +10,8 @@ const IndexPage: NextPage = () => {
   return (
     <div>
       <Header></Header>
-      <div className="" style={{ 'height': '800px' }}>
-        <Slider></Slider>
+      <div className="" >
+        <Slider>loading!</Slider>
       </div>
       <div>
         <Footer></Footer>

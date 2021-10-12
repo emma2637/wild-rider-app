@@ -4,7 +4,18 @@ const items = [
         Caption: "Extraordinary Costa Rica Vacations need knowledge and preparation. Do you want to know more? Push the button:",
         Button: "Get a free Quote",
         ContentPosition: "middle",
-        Image: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/07606ea3-03eb-417b-a218-186d7cdb7c86.png"
+        Image: "/hero.png",
+        Rating:{
+            Stars: 5,
+            ProfileImage: "https://st4.depositphotos.com/15648834/23779/v/1600/depositphotos_237795810-stock-illustration-unknown-person-silhouette-profile-picture.jpg",
+            Comment:"“Wild Rider was the best car rental we could have chosen for our Costa Rica trip.”",
+            Name:"John Doe",
+            
+        },
+        TripAdvisor:{
+            Content:"Trip Advisor Certificate of Experience for 5 years",
+            Image:"/tripAdvisorLogo.svg"
+        }
         
     },
     {

@@ -1,66 +1,108 @@
 import {
     Card,
     CardContent,
-    CardMedia,
+    CardHeader,
+    Container,
     Typography,
     Grid,
+    Avatar,
     Button,
-    Checkbox,
+    Box,
+    IconButton,
     FormControlLabel,
     Radio,
     RadioGroup,
     FormLabel,
     Slider,
 } from '@material-ui/core';
-import styles from '../../styles/carousel.module.scss'
+import Image from 'next/image'
+import { red } from '@mui/material/colors';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Rating from '@mui/material/Rating';
+import styles from '../../styles/banner.module.scss'
+import { ReactComponent as tripAdvisorLogo } from '../../public/tripAdvisorLogo.svg'
 
-const  Banner= (props)=> {
+const Banner = (props) => {
     if (props.newProp) console.log(props.newProp)
     const contentPosition = props.ContentPosition ? props.ContentPosition : "left"
     const totalItems = props.length ? props.length : 1;
     const mediaLength = totalItems - 1;
 
-    console.log(props.item.image);
     let items = [];
-    let background ={"background-image":`url('${props.item.Image}')`,"backgroundRepeat":"no-repeat","backgroundSize":"cover","backgroundPosition":"center"};
     const content = (
+
         <Grid item xs={12 / totalItems} key="content">
-            <CardContent className={styles.Content} style={background}>
-                <Typography className={styles.Title}>
-                    {props.item.Name}
-                </Typography>
+            <CardContent className={styles.Content}>
+                <Image src={props.item.Image} layout="fill" objectFit="" priority loading="eager" className={styles.CarImage} />
+                <Container maxWidth="lg" className={styles.Container} >
+                    <Typography className={styles.Title}>
+                        {props.item.Name}
+                    </Typography>
 
-                <Typography className={styles.Caption}>
-                    {props.item.Caption}
-                </Typography>
+                    <div id="divCaption" style={{ "marginTop": "21px" }}>
+                        {props.item.Caption.split('.').map((item, index) => {
+                            return (
+                                <Typography key={index} className={styles.Caption}>
+                                    {item}
+                                </Typography>
+                            )
+                        })}
+                    </div>
+                    <Button variant="outlined" className={styles.ViewButton}>
+                        {props.item.Button}
+                    </Button>
+                    <Grid container spacing={8}>
 
-                <Button variant="outlined" className={styles.ViewButton}>
-                    {props.item.Button}
-                </Button>
+                        <Grid item xs={6}>
+                            {
+                                props.item.Rating ? <div id="divRating">
+                                    <Card className={styles.Rating} >
+                                        <CardHeader
+                                            avatar={
+                                                <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.Avatar}>
+                                                    <Image src={props.item.Rating.ProfileImage} width={30} height={30} layout="responsive" objectFit="fill" />
+                                                </Avatar>
+                                            }
+                                            title={
+                                                <Rating name="read-only" value={props.item.Rating.Stars} readOnly />
+                                            }
+
+                                        />
+                                        <CardContent>
+                                            <Typography className={styles.RatingTitle}>
+                                                {props.item.Rating.Comment}
+                                            </Typography>
+                                            <Typography className={styles.RatingSubTitle}>
+                                                {props.item.Rating.Name}
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </div> : null
+
+
+                            }
+                        </Grid>
+                        <Grid item xs={6}>
+                            {
+                                props.item.TripAdvisor ?
+                                    <Card className={styles.TripAdvisor}>
+                                        <CardHeader title={props.item.TripAdvisor.Content} className={styles.TripAdvisorTitle}
+                                            avatar={
+                                                <Avatar sx={{ bgcolor: red[500] }} aria-label="tripadvisorImage" className={styles.Avatar}>
+                                                    <Image src={props.item.TripAdvisor.Image} width={30} height={30} layout="responsive" objectFit="fill" />
+
+                                                </Avatar>
+                                            } />
+                                    </Card> : null
+                            }
+
+                        </Grid>
+                    </Grid>
+                </Container>
             </CardContent>
         </Grid>
     )
-
-    // for (let i = 0; i < mediaLength; i++) {
-    //     const item = props.item.Items[i];
-
-    //     const media = (
-    //         <Grid item xs={12 / totalItems} key={item.Name}>
-    //             <CardMedia
-    //                 className={styles.Media}
-    //                 image={item.Image}
-    //                 title={item.Name}
-    //             >
-    //                 <Typography className={styles.MediaCaption}>
-    //                     {item.Name}
-    //                 </Typography>
-    //             </CardMedia>
-
-    //         </Grid>
-    //     )
-
-    //     items.push(media);
-    // }
 
     if (contentPosition === "left") {
         items.unshift(content);
@@ -71,11 +113,23 @@ const  Banner= (props)=> {
     }
 
     return (
-        <Card raised className={styles.Banner}>
-            <Grid container spacing={0} className={styles.BannerGrid}>
-                {items}
-            </Grid>
-        </Card>
+        <Box sx={{
+            width: {
+                xs: 100, // theme.breakpoints.up('xs')
+                sm: 200, // theme.breakpoints.up('sm')
+                md: 300, // theme.breakpoints.up('md')
+                lg: 400, // theme.breakpoints.up('lg')
+                xl: 500, // theme.breakpoints.up('xl')
+            },
+        }}>
+
+            <Card raised className={styles.Banner} >
+                <Grid container spacing={0} className={styles.BannerGrid}>
+                    {items}
+                </Grid>
+            </Card>
+        </Box>
+
     )
 }
 
