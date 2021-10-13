@@ -1,140 +1,294 @@
 @import "./global.scss";
-.Banner {
-    height: 800px;
-    position: relative;
 
-   
+.Banner {
+    height: auto;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 0;
     .Container {
-        margin-left: 150px;
-        margin-top: 50px;
         z-index: 3;
     }
     .BannerGrid {
-        height: 100%;
-        position: relative;
         z-index: 3;
     }
-
     .Content {
         color: white;
-        background-color: $dark-red;
-        height: 100%;
-        flex: "calc(50% - 4px)";
+        z-index: 3;
         position: relative;
         cursor: pointer;
         padding: 30px;
-        transition: 300ms;
-        z-index: 3;
+        height: 720px;
 
-        &:hover,
-        &:active {
-            background-color: $dark-red-active;
-
-            .ViewButton {
-                background-color: #6e5800;
-                color: #ffcc00;
-                border-color: #6e5800;
-            }
-        }
-
-        .Title {
+        .Title{
+            font-weight: bold;
             font-size: $huge-font-size;
-            font-weight: 500;
-            max-width: 600px;
-            width: 100%;
-            max-height: 161px;
-            height: 100%;
-            z-index: 3;
         }
         .CarImage {
             width: 100%;
             height: 100%;
             z-index: -1;
         }
-        .Caption {
-            // margin-top: 21px;
-            font-size: $small-font-size;
-            line-height: 21px;
-            height: 21px;
-            letter-spacing: normal;
-            z-index: 3;
-        }
-
         .ViewButton {
-            margin-top: 15px;
-            color: #6e5800;
-            background-color: #ffcc00;
+            background-color: #ffcc00 !important;
+            color: #6e5800 !important;
             font-size: $header-font-size;
-            border: 3px solid #ffcc00;
             text-transform: capitalize;
-            transition: 200ms;
-            z-index: 3;
+            font-weight: bold;
+            margin-top: 40px;
+            margin-bottom: 40px;
         }
-
+        .Avatar{
+            position: relative ;
+        //    width: 30px;
+        //    height: 30px;
+        }
         .Rating {
             background-color: rgba(47, 47, 47, 0.83);
-            height: 180px;
-            width: 383px;
-            margin-top: 65px;
             color: #fff;
-            z-index: 3;
-
-
-            .RatingTitle {
+            width: 383px;
+            .RatingSubContent,
+            .RatingContent {
                 font-size: $small-font-size;
                 font-weight: 500;
                 font-stretch: normal;
                 font-style: normal;
                 line-height: 1.5;
                 letter-spacing: normal;
-                margin-left: 52px;
-                position: relative;
-                bottom: 32px;
+                text-align: left;
             }
-            .RatingSubTitle {
-                font-size: $small-font-size;
-                font-weight: 500;
-                margin-top: 20px;
+        }
+
+        .TripAdvisor {
+            background-color: transparent;
+            color: white;
+            font-weight: bold;
+            height: 80px;
+            box-shadow: none;
+            .TripAdvisorTitle{
+                font-size: 14px;
+                font-weight: bold;
                 font-stretch: normal;
                 font-style: normal;
                 line-height: 1.5;
                 letter-spacing: normal;
-                margin-left: 52px;
+                text-align: left;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media only  screen and (min-width: 481px) and (max-width: 768px) {
+    .Banner {
+        .Container {
+            margin-left: 0;
+            margin-top: 0;
+        }
+        .BannerGrid {
+            height: auto;
+        }
+        .Content {
+            padding: 0;
+            .Title {
+                font-size: $header-font-size;
+                max-width: 100%;
+                max-height: auto;
+                height: auto;
+                margin-top: 0;
+                font-weight: bold;
+                //width: 300px;
+                padding-top: 50px;
+            }
+            .Caption {
+                font-size: $small-font-size;
+                margin-top: 0;
+            }
+            .ViewButton {
+                font-size: $small-font-size;
+                margin-top: 10px;
+            }
+            .Rating {
                 position: relative;
-                bottom: 32px;
+                bottom: 0px;
             }
         }
-
-        @media (max-width: 500px) {
-            flex: "100%";
+        .TripAdvisor {
+            margin-top: 0;
+            position: relative;
+            bottom: 59px;
         }
     }
+}
 
-    .TripAdvisor {
-        background-color: transparent;
-        color: white;
-        height: 80px;
-        width: auto;
-        border: none;
-        box-shadow: none;
-        z-index: 3;
-        margin-top: 65px;
-    }
-
-    .TripAdvisorTitle {
-        color: white;
-        width: 300px;
-        z-index: 3;
-
-        div.MuiCardHeader-content {
-            > span.MuiCardHeader-title {
-                width: 165px;
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .Banner {
+        height: auto;
+        margin-top: 0;
+        margin-left: 0;
+        padding: 0;
+        .Container {
+            margin-left: 0;
+            margin-top: 0;
+        }
+        .BannerGrid {
+            height: auto;
+        }
+        .Content {
+            padding: 0;
+            .Title {
+                font-size: $header-font-size;
+                max-width: 100%;
+                max-height: auto;
+                height: auto;
+                margin-top: 0;
+                font-weight: bold;
+                //width: 300px;
+                margin-top: 111px;
+            }
+            .Caption {
+                font-size: $small-font-size;
+                margin-top: 0;
+            }
+            .ViewButton {
+                font-size: $small-font-size;
+                margin-top: 10px;
+            }
+            .Rating {
+                position: relative;
+                bottom: 0;
             }
         }
-    }
-    .Avatar {
-        div {
-            width: 100px;
+        .TripAdvisor {
+            margin-top: 0;
+            width: 300px;
+            position: relative;
+            bottom: 35px;
         }
     }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .Banner {
+        height: auto;
+        margin-top: 0;
+        margin-left: 0;
+        padding: 0;
+        .Container {
+            margin-left: 110px;
+            margin-top: 0;
+        }
+        .BannerGrid {
+            height: auto;
+        }
+        .Content {
+            padding: 0;
+            
+            .Title {
+                font-size: 30px;
+                max-width: 100%;
+                width: 500px;
+                max-height: auto;
+                height: auto;
+                margin-top: 0;
+                font-weight: bold;
+                margin-top: 111px;
+
+            }
+            .Caption {
+                font-size: $small-font-size;
+                margin-top: 0;
+            }
+            .ViewButton {
+                font-size: $normal-font-size;
+                margin-top: 10px;
+            }
+            .Rating {
+                position: relative;
+                bottom: 5px;
+                width: 360px;
+                max-height: 120px;
+                height: 100%;
+                .RatingSubContent,
+                .RatingContent {
+                    position: relative;
+                    bottom: 40px;
+                    margin-left: 50px;
+                }
+            }
+            .TripAdvisor {
+                margin-top: 0;
+                position: relative;
+                bottom: 0px;
+                width: 300px;
+                .TripAdvisorTitle {
+                    font-weight: bold;
+                }
+            }
+           
+        }
+       
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .Banner {
+        height: auto;
+        margin-top: 0;
+        margin-left: 0;
+        padding: 0;
+        object-fit: contain;
+        .Container {
+            margin-left: 200px;
+            margin-top: 50px;
+        }
+        .BannerGrid {
+            height: auto;
+        }
+        .Content {
+            padding: 0;
+            .Title {
+                font-size: 30px;
+                max-width: 100%;
+                width: 500px;
+                max-height: auto;
+                height: auto;
+                margin-top: 100px;
+                font-weight: bold;
+
+            }
+            .Caption {
+                font-size: $small-font-size;
+                margin-top: 0;
+            }
+            .ViewButton {
+                font-size: $normal-font-size;
+            
+            }
+            .Rating {
+                position: relative;
+                bottom: 5px;
+                width: 360px;
+                max-height: 120px;
+                height: 100%;
+
+                .RatingSubContent,
+                .RatingContent {
+                    position: relative;
+                    bottom: 40px;
+                    margin-left: 50px;
+                }
+            }
+            .TripAdvisor {
+                margin-top: 0;
+                position: relative;
+                bottom: 0px;
+                width: 300px;
+                .TripAdvisorTitle {
+                    font-weight: bold;
+                }
+            }
+           
+        }
+    }
+    
 }

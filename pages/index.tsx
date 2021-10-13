@@ -12,6 +12,7 @@ const IndexPage: NextPage = () => {
       <Header></Header>
       <div className="" >
         <Slider>loading!</Slider>
+      
       </div>
       <div>
         <Footer></Footer>

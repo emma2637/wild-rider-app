@@ -36,29 +36,34 @@ const Banner = (props) => {
             <CardContent className={styles.Content}>
                 <Image src={props.item.Image} layout="fill" objectFit="" priority loading="eager" className={styles.CarImage} />
                 <Container maxWidth="lg" className={styles.Container} >
-                
-                   
-                  
-                        <Typography className={styles.Title}>
-                            {props.item.Name}
-                        </Typography>
-                    <br />
 
-                        <div id="divCaption" style={{ "marginTop": "21px" }}>
-                            {props.item.Caption.split('.').map((item, index) => {
-                                return (
-                                    <Typography key={index} className={styles.Caption} >
-                                        {item}
-                                    </Typography>
-                                )
-                            })}
-                        </div>
-                        <Button variant="outlined" className={styles.ViewButton}>
-                            {props.item.Button}
-                        </Button>
-                      <Grid container spacing={8}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <Typography className={styles.Title}>
+                                {props.item.Name}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Grid container spacing={2}>
+                                {props.item.Caption.split('.').map((item, index) => {
+                                    return (
+                                        <Grid item xs={12} key={index}>
+                                            <Typography className={styles.Caption} >
+                                                {item}
+                                            </Typography>
+                                        </Grid>
+                                    )
+                                })}
+                            </Grid>
+                            <Button variant="outlined" className={styles.ViewButton}>
+                                {props.item.Button}
+                            </Button>
+                        </Grid>
 
-                        <Grid item xs={6}>
+                    </Grid>
+
+                    <Grid container spacing={8}>
+                        <Grid item xs={12} md={6} >
                             {
                                 props.item.Rating ? <div id="divRating">
                                     <Card className={styles.Rating} >
@@ -74,24 +79,27 @@ const Banner = (props) => {
 
                                         />
                                         <CardContent>
-                                            <Typography className={styles.RatingTitle}>
+                                            <Typography className={styles.RatingContent}>
                                                 {props.item.Rating.Comment}
                                             </Typography>
-                                            <Typography className={styles.RatingSubTitle}>
+                                            <Typography className={styles.RatingSubContent}>
                                                 {props.item.Rating.Name}
                                             </Typography>
                                         </CardContent>
                                     </Card>
                                 </div> : null
-
-
                             }
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={12} md={6}>
                             {
                                 props.item.TripAdvisor ?
                                     <Card className={styles.TripAdvisor}>
-                                        <CardHeader title={props.item.TripAdvisor.Content} className={styles.TripAdvisorTitle}
+                                        <CardHeader title={
+                                            <Typography className={styles.TripAdvisorTitle}>
+                                                {props.item.TripAdvisor.Content}
+                                            </Typography>
+                                        }
+
                                             avatar={
                                                 <Avatar sx={{ bgcolor: red[500] }} aria-label="tripadvisorImage" className={styles.Avatar}>
                                                     <Image src={props.item.TripAdvisor.Image} width={30} height={30} layout="responsive" objectFit="fill" />
@@ -101,7 +109,7 @@ const Banner = (props) => {
                                     </Card> : null
                             }
 
-                        </Grid> 
+                        </Grid>
                     </Grid>
                 </Container>
             </CardContent>
