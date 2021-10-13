@@ -1,27 +1,13 @@
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    Container,
-    Typography,
-    Grid,
-    Avatar,
-    Button,
-    Box,
-    IconButton,
-    FormControlLabel,
-    Radio,
-    RadioGroup,
-    FormLabel,
-    Slider,
-} from '@material-ui/core';
 import Image from 'next/image'
+import { Card, CardContent, CardHeader, Container, Typography, Grid, Avatar, Button, } from '@material-ui/core';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Rating from '@mui/material/Rating';
+
 import styles from '../../styles/banner.module.scss'
 import { ReactComponent as tripAdvisorLogo } from '../../public/tripAdvisorLogo.svg'
+import CustomizedButtons from '../secondaryButton/secondaryButton.component';
 
 const Banner = (props) => {
     if (props.newProp) console.log(props.newProp)
@@ -55,9 +41,10 @@ const Banner = (props) => {
                                     )
                                 })}
                             </Grid>
-                            <Button variant="outlined" className={styles.ViewButton}>
+                            {/* <Button variant="outlined" className={styles.ViewButton}>
                                 {props.item.Button}
-                            </Button>
+                            </Button> */}
+                            <CustomizedButtons isReadButton buttonText={props.item.Button} />
                         </Grid>
 
                     </Grid>
