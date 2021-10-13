@@ -18,3 +18,4 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.js", "pages/_app.js", "components/banner/banner.component.jsx", "components/carousel/carousel.component.jsx"],
   "exclude": ["node_modules"]
 }
+
