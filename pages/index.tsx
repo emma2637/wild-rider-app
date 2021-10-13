@@ -31,21 +31,24 @@ const IndexPage: NextPage = () => {
         <Slider>loading!</Slider>
 
 
-        <Container maxWidth="xl" fixed sx={{mb:3, backgroundColor:"#fc0;"}}>
-          <Box sx={{ flexGrow: 1 }} >
-            <Grid container
-              spacing={{ xs: 1, md: 1, lg: 1, xl: 1 }}
-              direction="row"
-              justifyContent="center"
-              alignItems="center" >
-              {cards.map((card: iCardCar, index) => (
-                <Grid item xs={4} sm={4} md={4} key={index} mb={20} sx={{mt:2}}>
-                  <Card {...card}></Card>
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
-        </Container>
+        {/* <Container maxWidth="xl" fixed sx={{mb:3, backgroundColor:"#fc0;"}}> */}
+        {/* <Box sx={{ flexGrow: 1 }} > */}
+        <Grid container
+          spacing={{ xs: 1, md: 1, lg: 1, xl: 1 }}
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          sx={{ mb: 3, backgroundColor: "#fc0;" }} >
+          {cards.map((card: iCardCar, index) => (
+            <Box key={index} >
+              <Grid item xs={4} sm={4} md={4} key={index} mb={20} sx={{ mt: 2 }}>
+                <Card {...card}></Card>
+              </Grid>
+            </Box>
+          ))}
+        </Grid>
+        {/* </Box> */}
+        {/* </Container> */}
       </div>
       <div>
         <Footer></Footer>

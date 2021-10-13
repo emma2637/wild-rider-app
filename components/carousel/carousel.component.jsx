@@ -15,7 +15,7 @@ const Slider = (props) => {
 
 
     return (
-        <div>
+        <>
             <Carousel
                 autoPlay={autoPlay}
                 animation={animation}
@@ -74,7 +74,7 @@ const Slider = (props) => {
                     })
                 }
             </Carousel>
-        </div>
+        </>
     );
 };
 
