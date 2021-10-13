@@ -22,7 +22,9 @@ const GetFreeQuoteButton = {
   fontWeight: 800,
   marginTop: "1em",
   width: "200px",
-  height: "60px",
+  height: "40px",
+  marginBottom: "1em",
+
 };
 
 
@@ -35,7 +37,9 @@ const ReadMoreButton = {
   fontWeight: 800,
   marginTop: "1em",
   width: "140px",
-  height: "60px",
+  height: "40px",
+  marginBottom: "1em",
+
 };
 
 
