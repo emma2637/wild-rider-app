@@ -56,6 +56,11 @@ const Slider = (props) => {
 
                     }
                 }}
+                NextIconButtonProps={{
+                    style: {
+                        zIndex:'3'
+                    }
+                }}
                 >
                 {/* // fullHeightHover={false}
                     // navButtonsProps={{style: {backgroundColor: 'cornflowerblue', borderRadius: 0}}}
