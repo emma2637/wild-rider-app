@@ -25,7 +25,7 @@ const CardExperience = (props) => {
     console.log(props);
   
     return (
-        <Card sx={{ maxWidth: 350, maxHeight: 470, marginBottom:2, backgroundColor:"#f9f9f9", color:"#262f39 !important" }}>
+        <Card sx={{ maxHeight:470,maxWidth:350,  marginBottom:2, backgroundColor:"#f9f9f9", color:"#262f39 !important" }}>
             <CardMedia
                 component="img"
                 height="194"
