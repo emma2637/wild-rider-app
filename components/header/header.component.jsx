@@ -11,15 +11,14 @@ import Image from 'next/image'
 import 'flag-icon-css/css/flag-icon.min.css';
 import styles from '../../styles/header.module.scss'
 
-
 //#region Left Menu
-const drawerWidth = 170;
+const drawerWidth = 140;
 
 const IconButtonMenu = styled(IconButton, {
   shouldForwardProp: (prop) => prop !== 'open'
 })(({ open }) => ({
     mr: 2, 
-    ...(open && { display: 'none' }) 
+    ...(open && { display: 'none !important' }) 
 }));
 
 const AppBar = styled(MuiAppBar, {
@@ -35,14 +34,13 @@ const AppBar = styled(MuiAppBar, {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    
   }),
 }));
 
 const Menuleft = styled(SwipeableDrawer)({
   flexShrink: 0,
   '& .MuiDrawer-paper': {
-    width: drawerWidth,
+    width: "140px",
     boxSizing: 'border-box',
   },
 });
@@ -57,7 +55,7 @@ const menuOptions = [
   { displayName: 'BLOG', direction: 'blog' },
 ]
 
-const languageOption = [
+const lenguageOption = [
   { code:'us', displayName: "English" },
   { code:'es', displayName: "Español" },
   { code:'fr', displayName: "Français" },
@@ -66,7 +64,7 @@ const languageOption = [
 ]
 //#endregion
 
-//#region Language Menu
+//#region Lenguage Menu
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
@@ -105,19 +103,22 @@ const StyledMenu = styled((props) => (
         ),
       },
     },
-    backgroundColor: 'rgb(255,255,255)'
   },
 }));
-//#endregion Language Menu
+//#endregion Lenguage Menu
 
 const Header = () => {
   //#region Const
   const theme = useTheme();
-  const [openMenuLeft, setopenMenuLeft] = React.useState(false);
+  const [stateMenuLeft, setMenuLeftState] = React.useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   //#endregion
 
   //#region Functions
+  const menuLeftHandler = (open) => (event) => {
+    setMenuLeftState(open);
+  }
+
   const GoTo = (selectedLeftMenuItem) => {
     console.log("add code to search the new direction " + selectedLeftMenuItem)
   }
@@ -126,36 +127,36 @@ const Header = () => {
   //#region Flag Button
   function FlagButton() {
     //#region Const
-    const [currentLanguageCode, setcurrentLanguageCode] = React.useState("us");
-    const [openMenuLanguage, setOpenMenuLanguage] = React.useState(null);
-    const openLanguage = Boolean(openMenuLanguage);
+    const [currentLenguageCode, setcurrentLenguageCode] = React.useState("us");
+    const [openMenuLenguage, setOpenMenuLenguage] = React.useState(null);
+    const openLenguage = Boolean(openMenuLenguage);
     //#endregion
 
     //#region Functions
-    const handleLanguageMenuClick = (event) => {
-      setOpenMenuLanguage(event.currentTarget);
+    const handleLenguageMenuClick = (event) => {
+      setOpenMenuLenguage(event.currentTarget);
     };
-    const handleLanguageMenuClose = () => {
-      setOpenMenuLanguage(null);
+    const handleLenguageMenuClose = () => {
+      setOpenMenuLenguage(null);
     };
-    const changeLanguage = (language) => {
-      setcurrentLanguageCode(language)
-      setOpenMenuLanguage(null)
-      console.log("add code to change the language to " + currentLanguageCode)
+    const changeLenguage = (lenguage) => {
+      setcurrentLenguageCode(lenguage)
+      setOpenMenuLenguage(null)
+      console.log("add code to change the lenguage to " + currentLenguageCode)
     }
    //#endregion
     
     return <Box>
-              <IconButton className={styles.flagBtn} onClick={handleLanguageMenuClick}>
+              <IconButton  className="flagBtn" onClick={handleLenguageMenuClick}>
                 <KeyboardArrowDownIcon />
-                <span className={`flag-icon flag-icon-${currentLanguageCode}`}></span>
+                <span className={`flag-icon flag-icon-${currentLenguageCode}`}></span>
               </IconButton>
-              <StyledMenu anchorEl={openMenuLanguage} open={openLanguage} onClose={handleLanguageMenuClose} >
-                {languageOption.map((x, i) => {
-                      return <MenuItem key={i} onClick={() => changeLanguage(x.code)}>
-                              <Button className={styles.flagMenuItem}>
+              <StyledMenu anchorEl={openMenuLenguage} open={openLenguage} onClose={handleLenguageMenuClose} >
+                {lenguageOption.map((x, i) => {
+                      return <MenuItem key={i} onClick={handleLenguageMenuClose} onClick={() => changeLenguage(x.code)}>
+                              <Button className="flagMenuItem">
                                 <span className={`flag-icon flag-icon-${x.code}`}></span>
-                                <span className={styles.languageName} >{x.displayName}</span>
+                                <span className="lenguageName">{x.displayName}</span>
                               </Button>
                             </MenuItem>
                             
@@ -164,82 +165,78 @@ const Header = () => {
             </Box>
   }
   //#endregion Flag Button
-  
-  //#region Menu Left
-  function MenuLeft({openMenuLeft}){
-    //#region Functions
-    const handleLeftMenuOpen = () => {
-      setopenMenuLeft(true);
-    };
-    const handleLeftMenuClose = () => {
-      setopenMenuLeft(false);
-    };
-    //#endregion
-    
-    //#region Resize Listener
-    React.useEffect(() => {
-      function handleResize() {
-        if(window.innerWidth>900)
-          handleLeftMenuClose();
-      }
-      window.addEventListener('resize', handleResize)
-    })
-    //#endregion Resize Listener
-    
-    return  <Box>
-              <IconButtonMenu className={styles.menuIcon} onClick={handleLeftMenuOpen} open={openMenuLeft}>
-                <MenuIcon />
-              </IconButtonMenu>
-              <Menuleft anchor="left" open={openMenuLeft} onClose={handleLeftMenuClose} onOpen={handleLeftMenuOpen} >
-                <Box className={styles.drawerMenuHeader}>
-                  <Button className={styles.closeMenuBtn} onClick={handleLeftMenuClose}>
-                    <ChevronLeftIcon />
-                    <Typography>Menu</Typography>
-                  </Button>
-                </Box>
-                <Divider />
-                <List>
-                  {menuOptions.map((x, i) => (
-                    <ListItem key={i} button onClick={() => GoTo(x.direction)}>
-                      <ListItemText className={styles.menuListItem} primary={x.displayName} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Menuleft>
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const logoPath = "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/bd8b2296-2030-49b5-9275-248d22739502.svg";
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar className={styles.appBar} open={stateMenuLeft}>
+        <Toolbar>
+          <Box>
+            <IconButtonMenu className={styles.menuIcon} onClick={menuLeftHandler(true)} open={stateMenuLeft}>
+              <MenuIcon />
+            </IconButtonMenu>
+            <Menuleft anchor="left" open={stateMenuLeft} onClose={menuLeftHandler(false)} onOpen={menuLeftHandler(true)}>
+            <Box className={styles.drawerMenuHeader}>
+              <Button className={styles.closeMenuBtn} onClick={menuLeftHandler(false)}>
+                <ChevronLeftIcon />
+                <Typography>Menu</Typography>
+              </Button>
             </Box>
-  }
-  //#endregion Menu Left
-    const logoPath = "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/bd8b2296-2030-49b5-9275-248d22739502.svg";
-    return (
-        <Box>
-            <CssBaseline />
-            <AppBar className={styles.appBar} open={openMenuLeft}>
-                <Toolbar >
-                { isMobile ?
-                    (<>
-                        <MenuLeft openMenuLeft={openMenuLeft} />
-                        <Box className={styles.logoContainer} >
-                            <Image src={logoPath} layout="fill" objectFit="contain" />
-                        </Box>
-                        { (openMenuLeft && window.innerWidth<450) ? null : <FlagButton /> }
-                    </>) : (<>
-                        <Box className={styles.logoContainer} >
-                            <Image src={logoPath} layout="fill" objectFit="contain" />
-                        </Box>
-                        <Box className={styles.headerOptions}>
-                            {menuOptions.map((x, i) => {
-                            return <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
-                                    {x.displayName}
-                                    </Button>
-                            })}
-                            <FlagButton />
-                        </Box>
-                    </>)
-                }
-                </Toolbar>
-            </AppBar> 
-        </Box>
+            <Divider />
+            {menuOptions.map((x, i) => (
+              <ListItem key={i} button onClick={() => GoTo(x.direction)}>
+                <ListItemText className={styles.menuListItem} primary={x.displayName} />
+              </ListItem>
+            ))}
+            </Menuleft>
+          </Box>
+          <Box className={styles.logoContainer} >
+            <Image src={logoPath} layout="fill" objectFit="contain" />
+          </Box>
+          { (stateMenuLeft) ? null : <FlagButton /> }
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
+
+  //   const logoPath = "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/bd8b2296-2030-49b5-9275-248d22739502.svg";
+  //   return (
+  //       <Box>
+  //           <CssBaseline />
+  //           <AppBar className={styles.appBar} open={openMenuLeft}>
+  //               <Toolbar >
+  //               { isMobile ?
+  //                   (<>
+  //                       <MenuLeft openMenuLeft={openMenuLeft} />
+  //                       <Box className={styles.logoContainer} >
+  //                           <Image src={logoPath} layout="fill" objectFit="contain" />
+  //                       </Box>
+  //                       { (openMenuLeft && window.innerWidth<450) ? null : <FlagButton /> }
+  //                   </>) : (<>
+  //                       <Box className={styles.logoContainer} >
+  //                           <Image src={logoPath} layout="fill" objectFit="contain" />
+  //                       </Box>
+  //                       <Box className={styles.headerOptions}>
+  //                           {menuOptions.map((x, i) => {
+  //                           return <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
+  //                                   {x.displayName}
+  //                                   </Button>
+  //                           })}
+  //                           <FlagButton />
+  //                       </Box>
+  //                   </>)
+  //               }
+  //               </Toolbar>
+  //           </AppBar> 
+  //       </Box>
+  // );
 }
 
 export default Header;

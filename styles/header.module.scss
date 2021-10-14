@@ -1,6 +1,9 @@
 .appBar{
     background-color: #2866ae !important; //change this to global var
 }
+.languageMenu{
+    justify-content: center;
+}
 .flagBtn .flag-icon {
     width: 1.2em;
     height: 1.2em;
@@ -18,7 +21,6 @@
     width: 2.3em;
     height: 2.3em;
     color: white !important;
-    justify-content: flex-start !important;
 }
 .menuBtn {
     width: 100%;
@@ -65,7 +67,7 @@
 .logoContainer{
     position: relative; 
     width: 222px; 
-    height: 47px;
+    height: 40px;
 }
 @media (min-width: 900px){
     .logoContainer{

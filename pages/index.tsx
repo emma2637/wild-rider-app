@@ -28,7 +28,7 @@ const IndexPage: NextPage = () => {
     <div>
       <Header></Header>
       <div className="" >
-        <Slider>loading!</Slider>
+        {/* <Slider>loading!</Slider> */}
 
 
         {/* <Container maxWidth="xl" fixed sx={{mb:3, backgroundColor:"#fc0;"}}> */}
