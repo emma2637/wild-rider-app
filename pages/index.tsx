@@ -31,7 +31,7 @@ const IndexPage: NextPage = () => {
         {/* <Slider>loading!</Slider>  */}
 
         <CompanyRelationSection data={cards}></CompanyRelationSection>
-        {/* <RatingCarouselSection ></RatingCarouselSection> */}
+         <RatingCarouselSection ></RatingCarouselSection> 
       </div>
       <div>
         <Footer></Footer>
