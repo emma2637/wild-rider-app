@@ -1,0 +1,19 @@
+.carouselWithCustomDots {
+    margin-top: 100px;
+    padding-bottom: 100px;
+    width: 10px;
+    height: 10px;
+    .customDot {
+
+      flex-grow: 0;
+      margin: 0 9px 0 0;
+      object-fit: contain;
+      /* background-color: #c4c4c4; */
+      background-color: blue;
+    }
+    .customDotActive {
+      transform: scale(1.3);
+      outline: auto;
+    }
+  }
+  
