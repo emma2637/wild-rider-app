@@ -34,7 +34,7 @@ const CompanyRelationSection = (props) => {
                 <div className={styles.rows}>
                     <Grid container spacing={3}  justifyContent="center"  alignItems="center">
                         {props.data.map((card, index) => (
-                            <Grid item xs={6} sm={4} md={4} key={index}>
+                            <Grid item xs={12} sm={4} md={4} key={index}>
                                 <Card {...card}></Card>
                             </Grid>
                         ))}

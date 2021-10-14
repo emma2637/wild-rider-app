@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions'
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-
+import theme from '../../src/theme'
 
 // const ExpandMore = styled((props) => {
 //     const { expand, ...other } = props;
@@ -20,28 +20,33 @@ import Button from '@mui/material/Button';
 //     }),
 //   }))
 
+
+
+
+
 const CardExperience = (props) => {
 
     console.log(props);
-  
+    let title = props.Title.text.toUpperCase();
+    let styles = theme.palette.cards;
     return (
-        <Card sx={{ maxHeight:470,maxWidth:350,  marginBottom:2, backgroundColor:"#f9f9f9", color:"#262f39 !important" }}>
+        <Card style={styles.cardStyle}>
             <CardMedia
                 component="img"
-                height="194"
+                height="120"
                 image={props.Image.path}
                 alt={props.Image.text}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    {props.Title.text}
+                <Typography gutterBottom variant="h5" component="div" style={styles.cardContentArea}>
+                    {title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2"  style={styles.cardContentArea}>
                     {props.Description.text}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <Button size="small">
+                <Button size="small" style={styles.cardActionArea.learnMore}>
                     {props.Actions.text}
                 </Button>
             </CardActions>

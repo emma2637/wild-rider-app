@@ -10,9 +10,35 @@ const theme = createTheme({
     secondary: {
       main: "#ff9800",
     },
-    custom:{
-        main: "#FFCC00",
-        text:"#6E5800"
+    custom: {
+      main: "#FFCC00",
+      text: "#6E5800"
+    },
+    cards: {
+      cardStyle:{
+        maxHeight: 354,
+        maxWidth: 345,
+        marginBottom: 2,
+        backgroundColor: "#f9f9f9",
+        color: "#262f39 !important"
+      },
+      cardContentArea:{
+        color:"#262f39"
+      },
+      cardActionArea:{
+        learnMore:{
+          fontSize: "14px",
+          fontWeight: "bold",
+          fontStretch: "normal",
+          fontStyle: "normal",
+          lineHeight: 1.5,
+          letterSpacing: "normal",
+          color: "#262f39",
+          textDecoration: "underline",
+        }
+      },
+
+      
     }
   },
 });

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Card, CardContent, CardHeader, Container, Typography, Grid, Avatar, Button, } from '@material-ui/core';
+import { Card, CardContent, CardHeader, Container, Typography, Grid, Avatar, Button, } from '@mui/material';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';

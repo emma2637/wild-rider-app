@@ -2,7 +2,7 @@ const cardData = [{
 
     Image: {
         text: 'experience',
-        path: ''
+        path: '/hero.png'
     },
     Title: {
         text: '25 Years of Costa Rica Experience',
@@ -17,7 +17,7 @@ const cardData = [{
 {
     Image: {
         text: 'experience',
-        path: ''
+        path: '/hero.png'
     },
     Title: {
         text: '25 Years of Costa Rica Experience',
@@ -32,7 +32,7 @@ const cardData = [{
 {
     Image: {
         text: 'experience',
-        path: ''
+        path: '/hero.png'
     },
     Title: {
         text: '25 Years of Costa Rica Experience',
@@ -48,7 +48,7 @@ const cardData = [{
 {
     Image: {
         text: 'experience',
-        path: ''
+        path: '/hero.png'
     },
     Title: {
         text: '25 Years of Costa Rica Experience',
@@ -64,7 +64,7 @@ const cardData = [{
 {
     Image: {
         text: 'experience',
-        path: ''
+        path: '/hero.png'
     },
     Title: {
         text: '25 Years of Costa Rica Experience',
