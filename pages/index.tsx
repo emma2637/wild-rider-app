@@ -12,6 +12,7 @@ import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
 
 
+
 const IndexPage: NextPage = () => {
 
   const [cards, setCards] = useState<iCardCar[]>(cardData)
@@ -20,7 +21,6 @@ const IndexPage: NextPage = () => {
   //   setCards(cardData)
 
   // },[])
-
 
 
 
@@ -59,6 +59,23 @@ const IndexPage: NextPage = () => {
 
 export default IndexPage
 
-function UseState(arg0: never[]): [any, any] {
-  throw new Error('Function not implemented.')
-}
+
+
+
+// <Grid container
+//           spacing={{ xs: 1, md: 1, lg: 1, xl: 1 }}
+//           direction="row"
+//           justifyContent="center"
+//           alignItems="center"
+//           sx={{ mb: 3, backgroundColor: "#fc0;" }} >
+
+//           <Box sx={{ flexGrow: 1 }} >
+
+//             {cards.map((card: iCardCar, index) => (
+//               <Grid item xs={4} sm={4} md={4} key={index} mb={20} sx={{ mt: 2 }}>
+//                   <Card {...card}></Card>
+//               </Grid>
+//             ))}
+//           </Box>
+
+//         </Grid>
