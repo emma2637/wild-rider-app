@@ -80,6 +80,8 @@ interface TrustworthyCarRentalInfo{
     title: string;
     shortDescription: string;
     longDescription: string;
+    name:string;
+    rating:number;
 }
 
 interface ClientsSlider{

@@ -12,18 +12,12 @@ import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
 import CompanyRelationSection from '../components/companyRelation/companyRelation'
 import RatingCarouselSection from '../components/ratingCarousel/ratingCarousel.component'
-
+import MobileDetect from 'mobile-detect';
+import MobileDetection from '../services/mobileDetection'
 const IndexPage: NextPage = () => {
 
   const [cards, setCards] = useState<iCardCar[]>(cardData)
-
-  // React.useEffect(()=>{
-  //   setCards(cardData)
-
-  // },[])
-
-
-
+  
   return (
     <div>
       <Header></Header>
@@ -31,7 +25,7 @@ const IndexPage: NextPage = () => {
         {/* <Slider>loading!</Slider>  */}
 
         <CompanyRelationSection data={cards}></CompanyRelationSection>
-         <RatingCarouselSection ></RatingCarouselSection> 
+         <RatingCarouselSection  ></RatingCarouselSection>
       </div>
       <div>
         <Footer></Footer>
