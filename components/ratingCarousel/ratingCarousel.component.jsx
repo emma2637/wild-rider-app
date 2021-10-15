@@ -65,51 +65,15 @@ const RatingCarouselSection = (props) => {
           </li>
         );
       };
-// position: absolute;
-// bottom: 0;
-// display: -webkit-flex;
-// display: -moz-box;
-// display: flex;
-// left: 0;
-// right: 0;
-// -webkit-justify-content: center;
-// -moz-box-pack: center;
-// justify-content: center;
-// margin: auto;
-// padding: 0;
-// margin: 0;
-// list-style: none;
-
-
-//button
-// display: inline-block;
-//     width: 12px;
-//     height: 12px;
-//     border-radius: 50%;
-//     opacity: 1;
-//     padding: 5px 5px 5px 5px;
-//     -webkit-box-shadow: none;
-//     box-shadow: none;
-//     -webkit-transition: background .5s;
-//     transition: background .5s;
-//     border-width: 2px;
-//     border-style: solid;
-//     border-color: grey;
-//     padding: 0;
-//     margin: 0;
-//     margin-right: 6px;
-//     outline: 0;
-//     cursor: pointer;
-
-//.react-multi-carousel-dot--active button 
-//background: #080808;
 
     console.log(props)
     return (
         <div
             style={{
                 position: 'relative',
-                textAlign: 'center'
+                textAlign: 'center',
+                padding:'20px'
+
             }}
         >
             <Typography variant="h5" component="span" gutterBottom sx={{ fontSize: "30px", fontWeight: "600", lineHeight: 1.6, textAlign: "center", color: "#262f396" }}>
