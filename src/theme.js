@@ -39,6 +39,16 @@ const theme = createTheme({
       },
 
       
+    },
+    carousel:{
+      dots:{
+        active:{
+          backgroundColor: "#c4c4c4",
+        },
+        default:{
+          backgroundColor: "#f2f2f2",
+        }
+      }
     }
   },
 });

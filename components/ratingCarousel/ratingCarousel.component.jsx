@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Carousel from 'react-multi-carousel';
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography';
-import { Card } from '@mui/material'
+import { Card,Button } from '@mui/material'
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -12,7 +12,7 @@ import Avatar from '@mui/material/Avatar';
 import Rating from '@mui/material/Rating';
 import classNames from "classnames";
 
-import CustomizedButtons from '../secondaryButton/secondaryButton.component';
+import CustomizedButtons from '../customizedButton/customizedButton.component';
 import 'react-multi-carousel/lib/styles.css';
  import styles from  './custom-dots.module.scss'
 
@@ -47,28 +47,62 @@ const RatingCarouselSection = (props) => {
     // const { ratingCarouselData } = props.data;
 
 
-    const CustomDot = ({
-        index,
-        onClick,
-        active
-    }) => {
-        return (
-            <button
-                onClick={e => {
-                    onClick();
-                    e.preventDefault();
-                }}
-                className={
-                    classNames(styles.carouselWithCustomDots,
-                        {
-                            "customDotActive": active
-                        })}
-            >
-                {/* <Avatar sx={{ width: "10px", height: "10px", marginLeft: "auto", marginRight: "auto" ,backgroundColor:"#c4c4c4"}}></Avatar> */}
-            </button>
-        );
-    };
+    const CustomDot = ({ onClick, active, index, carouselState }) => {
+        const { currentSlide } = carouselState;
+            console.log(currentSlide + ' current slide');
+            console.log(active +' active');
+            console.log(index + ' index');
 
+        return (
+          <li data-index={index}>
+            <button
+              className={active? styles.active : ""}
+              onClick={e => {
+                onClick();
+                e.preventDefault();
+              }}
+            />
+          </li>
+        );
+      };
+// position: absolute;
+// bottom: 0;
+// display: -webkit-flex;
+// display: -moz-box;
+// display: flex;
+// left: 0;
+// right: 0;
+// -webkit-justify-content: center;
+// -moz-box-pack: center;
+// justify-content: center;
+// margin: auto;
+// padding: 0;
+// margin: 0;
+// list-style: none;
+
+
+//button
+// display: inline-block;
+//     width: 12px;
+//     height: 12px;
+//     border-radius: 50%;
+//     opacity: 1;
+//     padding: 5px 5px 5px 5px;
+//     -webkit-box-shadow: none;
+//     box-shadow: none;
+//     -webkit-transition: background .5s;
+//     transition: background .5s;
+//     border-width: 2px;
+//     border-style: solid;
+//     border-color: grey;
+//     padding: 0;
+//     margin: 0;
+//     margin-right: 6px;
+//     outline: 0;
+//     cursor: pointer;
+
+//.react-multi-carousel-dot--active button 
+//background: #080808;
 
     console.log(props)
     return (
@@ -89,23 +123,24 @@ const RatingCarouselSection = (props) => {
                     arrows
                     autoPlaySpeed={3000}
                     centerMode={false}
-                    className=""
-                    containerClass="container-with-dots"
-                    dotListClass=""
+                    className={styles.Container}
+                    // containerClass="container-with-dots"
+                    containerClass={styles.Container}
+                    dotListClass={styles.dotListClass}
+                    sliderClass={styles.sliderClass}
                     draggable
                     focusOnSelect={false}
                     infinite
-                    itemClass=""
+                    itemClass={styles.itemClass}
                     keyBoardControl
                     minimumTouchDrag={80}
                     renderButtonGroupOutside={false}
                     renderDotsOutside
                     responsive={responsive}
                     showDots
-                    sliderClass=""
                     slidesToSlide={1}
                     swipeable
-                    // customDot={<CustomDot />}
+                    customDot={<CustomDot />}
                 >
                     <Card>
                         <CardHeader>
@@ -129,7 +164,7 @@ const RatingCarouselSection = (props) => {
                                     <Rating name="read-only" value={5} readOnly sx={{ marginLeft: "auto", marginRight: "auto", color: "#2866ae", fontSize: "0.5rem" }} />
                                 </Typography>
 
-                                <CustomizedButtons isReadButton buttonText='READ MORE' ></CustomizedButtons>
+                                <CustomizedButtons type="readMoreBtn" buttonText='READ MORE' ></CustomizedButtons>
                             </Container>
                         </CardActions>
                     </Card>

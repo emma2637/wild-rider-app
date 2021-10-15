@@ -3,7 +3,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { Box } from '@mui/system';
 // import './footer.scss'
 import sytles from '../../styles/footer.module.scss'
-import CustomizedButtons from '../secondaryButton/secondaryButton.component'
+import CustomizedButtons from '../customizedButton/customizedButton.component'
 
 const Footer = () => {
     return (
@@ -15,7 +15,7 @@ const Footer = () => {
                             <Typography className={sytles.footerText}>
                                 We are the specialists for your individual Costa Rica adventure!<br />For 20+ years we have been renting 4×4 cars at economic rates.
                             </Typography>
-                            <CustomizedButtons isReadButton buttonText={"GET A FREE QUOTE"} />
+                            <CustomizedButtons type="getFreeQuoteBtn" buttonText={"GET A FREE QUOTE"} />
                         </Container>
                     </Toolbar>
                 </Container>

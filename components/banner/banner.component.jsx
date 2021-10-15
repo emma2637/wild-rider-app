@@ -7,7 +7,7 @@ import Rating from '@mui/material/Rating';
 
 import styles from '../../styles/banner.module.scss'
 import { ReactComponent as tripAdvisorLogo } from '../../public/tripAdvisorLogo.svg'
-import CustomizedButtons from '../secondaryButton/secondaryButton.component';
+import CustomizedButtons from '../customizedButton/customizedButton.component';
 
 const Banner = (props) => {
     if (props.newProp) console.log(props.newProp)

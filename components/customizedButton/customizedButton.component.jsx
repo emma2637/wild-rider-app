@@ -34,7 +34,7 @@ const ReadMoreButton = {
     backgroundColor: theme.palette.custom.main,
   },
   fontWeight: 800,
-  marginTop: "1em",
+  marginTop: "2em",
   height: "40px",
   marginBottom: "1em",
   alignItems: "center",
@@ -45,30 +45,46 @@ const ReadMoreButton = {
 };
 
 
+const CarouselDotCustomButton={
+  color: theme.palette.carousel.dots,
+  backgroundColor: theme.palette.carousel.dots.default.backgroundColor,
+  '&:active': {
+    backgroundColor: theme.palette.carousel.dots.active.backgroundColor,
+  },
+  marginTop: "1em",
+  height: "10px",
+  width: "10px",
+  alignItems: "center",
+  border:"none",
+  marginLeft: "auto",
+  marginRight: "auto"
+};
+
 export default function CustomizedButtons(props) {
-  const { isReadButton, buttonText } = props;
+  const { type, buttonText } = props;
+
+  const ButtonType = {
+    getFreeQuoteBtn: GetFreeQuoteButton,
+    readMoreBtn: ReadMoreButton,
+    carouselDotBtn: CarouselDotCustomButton
+  };
+
+  const button =()=>{
+    if(type === "getFreeQuoteBtn"){
+      return <Button style={ButtonType.getFreeQuoteBtn}>{buttonText}</Button>
+    }
+    else if(type === "readMoreBtn"){
+      return <Button style={ButtonType.readMoreBtn}>{buttonText}</Button>
+    }
+    else if(type === "carouselDotBtn"){
+      return <Button style={ButtonType.carouselDotBtn} sx={{width:"10px", height:"10px"}}>{buttonText}</Button>
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Stack>
-        {isReadButton ? (
-          <Button
-            style={ReadMoreButton}
-            variant="outlined"
-            color="primary"
-            onClick={props.onClick}
-          >
-            {buttonText}
-          </Button>
-        ) : (
-          <Button
-            style={GetFreeQuoteButton}
-            variant="outlined"
-            color="primary"
-            onClick={props.onClick}
-          >
-            {buttonText}
-          </Button>
-        )}
+          {button()}        
       </Stack>
     </ThemeProvider>
   );
