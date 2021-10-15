@@ -12,7 +12,6 @@ import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
 import CompanyRelationSection from '../components/companyRelation/companyRelation'
 import RatingCarouselSection from '../components/ratingCarousel/ratingCarousel.component'
-import MobileDetect from 'mobile-detect';
 import MobileDetection from '../services/mobileDetection'
 const IndexPage: NextPage = () => {
 
@@ -22,8 +21,6 @@ const IndexPage: NextPage = () => {
     <div>
       <Header></Header>
       <div className="" >
-        {/* <Slider>loading!</Slider>  */}
-
         <CompanyRelationSection data={cards}></CompanyRelationSection>
          <RatingCarouselSection  ></RatingCarouselSection>
       </div>
