@@ -289,8 +289,8 @@ const Header = () => {
       console.log("add code to change the lenguage to " + currentLenguageCode)
     }
    //#endregion
-    
-    return <Box className={classes.menuLanguage}>
+    //AGREGAR CLASS AL BOX
+    return <Box > 
               <Button className={`${styles.menuBtn} ${styles.flagBtn}`}  onClick={handleClick}>
                 <KeyboardArrowDownIcon />
                 <span className={`flag-icon flag-icon-${currentLenguageCode}`}></span>
@@ -348,7 +348,8 @@ const Header = () => {
                 )} else {
                   return (
                     <ListItem key={i} button onClick={() => GoTo(x.direction)} button divider>
-                      <ListItemText className={`${styles.menuListItem} ${classes.menuItem}`} primary={x.displayName} />
+                      <ListItemText  primary={x.displayName} />
+                      {/* AGREGAR CLASS AL LIST ITEM TEXT */}
                     </ListItem>
                   )
                 }
