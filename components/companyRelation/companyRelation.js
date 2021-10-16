@@ -11,11 +11,12 @@ const styles = {
         display: 'flex',
         margin: 'auto',
         justifyContent: 'center',
-        padding: '24px',
-        backgroundColor: '#fc0; !important',
+        padding: '50px 40px 40px',
+        backgroundColor: '#ffcc00',
+        
     },
     box: {
-        backgroundColor: "#fc0;",
+        backgroundColor: "#fc0",
         display: 'flex',
         flexWrap: 'wrap',
         '& > :not(style)': {

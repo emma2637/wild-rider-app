@@ -28,13 +28,18 @@ $lesser-white: rgb(216, 216, 216);
 $grey: rgb(175, 175, 175);
 $graphite-hover: rgb(87, 87, 87);
 $graphite: rgb(73, 73, 73);
+$graphite-dark:rgba(47, 47, 47, 0.83);
 
 $font: Ubuntu, Helvetica, Arial, sans-serif;
 
-$smaller-font-size: 12px;
-$small-font-size: 15px;
 $normal-font-size: 18px;
 $bigger-font-size: 21px;
-$header-font-size: 25px;
+// $header-font-size: 25px;
 $big-header-font-size: 30px;
-$huge-font-size: 40px;
+
+
+$font-header-size:24px;
+$font-huge-size: 40px;
+$font-small--size: 14px;
+$font-smaller-size: 12px;
+

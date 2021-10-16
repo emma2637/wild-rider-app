@@ -10,11 +10,10 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import Rating from '@mui/material/Rating';
-import classNames from "classnames";
-
 import CustomizedButtons from '../customizedButton/customizedButton.component';
+
 import 'react-multi-carousel/lib/styles.css';
- import styles from  './custom-dots.module.scss'
+import styles from  './ratingCustom-dots.module.scss'
 
 const responsive = {
     desktop: {
@@ -34,14 +33,6 @@ const responsive = {
     }
 };
 
-const RatingObject = {
-    Title: "What are our clients saying about Wild Rider?",
-    ratingCarouselData: {
-        description: "Cannot recommend Wild Rider enough. They were really great and took all the changes in my booking (due to the Covid travel issues) in their stride. We arranged to have the car delivered to our hotel, which was really helpful."
-    }
-}
-
-
 const RatingCarouselSection = (props) => {
 
     // const { ratingCarouselData } = props.data;
@@ -49,9 +40,9 @@ const RatingCarouselSection = (props) => {
 
     const CustomDot = ({ onClick, active, index, carouselState }) => {
         const { currentSlide } = carouselState;
-            console.log(currentSlide + ' current slide');
-            console.log(active +' active');
-            console.log(index + ' index');
+            // console.log(currentSlide + ' current slide');
+            // console.log(active +' active');
+            // console.log(index + ' index');
 
         return (
           <li data-index={index}>

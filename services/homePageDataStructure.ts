@@ -1,6 +1,6 @@
-export {}
 
-interface HomePage{
+
+export default interface HomePage {
     header: Header;
     carsSlider: CarsSlider;
     ourServices: OurServices;
@@ -59,37 +59,37 @@ interface TripAdvisor {
     content: string;
 }
 
-interface OurServices{
+interface OurServices {
     title: string;
     services: Array<Service>;
 }
 
-interface Service{
+interface Service {
     imagePath: string;
     title: string;
     description: string;
 }
 
-interface TrustworthyCarRental{
+interface TrustworthyCarRental {
     title: string;
     cardsInfo: Array<TrustworthyCarRentalInfo>;
 }
 
-interface TrustworthyCarRentalInfo{
+interface TrustworthyCarRentalInfo {
     imagePath: string;
     title: string;
     shortDescription: string;
     longDescription: string;
-    name:string;
-    rating:number;
+    name: string;
+    rating: number;
 }
 
-interface ClientsSlider{
+interface ClientsSlider {
     title: string;
     clientsOpinions: Array<ClientOpinion>;
 }
 
-interface ClientOpinion{
+interface ClientOpinion {
     profileImagePath: string;
     comment: string;
     name: string;
@@ -118,11 +118,12 @@ interface OurTravelExpertsInfo {
     description: string;
 }
 
-interface Footer{
+interface Footer {
     text: string;
 }
 
-interface Button{
+interface Button {
     type: string;
     text: string;
 }
+

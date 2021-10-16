@@ -35,6 +35,8 @@ const theme = createTheme({
           letterSpacing: "normal",
           color: "#262f39",
           textDecoration: "underline",
+          position: "relative",
+          bottom:"14px"
         }
       },
 
@@ -51,6 +53,22 @@ const theme = createTheme({
       }
     }
   },
+  fonts: {
+    primary: "Roboto",
+    secondary: "Roboto",
+  },
+  
+
+  sections:{
+    header:{},
+    carSlider:{},
+    ourServices:{},
+    trustworthyCarRental: {},
+    clientsSlider: {},
+    faq: {},
+    ourTravelExperts: {},
+    footer: {}
+  }
 });
 
 export default theme;

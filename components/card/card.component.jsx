@@ -9,20 +9,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import theme from '../../src/theme'
 
-// const ExpandMore = styled((props) => {
-//     const { expand, ...other } = props;
-//     return <IconButton {...other} />;
-//   })(({ theme, expand }) => ({
-//     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-//     marginLeft: 'auto',
-//     transition: theme.transitions.create('transform', {
-//       duration: theme.transitions.duration.shortest,
-//     }),
-//   }))
-
-
-
-
 
 const CardExperience = (props) => {
 
