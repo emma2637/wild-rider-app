@@ -1,24 +1,44 @@
 @import "./global.scss";
 $blue: #2866ae;
-
 .appBar{
     background-color: $blue !important; //change this to global var
+}
+.toolBar{
+    padding-right: 0px !important;
+    padding-left: 24px !important;
+}
+@media (max-width: 750px){
+    .toolBar{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .logoContainer{
+        flex: 30
+    }
+    .logoContainer{
+        position: relative; 
+        width: 222px; 
+        height: 55px !important;
+        padding-right: 0 !important;
+    }
+}
+.menuLanguage{
+    flex-grow: 0.3;
+    height: 64px;
+    display: flex;
+    align-items: center;
 }
 .languageMenu{
     justify-content: center;
 }
-.flagBtn .flag-icon {
-    width: 1.2em;
-    height: 1.2em;
+.flagBtn {
+    font-size: 19px !important;
 }
-.flagBtn{
-    justify-content: flex-end !important;
-}
-.flagMenuItem{
-    justify-content: center-end !important;
-}
-.lenguageName{
-    margin-left: 6px;
+.headerOptions {
+    display: flex;
+    width: fill;
+    margin-left: 20px;
+    align-items: center;
 }
 .menuIcon{
     width: 2.3em;
@@ -26,15 +46,14 @@ $blue: #2866ae;
     color: white !important;
 }
 .menuBtn {
-    width: max-content;
     white-space: nowrap;
     color: white !important;
-    margin: 0px 5px 0px 5px !important;
+    flex-grow: 2;
+    height: 64px;
 }
 .menuLeftHeader{
     display: flex;
     color: white !important;
-    width: 100%;
 }
 @media (min-width: 600px){
     .menuLeftHeader{
@@ -50,27 +69,11 @@ $blue: #2866ae;
     display: flex !important;
     justify-content: center !important;
 }
-
-.headerOptions {
-    display: flex;
-    flex: 1;
-    justify-content: space-evenly;
-}
 .logoContainer{
     position: relative; 
     width: 222px; 
-    height: 40px;
-}
-@media (min-width: 900px){
-    .logoContainer{
-        padding-right: 3%;
-        margin-left: 2em;
-    }
-}
-@media (max-width: 900px){
-    .logoContainer{
-        flex-grow: 1;
-    }
+    height: 64px;
+    padding-right: 3%;
 }
 .carsRateAccordionSummarysAcorddion{
     background-color: $blue !important;
@@ -79,12 +82,11 @@ $blue: #2866ae;
     padding: 0 !important;
     box-shadow: none !important;
 }
-
-
 .menuLeftContainer{
-    width: 200px;
+    width: 195px;
     box-sizing: 'border-box';
     background-color: $blue !important;
     color: white !important;
     align-items: center;
 }
+
