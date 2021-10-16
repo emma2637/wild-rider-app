@@ -1,29 +1,35 @@
 import * as React from 'react'
 import { NextPage } from 'next'
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
 import Header from '../components/header/header.component'
 import Footer from '../components/footer/footer.component'
-import Slider from '../components/carousel/carousel.component'
-import Card from '../components/card/card.component'
+
+
+import HomePage from '../services/homePageDataStructure'
 import cardData from '../components/card/card.data'
 import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
 import CompanyRelationSection from '../components/companyRelation/companyRelation'
 import RatingCarouselSection from '../components/ratingCarousel/ratingCarousel.component'
-import MobileDetection from '../services/mobileDetection'
+import CarSliderSection from '../sections/homePage/carSlider/carSliderSection.component'
+import Items from '../components/carousel/carousel.data'
+
+
+
+
 const IndexPage: NextPage = () => {
 
   const [cards, setCards] = useState<iCardCar[]>(cardData)
-  
+  const [cars, setCars] = useState(Items);
+  // const [tripAdvisor, setTripAdvisor] = useState<TripAdvisor >('https://www.tripadvisor.com/','')
+  // const [car, setCar] = useState<CarsSlider[]>(carouselData)
   return (
     <div>
       <Header></Header>
-      <div className="" >
+      <main >
+        <CarSliderSection data={Items} ></CarSliderSection>
         <CompanyRelationSection data={cards}></CompanyRelationSection>
-         <RatingCarouselSection  ></RatingCarouselSection>
-      </div>
+        <RatingCarouselSection  ></RatingCarouselSection>
+      </main>
       <div>
         <Footer></Footer>
       </div>
