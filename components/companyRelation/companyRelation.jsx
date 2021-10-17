@@ -52,6 +52,12 @@ const useStyles = makeStyles(theme => ({
         height: '690px',
         paddingLeft: '0px',
         paddingRight: '0px',
+        [theme.breakpoints.down(1140)]: {
+            height: '1070px',
+        },
+        [theme.breakpoints.down(760)]: {
+            height: '1800px',
+        },
     },
     card: {
         margin: '0px 15px 15px 15px',
@@ -94,7 +100,7 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         fontFamily: 'Raleway',
-        fontSize: '36px',
+        fontSize: '30px',
         fontWeight: '600',
         lineHeight: '1.61',
         textAlign: 'center',

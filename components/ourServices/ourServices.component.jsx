@@ -42,7 +42,16 @@ const useStyles = makeStyles(theme => ({
         paddingTop: '30px',
         height: '490px',
         paddingLeft: '0px',
-        paddingRight: '0px'
+        paddingRight: '0px',
+        [theme.breakpoints.down(750)]: {
+            height: '700px',
+        },
+        [theme.breakpoints.down(550)]: {
+            height: '900px',
+        },
+        [theme.breakpoints.down(350)]: {
+            height: '1300px',
+        },
     },
     card: { 
         boxShadow: "unset",
