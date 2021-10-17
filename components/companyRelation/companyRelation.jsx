@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
             height: '1070px',
         },
         [theme.breakpoints.down(760)]: {
-            height: '1800px',
+            height: '1900px',
         },
     },
     card: {
@@ -79,14 +79,13 @@ const useStyles = makeStyles(theme => ({
         fontWeight: '800',
         color: '#262f39',
         textTransform: 'uppercase',
-        height: '56px',
         marginRight: '55px'
     },
     cardDescription: {
         fontFamily: 'Montserrat',
         fontSize: '14px',
         fontWeight: '500',
-        paddingTop: '12px'
+        paddingTop: '9px'
     },
     cardTextContainer: {
         width: '291px',
@@ -122,8 +121,8 @@ const CompanyRelation = (props) => {
                     <Box className={classes.cardTextContainer}>
                         <Typography className={classes.cardTitle}>
                             {cardInfo.title}
+                            <Divider className={classes.cardDivider} />
                         </Typography>
-                        <Divider className={classes.cardDivider} />
                         <Typography className={classes.cardDescription}>
                             {cardInfo.shortDescription}
                         </Typography>
