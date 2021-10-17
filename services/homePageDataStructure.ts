@@ -4,7 +4,7 @@ export default interface HomePage {
     header: Header;
     carsSlider: CarsSlider;
     ourServices: OurServices;
-    trustworthyCarRental: TrustworthyCarRental;
+    companyRelation: CompanyRelation;
     clientsSlider: ClientsSlider;
     faq: FAQ;
     ourTravelExperts: OurTravelExperts;
@@ -60,6 +60,7 @@ interface TripAdvisor {
 }
 
 interface OurServices {
+    imagePath: string;
     title: string;
     services: Array<Service>;
 }
@@ -70,18 +71,17 @@ interface Service {
     description: string;
 }
 
-interface TrustworthyCarRental {
+interface CompanyRelation {
     title: string;
-    cardsInfo: Array<TrustworthyCarRentalInfo>;
+    shortTitle: string;
+    cardsInfo: Array<CompanyRelationInfo>;
 }
 
-interface TrustworthyCarRentalInfo {
+interface CompanyRelationInfo {
     imagePath: string;
     title: string;
     shortDescription: string;
     longDescription: string;
-    name: string;
-    rating: number;
 }
 
 interface ClientsSlider {

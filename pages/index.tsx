@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { NextPage } from 'next'
 import Header from '../components/header/header.component'
+import OurServices from '../components/ourServices/ourServices.component'
 import Footer from '../components/footer/footer.component'
 
 
@@ -8,7 +9,7 @@ import HomePage from '../services/homePageDataStructure'
 import cardData from '../components/card/card.data'
 import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
-import CompanyRelationSection from '../components/companyRelation/companyRelation'
+import CompanyRelation from '../components/companyRelation/companyRelation'
 import RatingCarouselSection from '../components/ratingCarousel/ratingCarousel.component'
 import CarSliderSection from '../sections/homePage/carSlider/carSliderSection.component'
 import Items from '../components/carousel/carousel.data'
@@ -24,10 +25,11 @@ const IndexPage: NextPage = () => {
   // const [car, setCar] = useState<CarsSlider[]>(carouselData)
   return (
     <div>
-      <Header></Header>
+      <Header />
       <main >
         <CarSliderSection data={Items} ></CarSliderSection>
-        <CompanyRelationSection data={cards}></CompanyRelationSection>
+        <OurServices />    
+        <CompanyRelation></CompanyRelation>
         <RatingCarouselSection  ></RatingCarouselSection>
       </main>
       <div>
