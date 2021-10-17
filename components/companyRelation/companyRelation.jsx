@@ -45,7 +45,8 @@ const useStyles = makeStyles(theme => ({
     content: {
         display: 'block',
         position: 'absolute',
-        marginTop: '-151px'
+        marginTop: '-151px',
+        width: '-webkit-fill-available'
     },
     mainContainer: {
         backgroundColor: "#fc0;",
