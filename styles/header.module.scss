@@ -7,7 +7,7 @@ $blue: #2866ae;
     padding-right: 0px !important;
     padding-left: 24px !important;
 }
-@media (max-width: 750px){
+@media (max-width: 800px){
     .toolBar{
         padding-right: 0px !important;
         padding-left: 0px !important;
@@ -22,6 +22,7 @@ $blue: #2866ae;
         padding-right: 0 !important;
     }
 }
+
 .menuLanguage{
     flex-grow: 0.3;
     height: 64px;
@@ -31,29 +32,27 @@ $blue: #2866ae;
 .languageMenu{
     justify-content: center;
 }
-.flagBtn {
-    font-size: 19px !important;
-}
 .headerOptions {
     display: flex;
     width: fill;
-    margin-left: 20px;
     align-items: center;
 }
 .menuIcon{
-    width: 2.3em;
-    height: 2.3em;
+    width: fill;
+    height: fill;
     color: white !important;
 }
 .menuBtn {
     white-space: nowrap;
     color: white !important;
-    flex-grow: 2;
+    flex-grow: 3;
     height: 64px;
+    font-size: 19px !important;
 }
 .menuLeftHeader{
     display: flex;
     color: white !important;
+    width: fill !important;
 }
 @media (min-width: 600px){
     .menuLeftHeader{
@@ -89,4 +88,3 @@ $blue: #2866ae;
     color: white !important;
     align-items: center;
 }
-

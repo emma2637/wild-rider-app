@@ -17,13 +17,6 @@ import { makeStyles } from '@mui/styles';
 //#region Left Menu
 const drawerWidth = 195;
 
-const IconButtonMenu = styled(IconButton, {
-  shouldForwardProp: (prop) => prop !== 'open'
-})(({ open }) => ({
-    mr: 2, 
-    ...(open && { display: 'none !important' }) 
-}));
-
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open'
 })(({ theme, open }) => ({
@@ -63,14 +56,46 @@ const menuOptions = [
 ]
 
 const lenguageOption = [
-  { code:'us', displayName: "English" },
-  { code:'de', displayName: "Deutsch" },
-  { code:'es', displayName: "Español" },
+  { code:'us', displayName: "ENGLISH" },
+  { code:'de', displayName: "DEUTSCH" },
+  { code:'es', displayName: "ESPAÑOL" },
 ]
 //#endregion
 
 const useStyles = makeStyles(theme => ({
-  menuAccordion: {
+  menuDesktopAccordion :{
+    backgroundColor: "#2866ae !important",
+    '&.MuiPaper-root':{
+      boxShadow: "none !important",
+      backgroundColor: "transparent",
+    },
+    '& .MuiCollapse-root': {
+      position: "absolute",
+      backgroundColor: "#2866ae !important",
+    },
+    '&.Mui-expanded': {
+      margin: "0 !important",
+      '&::before': {
+        opacity: "unset"
+      }
+    },
+  },
+  menuDesktopAccordionSummary: {
+    height: "64px",
+    padding: "unset !important",
+    whiteSpace: "nowrap",
+    '& .MuiAccordionSummary-content':{
+      alignItems: "center",
+      margin: "unset",
+      '& .MuiSvgIcon-root': {
+        marginRight: "-2px"
+      }
+    },
+  },
+  menuDesktopAccordionDetails: { 
+    padding: "0px 0px 0px 0px"
+  },
+  menuMobileAccordion: {
     width: "100%",
     backgroundColor: "#2866ae !important",
     color: "white",
@@ -84,9 +109,26 @@ const useStyles = makeStyles(theme => ({
         opacity: "unset"
       }
     },
+  },
+  menuDesktopAccordionList: {
+    color: "white",
+    width: "100%",
+    height: "36px",
+    textDecoration: "underline",
+    textAlign: "center",
+    '& .MuiTypography-root': {
+      fontFamily: "Raleway",
+      fontSize: "12px",
+      fontWeight: "800",
+      fontStretch: "normal",
+      fontStyle: "normal",
+      lineHeight: "3",
+      letterSpacing: "1.4px",
+    }
     
   },
-  menuAccordionSummary: { 
+  menuMobileAccordionSummary: { 
+    padding: "unset",
     borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
     width: "100%",
     '& .MuiAccordionSummary-content': {
@@ -97,7 +139,6 @@ const useStyles = makeStyles(theme => ({
     '&.MuiAccordionSummary-root': {
       '&.Mui-expanded': {
         minHeight: "49px",
-        //borderTop: "1px solid rgba(0, 0, 0, 0.12)"
       },
     },
     '& .Mui-expanded': {
@@ -113,19 +154,15 @@ const useStyles = makeStyles(theme => ({
     }
   },
   closeMenuBtn: {
-    '& .MuiSvgIcon-root': {
-      position: "absolute",
-      left: "-13px"
-    },
     width: "100%",
     color: "white",
     display: "flex",
     justifyContent: "center"
   },
-  menuAccordionDetails: { 
+  menuMobileAccordionDetails: { 
     padding: "0px 0px 9px 0px"
   },
-  menuAccordionList: {
+  menuMobileAccordionList: {
     backgroundColor: "#1B60AC",
     width: "100%",
     height: "36px",
@@ -168,7 +205,7 @@ const useStyles = makeStyles(theme => ({
   languageMenu: {
     '& .MuiMenu-paper': {
       backgroundColor: "#2866ae",
-      top: "64px !important",
+      top: "60px !important",
       borderRadius: "0px",
       boxShadow: "unset",
       left: `calc(100% - (136px)) !important`,
@@ -193,21 +230,30 @@ const useStyles = makeStyles(theme => ({
   menuLanguage: {
     flexGrow: "0.3",
     height: "64px",
-    display: "flex",
-    alignItems: "center",
     '& .MuiButtonBase-root': {
       height: "-webkit-fill-available",
       width: "-webkit-fill-available",
       borderRadius: "unset"
     }
+  },
+  lenguageOption: { 
+    fontFamily: "Raleway !important",
+    fontSize: "12px !important",
+    fontWeight: "800 !important",
+    '& .flag-icon': {
+      marginRight: "10px",
+      fontSize: "19px !important",
+    }
   }
-}));
+}),
+{name: "MuiHeaderComponent"}
+);
 
 const Header = () => {
   //#region Const
   const classes = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down(750));
+  const isMobile = useMediaQuery(theme.breakpoints.down(800));
   //ABAJO DE 800 A 600 AGREGAR MEDIAQUERY PARA QUE SE ACOMODE EL DESKTOP RESPONSIVE
   const [stateMenuLeft, setMenuLeftState] = React.useState(false);
   //#endregion
@@ -227,7 +273,7 @@ const Header = () => {
   //#endregion Functions
     return (<Box>
             {(stateMenuLeft) ? null : 
-              <Button className={styles.menuIcon} onClick={menuLeftHandler(true)} open={stateMenuLeft}>
+              <Button className={styles.menuBtn} onClick={menuLeftHandler(true)} open={stateMenuLeft}>
                 <MenuIcon />
               </Button>
             }
@@ -241,14 +287,16 @@ const Header = () => {
             {menuOptions.map((x, i) => {
               if (x.children != undefined) {
                 return (
-                  <Accordion key={i} className={classes.menuAccordion}>
-                    <AccordionSummary className={`${classes.menuAccordionSummary} ${classes.menuItem}`} >
-                      <ExpandMoreIcon />
-                      <Typography>{x.displayName}</Typography>
+                  <Accordion key={i} className={classes.menuMobileAccordion}>
+                    <AccordionSummary className={`${classes.menuMobileAccordionSummary} ${classes.menuItem}`} >
+                      <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
+                        <ExpandMoreIcon />
+                        <Typography>{x.displayName}</Typography>
+                      </Button>
                     </AccordionSummary>
-                    <AccordionDetails className={classes.menuAccordionDetails}>
+                    <AccordionDetails className={classes.menuMobileAccordionDetails}>
                       {x.children.map((cx, ci) => (
-                        <ListItem key={ci} button onClick={() => GoTo(cx.direction)} className={classes.menuAccordionList} button divider>
+                        <ListItem key={ci} onClick={() => GoTo(cx.direction)} className={classes.menuMobileAccordionList} button divider>
                           <ListItemText className={`${classes.accordionItem} ${styles.menuListItem}`} primary={cx.displayName} />
                         </ListItem>
                       ))}
@@ -256,7 +304,7 @@ const Header = () => {
                   </Accordion>
                 )} else {
                   return (
-                    <ListItem key={i} button onClick={() => GoTo(x.direction)} button divider>
+                    <ListItem key={i} onClick={() => GoTo(x.direction)} button divider>
                       <ListItemText className={`${styles.menuListItem} ${classes.menuItem}`} primary={x.displayName} />
                     </ListItem>
                   )
@@ -289,8 +337,7 @@ const Header = () => {
       console.log("add code to change the lenguage to " + currentLenguageCode)
     }
    //#endregion
-    //AGREGAR CLASS AL BOX
-    return <Box > 
+    return <Box className={classes.menuLanguage}> 
               <Button className={`${styles.menuBtn} ${styles.flagBtn}`}  onClick={handleClick}>
                 <KeyboardArrowDownIcon />
                 <span className={`flag-icon flag-icon-${currentLenguageCode}`}></span>
@@ -298,10 +345,18 @@ const Header = () => {
               <Menu anchorEl={lenguageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
                 {lenguageOption.map((x, i) => {
                       return <MenuItem key={i} onClick={() => {changeLenguage(x.code); handleClose()}} className={classes.lenguageItem}>
-                              <Button className={styles.flagBtn}>
+                              {/* <Button className={styles.flagBtn}>
                                 <span className={`flag-icon flag-icon-${x.code}`}></span>
-                                <Typography>{x.displayName}</Typography>
-                              </Button>
+                                
+                              </Button> */}
+                              <ListItem sx={{ textDecoration: "underline"}} button divider>
+                                <ListItemText>
+                                  <Typography className={ classes.lenguageOption }>
+                                    <span className={`flag-icon flag-icon-${x.code}`}></span>
+                                    {x.displayName}
+                                  </Typography>
+                                </ListItemText>
+                              </ListItem>
                             </MenuItem>
                             
                 })}
@@ -330,16 +385,21 @@ const Header = () => {
             </Box>
             <Box className={styles.headerOptions}>
               {menuOptions.map((x, i) => {
+              // return <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
+              //         {x.displayName}
+              //         </Button>
               if (x.children != undefined) {
                 return (
-                  <Accordion key={i} >
-                    <AccordionSummary  >
-                      <ExpandMoreIcon />
-                      <Typography>{x.displayName}</Typography>
+                  <Accordion key={i} className={classes.menuDesktopAccordion} >
+                    <AccordionSummary className={`${classes.menuDesktopAccordionSummary} ${classes.menuItem}`} >
+                      <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
+                        <ExpandMoreIcon />
+                        {x.displayName}
+                      </Button>
                     </AccordionSummary>
-                    <AccordionDetails >
+                    <AccordionDetails className={classes.menuDesktopAccordionDetails}>
                       {x.children.map((cx, ci) => (
-                        <ListItem key={ci} button onClick={() => GoTo(cx.direction)} button divider>
+                        <ListItem key={ci} className={classes.menuDesktopAccordionList} button onClick={() => GoTo(cx.direction)} button divider>
                           <ListItemText  primary={cx.displayName} />
                         </ListItem>
                       ))}
@@ -347,14 +407,13 @@ const Header = () => {
                   </Accordion>
                 )} else {
                   return (
-                    <ListItem key={i} button onClick={() => GoTo(x.direction)} button divider>
-                      <ListItemText  primary={x.displayName} />
-                      {/* AGREGAR CLASS AL LIST ITEM TEXT */}
-                    </ListItem>
+                    <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
+                      {x.displayName}
+                    </Button>
                   )
                 }
-              }
-            )}
+              
+              })}
               <Languages />
             </Box>
           </>)
@@ -363,38 +422,6 @@ const Header = () => {
       </AppBar>
     </Box>
   );
-
-  //   const logoPath = "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/bd8b2296-2030-49b5-9275-248d22739502.svg";
-  //   return (
-  //       <Box>
-  //           <CssBaseline />
-  //           <AppBar className={styles.appBar} open={openMenuLeft}>
-  //               <Toolbar >
-  //               { isMobile ?
-  //                   (<>
-  //                       <MenuLeft openMenuLeft={openMenuLeft} />
-  //                       <Box className={styles.logoContainer} >
-  //                           <Image src={logoPath} layout="fill" objectFit="contain" />
-  //                       </Box>
-  //                       { (openMenuLeft && window.innerWidth<450) ? null : <FlagButton /> }
-  //                   </>) : (<>
-  //                       <Box className={styles.logoContainer} >
-  //                           <Image src={logoPath} layout="fill" objectFit="contain" />
-  //                       </Box>
-  //                       <Box className={styles.headerOptions}>
-  //                           {menuOptions.map((x, i) => {
-  //                           return <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
-  //                                   {x.displayName}
-  //                                   </Button>
-  //                           })}
-  //                           <FlagButton />
-  //                       </Box>
-  //                   </>)
-  //               }
-  //               </Toolbar>
-  //           </AppBar> 
-  //       </Box>
-  // );
 }
 
 export default Header;
