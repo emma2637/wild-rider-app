@@ -399,7 +399,7 @@ const Header = () => {
                     </AccordionSummary>
                     <AccordionDetails className={classes.menuDesktopAccordionDetails}>
                       {x.children.map((cx, ci) => (
-                        <ListItem key={ci} className={classes.menuDesktopAccordionList} button onClick={() => GoTo(cx.direction)} button divider>
+                        <ListItem key={ci} className={classes.menuDesktopAccordionList} onClick={() => GoTo(cx.direction)} button divider>
                           <ListItemText  primary={cx.displayName} />
                         </ListItem>
                       ))}

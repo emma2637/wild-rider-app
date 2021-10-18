@@ -75,7 +75,7 @@ export default function CustomizedButtons(props) {
       return <Button style={ButtonType.getFreeQuoteBtn}>{buttonText}</Button>
     }
     else if(type === "readMoreBtn"){
-      return <Button style={ButtonType.readMoreBtn}>{buttonText}</Button>
+      return <Button className={props.className}  style={ButtonType.readMoreBtn}>{buttonText}</Button>
     }
     else if(type === "carouselDotBtn"){
       return <Button style={ButtonType.carouselDotBtn} sx={{width:"10px", height:"10px"}}>{buttonText}</Button>

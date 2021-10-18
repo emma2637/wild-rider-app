@@ -138,7 +138,7 @@ const useStyles = makeStyles(theme => ({
         textTransform: 'uppercase',
         marginRight: '55px',
         height: '54px',
-        [theme.breakpoints.between(353, mobileModeWidth)]: {
+        [theme.breakpoints.down(mobileModeWidth)]: {
             height: 'unset',
         },
     },
@@ -250,6 +250,7 @@ const CompanyRelation = () => {
     const classes = useStyles();
     const isMobile = useMediaQuery(theme.breakpoints.down(mobileModeWidth));
     
+    //#region Modal
     function LearnMoreModal({cardInfo}){
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
@@ -279,7 +280,9 @@ const CompanyRelation = () => {
             </Box>
         )
     }
+    //#endregion Modal
 
+    //#region Card
     function CompanyRelationCard({cardInfo}) {
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
@@ -305,6 +308,7 @@ const CompanyRelation = () => {
             </Card>
         )
     }
+    //#endregion Card
 
     return (
         <Box className={classes.mainContainer}>
