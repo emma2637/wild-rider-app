@@ -82,6 +82,7 @@ interface CompanyRelationInfo {
     title: string;
     shortDescription: string;
     longDescription: string;
+    isMobilInfo: string;
 }
 
 interface ClientsSlider {
