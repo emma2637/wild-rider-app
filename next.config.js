@@ -7,7 +7,7 @@ module.exports = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['st3.depositphotos.com','st4.depositphotos.com','cdn.zeplin.io','thumbor.forbes.com'],
+    domains: ['st3.depositphotos.com','st4.depositphotos.com','cdn.zeplin.io','thumbor.forbes.com','images.unsplash.com'],
   }
 }
 // const withImages = require('next-images')

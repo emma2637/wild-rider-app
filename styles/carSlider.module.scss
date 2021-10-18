@@ -159,8 +159,13 @@
         margin-right: 0px !important;
         width: 244px;
         height: 169px;
+        
     }
-    
+    .tripAdvisor{
+        .title{
+            font-size:"14px" !important;
+        }
+    }
   }
   
   /* 
@@ -169,7 +174,47 @@
   */
   
   @media (min-width: 320px) and (max-width: 480px) {
-    
+    .cardContentResponsive {
+        margin-left: 20px !important;
+        margin-top: 20px !important;
+   }
     /* CSS */
+    .carSliderContainer {
+        position: relative;
+        margin-top: 56px;
+        .titleContainer {
+            max-width: 656px;
+            .title {
+                font-size: $font-small--size;
+            }
+            
+        }
+        .caption{
+            font-size: $font-smaller-size;
+        }
+        .rating {
+            width: auto;
+            background-color: $graphite-dark;
     
+            .value {
+                text-align: left;
+            }
+            .content {
+                @extend .text !optional;
+                font-weight: 500;
+            }
+            .subContent {
+                @extend .text !optional;
+                @extend .subText !optional;
+            }
+        }
+        .tripBox{
+            margin-right: 0px !important;
+            width: auto;
+            height: 169px;
+            .title{
+                font-size:"14px" !important;
+            }
+        }
+    }
   }

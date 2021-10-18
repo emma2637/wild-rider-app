@@ -177,6 +177,7 @@ const useStyles = makeStyles(theme => ({
         textDecoration: 'underline',
         color: '#262f39',
         padding: '0px',
+        fontWeight:"bold",
         '&:hover': {
             cursor: 'pointer',
             textDecoration: 'unset',
@@ -325,7 +326,7 @@ const CompanyRelation = () => {
                         }
                         else if(isMobile && x.isMobilInfo == true) {
                             return(
-                                <Box className={classes.cardContainer}>
+                                <Box key={i} className={classes.cardContainer}>
                                     <CompanyRelationCard key={i} cardInfo={x} />
                                 </Box>) 
                         }

@@ -11,8 +11,10 @@ import cardData from '../components/card/card.data'
 import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
 import CompanyRelation from '../components/companyRelation/companyRelation'
-import RatingCarouselSection from '../components/ratingCarousel/ratingCarousel.component'
+// import RatingCarouselSection from '../components/ratingCarousel/ratingCarousel.component'
 import CarSliderSection from '../sections/homePage/carSlider/carSliderSection.component'
+import TrustWortySection from '../sections/homePage/trustWorthyCarRental/trustWortySection.component'
+import OurTravelSection from '../sections/homePage/ourTravelExperts/ourTravelExperts.section.component'
 import Items from '../components/carousel/carousel.data'
 
 
@@ -31,8 +33,9 @@ const IndexPage: NextPage = () => {
         <CarSliderSection data={Items} ></CarSliderSection>
         <OurServices />    
         <CompanyRelation />
-        <RatingCarouselSection  ></RatingCarouselSection>
+        <TrustWortySection/>
         <FAQ />
+        <OurTravelSection/>
       </main>
       <div>
         <Footer></Footer>
