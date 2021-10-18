@@ -2,6 +2,7 @@ import * as React from 'react'
 import { NextPage } from 'next'
 import Header from '../components/header/header.component'
 import OurServices from '../components/ourServices/ourServices.component'
+import FAQ from '../components/faq/faq.component'
 import Footer from '../components/footer/footer.component'
 
 
@@ -29,8 +30,9 @@ const IndexPage: NextPage = () => {
       <main >
         <CarSliderSection data={Items} ></CarSliderSection>
         <OurServices />    
-        <CompanyRelation></CompanyRelation>
+        <CompanyRelation />
         <RatingCarouselSection  ></RatingCarouselSection>
+        <FAQ />
       </main>
       <div>
         <Footer></Footer>
