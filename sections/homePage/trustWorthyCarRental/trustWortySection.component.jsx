@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Carousel from 'react-multi-carousel';
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography';
-import { Card, Button , Box} from '@mui/material'
+import { Card, Button, Box } from '@mui/material'
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -12,7 +12,7 @@ import Avatar from '@mui/material/Avatar';
 import Rating from '@mui/material/Rating';
 import { makeStyles } from '@mui/styles';
 import CustomizedButtons from '../../../components/customizedButton/customizedButton.component'
-import styles from  '../../../styles/ratingCustom.module.scss'
+import styles from '../../../styles/ratingCustom.module.scss'
 import { red } from '@mui/material/colors';
 
 const TrustwortyData = {
@@ -36,7 +36,7 @@ const TrustwortyData = {
         rate: 5
     }]
 }
-const button={
+const button = {
     type: 'readMoreBtn',
     text: 'READ MORE'
 }
@@ -79,22 +79,22 @@ const useStyles = makeStyles((theme) => ({
         color: "#262f39"
     },
     cardActionNameText: {
-        fontSize: "18px", 
-        fontWeight: "800", 
-        lineHeight: 1.22, 
-        textAlign: "center", 
-        color: "#262f39", 
-        letterSpacing: "2.16px", 
+        fontSize: "18px",
+        fontWeight: "800",
+        lineHeight: 1.22,
+        textAlign: "center",
+        color: "#262f39",
+        letterSpacing: "2.16px",
         display: "grid"
     },
-    cardActionRatingValue:{
-        marginLeft: "auto", 
-        marginRight: "auto", 
-        color: "#2866ae", 
+    cardActionRatingValue: {
+        marginLeft: "auto",
+        marginRight: "auto",
+        color: "#2866ae",
         fontSize: "0.5rem"
     }
 })
-,{name: "MuiTrustWortyComponent"});
+    , { name: "MuiTrustWortyComponent" });
 
 const responsive = {
     desktop: {
@@ -114,27 +114,20 @@ const responsive = {
     }
 };
 
-const CustomDot = ({ onClick, active, index, carouselState }) => {
-    const { currentSlide } = carouselState;
-        // console.log(currentSlide + ' current slide');
-        // console.log(active +' active');
-        // console.log(index + ' index');
 
-    return (
-      <li data-index={index} className={styles.customDotList}>
-        <button
-          className={active? styles.active : ""}
-          onClick={e => {
-            onClick();
-            e.preventDefault();
-          }}
-        />
-      </li>
-    );
-  };
 const TrustWortySection = () => {
     const classes = useStyles();
-
+    const CustomDot = ({ onMove, index, onClick, active }) => {
+        // onMove means if dragging or swiping in progress.
+        // active is provided by this lib for checking if the item is active or not.
+        return (
+            <li
+                className={active ? styles.active : styles.inactive}
+                onClick={() => onClick()}
+            >
+            </li>
+        );
+    };
     return (
         <Box className={classes.container}>
             <Typography variant="h5" component="p" gutterBottom className={classes.titleText}>
@@ -149,7 +142,6 @@ const TrustWortySection = () => {
                     centerMode={false}
                     className={styles.Container}
                     containerClass={styles.Container}
-                    // dotListClass={styles.patito}
                     sliderClass={classes.sliderClass}
                     draggable
                     focusOnSelect={false}
@@ -158,12 +150,11 @@ const TrustWortySection = () => {
                     keyBoardControl
                     minimumTouchDrag={80}
                     renderButtonGroupOutside={false}
-                    renderDotsOutside
                     responsive={responsive}
                     showDots
                     slidesToSlide={1}
                     swipeable
-                   // customDot={<CustomDot />}
+                    customDot={<CustomDot />}
                 >
                     {TrustwortyData.clientOpinions.map((clientOpinion, index) => {
 
@@ -182,8 +173,8 @@ const TrustWortySection = () => {
                                 <CardActions disableSpacing>
                                     <Container>
                                         <Typography variant="caption" component="span" className={classes.cardActionNameText}>
-                                                {clientOpinion.name}
-                                            <Rating name="read-only" value={clientOpinion.rate} readOnly className={classes.cardActionRatingValue}/>
+                                            {clientOpinion.name}
+                                            <Rating name="read-only" value={clientOpinion.rate} readOnly className={classes.cardActionRatingValue} />
                                         </Typography>
                                         <CustomizedButtons type={button.type} buttonText={button.text} ></CustomizedButtons>
                                     </Container>

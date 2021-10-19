@@ -77,107 +77,115 @@
         max-height: 53px;
         margin-right: 260px;
     }
+
 }
 
+.carouselDots{
+    width:10px;
+    height:10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.active{
+    background-color: #ffcc00 !important;
+   @extend .carouselDots !optional;
+}
+.inactive{
+    background-color:     #f2f2f2;
+    @extend .carouselDots !optional;
+    
+}
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
 */
 
 @media (min-width: 1281px) {
-  
     /* CSS */
-    
-  }
-  
-  /* 
+}
+
+/* 
     ##Device = Laptops, Desktops
     ##Screen = B/w 1025px to 1280px
   */
-  
-  @media (min-width: 1025px) and (max-width: 1280px) {
-    
+
+@media (min-width: 1025px) and (max-width: 1280px) {
     /* CSS */
-    .tripBox{
+    .tripBox {
         margin-right: 85px !important;
     }
-  }
-  
-  /* 
+}
+
+/* 
     ##Device = Tablets, Ipads (portrait)
     ##Screen = B/w 768px to 1024px
   */
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
-    
+
+@media (min-width: 768px) and (max-width: 1024px) {
     .cardContentResponsive {
-         margin-left: 49px !important;
+        margin-left: 49px !important;
     }
-    .tripBox{
+    .tripBox {
         margin-right: 85px !important;
     }
-    .rating{
+    .rating {
         width: 280px !important;
     }
-    .tripAdvisor{
-        .title{
-            font-size:"14px" !important;
+    .tripAdvisor {
+        .title {
+            font-size: "14px" !important;
         }
     }
-    .title{
-        font-size:"14px" !important;
-
+    .title {
+        font-size: "14px" !important;
     }
-  }
-  
-  /* 
+}
+
+/* 
     ##Device = Tablets, Ipads (landscape)
     ##Screen = B/w 768px to 1024px
   */
-  
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     /* CSS */
-    
-  }
-  
-  /* 
+}
+
+/* 
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
     ##Screen = B/w 481px to 767px
   */
-  
-  @media (min-width: 481px) and (max-width: 767px) {
-    
+
+@media (min-width: 481px) and (max-width: 767px) {
     /* CSS */
     .cardContentResponsive {
         margin-left: 0 !important;
-   }
-    .rating{
+    }
+    .rating {
         width: 204px !important;
     }
-    .tripBox{
+    .tripBox {
         margin-right: 0px !important;
         width: 244px;
         height: 169px;
-        
     }
-    .tripAdvisor{
-        .title{
-            font-size:"14px" !important;
+    .tripAdvisor {
+        .title {
+            font-size: "14px" !important;
         }
     }
-  }
-  
-  /* 
+}
+
+/* 
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
   */
-  
-  @media (min-width: 320px) and (max-width: 480px) {
+
+@media (min-width: 320px) and (max-width: 480px) {
     .cardContentResponsive {
         margin-left: 20px !important;
         margin-top: 20px !important;
-   }
+    }
     /* CSS */
     .carSliderContainer {
         position: relative;
@@ -187,15 +195,14 @@
             .title {
                 font-size: $font-small--size;
             }
-            
         }
-        .caption{
+        .caption {
             font-size: $font-smaller-size;
         }
         .rating {
             width: auto;
             background-color: $graphite-dark;
-    
+
             .value {
                 text-align: left;
             }
@@ -208,13 +215,13 @@
                 @extend .subText !optional;
             }
         }
-        .tripBox{
+        .tripBox {
             margin-right: 0px !important;
             width: auto;
             height: 169px;
-            .title{
-                font-size:"14px" !important;
+            .title {
+                font-size: "14px" !important;
             }
         }
     }
-  }
+}
