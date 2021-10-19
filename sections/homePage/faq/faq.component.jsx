@@ -1,9 +1,7 @@
-import { Button, Typography, Box,
-    Toolbar, useMediaQuery, AccordionSummary, AccordionDetails } from '@mui/material';
-import Accordion from "@mui/material/Accordion";
+import { Button, Typography, Box, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import AddIcon from '@mui/icons-material/Add';
-import CustomizedButtons from '../customizedButton/customizedButton.component';
+import CustomizedButtons from '../../../components/customizedButton/customizedButton.component';
 
 //#region FAQ Data 
 const faqData = {
@@ -38,10 +36,11 @@ const faqData = {
 }
 //#endregion FAQ Data
 
+//#region Styles
 const isMobileWidth = 800;
-
 const useStyles = makeStyles(theme => ({
     mainContainer: {
+        marginTop: '30px',
         backgroundColor: '#f3f3f3',
         [theme.breakpoints.down(isMobileWidth)]: {
             backgroundColor: 'unset'
@@ -69,7 +68,9 @@ const useStyles = makeStyles(theme => ({
         flexWrap: 'wrap',
     },
     accordion: {
-        flexBasis: '50%',
+        margin: '0px 12px 0px 12px',
+        flexBasis: '46%',
+        justifyContent: 'center',
         [theme.breakpoints.down(isMobileWidth)]: {
             flexBasis: '100%'
         },
@@ -128,6 +129,7 @@ const useStyles = makeStyles(theme => ({
 }),
 {name: "MuiFAQComponent"}
 );
+//#endregion Styles
 
 const FAQ = () => {
     const classes = useStyles();
