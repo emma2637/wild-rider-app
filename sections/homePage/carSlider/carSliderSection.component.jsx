@@ -48,7 +48,7 @@ const CarSliderSection = (props) => {
                                 <FiCardMedia media="picture" alt="Car" image={item.imagePath}>
                                     <Image src={item.imagePath} layout="fill" objectFit="" priority loading="eager" />
                                 </FiCardMedia>
-                                <FiCardContent  className={styles.cardContentResponsive}>
+                                <FiCardContent className={styles.cardContentResponsive}>
                                     <Box className={styles.titleContainer}>
                                         <Typography gutterBottom variant="h5" component="div" className={styles.title}>
                                             {item.title}
@@ -62,7 +62,7 @@ const CarSliderSection = (props) => {
                                         )
                                     })}
 
-                                    <CustomizedButtons type="getFreeQuoteBtn" buttonText={item.Button} /> 
+                                    <CustomizedButtons type="getFreeQuoteBtn" buttonText={item.Button} />
                                     {item.rating ?
                                         <Box className={styles.ratingBox}>
                                             <Card className={styles.rating}>
@@ -101,8 +101,8 @@ const CarSliderSection = (props) => {
                                                                 <Image src={tripAdvisor.tripAdvisorLogoPath} width={30} height={30} layout="responsive" objectFit="fill" />
                                                             </Avatar>
                                                         } />
-                                                </Card> 
-                                            </Box>: null
+                                                </Card>
+                                            </Box> : null
                                     }
                                 </FiCardContent>
                             </FiCard>

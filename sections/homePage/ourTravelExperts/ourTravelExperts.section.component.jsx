@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#262f39"
     },
     card: {
-        margin: 'auto',
+        margin: '10px',
         [theme.breakpoints.down(760)]: {
             margin: '0px 6px 6px 6px',
         },
@@ -43,10 +43,20 @@ const useStyles = makeStyles((theme) => ({
         flexBasis: '28%',
         display: 'flex',
         justifyContent: 'center',
-        // [theme.breakpoints.down(mobileModeWidth)]: {
-        //     flexBasis: '100%'
-        // },
+        [theme.breakpoints.down('sm')]: {
+            flexBasis: '100%'
+        },
+        [theme.breakpoints.down('md')]: {
+            flexBasis: '50%'
+        },
+        [theme.breakpoints.down('lg')]: {
+            flexBasis: '40%'
+        },
+        [theme.breakpoints.down('1280')]: {
+            flexBasis: '39%'
+        },
         width: '100%',
+        marginTop: "20px"
     },
     cardDescription: {
         fontFamily: 'Montserrat',
