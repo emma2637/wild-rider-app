@@ -38,10 +38,14 @@ const faqData = {
 }
 //#endregion FAQ Data
 
+const isMobileWidth = 800;
 
 const useStyles = makeStyles(theme => ({
     mainContainer: {
-        backgroundColor: '#f3f3f3'
+        backgroundColor: '#f3f3f3',
+        [theme.breakpoints.down(isMobileWidth)]: {
+            backgroundColor: 'unset'
+        }
     },
     title: {
         fontFamily: 'Raleway',
@@ -66,15 +70,27 @@ const useStyles = makeStyles(theme => ({
     },
     accordion: {
         flexBasis: '50%',
+        [theme.breakpoints.down(isMobileWidth)]: {
+            flexBasis: '100%'
+        },
         backgroundColor: 'transparent',
         boxShadow: 'unset',
-        position: 'initial'
+        position: 'initial',
+        '&.Mui-expanded': {
+            margin: "0 !important",
+        }
     },
     accordionSummary: {
         fontFamily: 'Montserrat',
         fontSize: '14px',
         fontWeight: 'bold',
         textAlign: 'center',
+        [theme.breakpoints.down(isMobileWidth)]: {
+            '& .MuiAccordionSummary-content': {
+                margin: 'unset',
+                height: '60px'
+            }
+        }
     },
     faqBtn: {
         color: '#262f39',
@@ -83,12 +99,27 @@ const useStyles = makeStyles(theme => ({
         height: '-webkit-fill-available',
         justifyContent: 'space-between',
         height: '50px',
+        [theme.breakpoints.down(isMobileWidth)]: {
+            borderTopStyle: 'groove',
+            borderWidth: '3px',
+            borderRadius: '0',
+            borderColor: '#f2f2f2;',
+            height: '60px',
+            '&.last':{
+                borderBottomStyle: 'groove',
+            },
+        },
         '& .MuiTypography-root': {
             fontFamily: 'Montserrat',
             fontSize: '14px',
             fontWeight: 'bold',
             color: '#262f39',
+            textAlign: 'left'
         },
+        '& .MuiSvgIcon-root ': {
+            paddingLeft: '10px',
+            fontSize: '30px'
+        }
     },
     readMore: {
         marginBottom: '50px !important',
@@ -110,7 +141,7 @@ const FAQ = () => {
                 return(
                     <Accordion key={i} className={classes.accordion}>
                         <AccordionSummary className={`${classes.accordionSummary} ${classes.menuItem}`} >
-                            <Button key={i} className={classes.faqBtn}>
+                            <Button key={i} className={i==faqData.faqOptions.length-1 ? `${classes.faqBtn} last` : classes.faqBtn}>
                                 <Typography>{x.title}</Typography>
                                 <AddIcon />
                             </Button>
