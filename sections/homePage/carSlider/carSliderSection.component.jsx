@@ -9,7 +9,12 @@ import { FiCard, FiCardActionArea, FiCardActions, FiCardContent, FiCardMedia } f
 
 import 'react-multi-carousel/lib/styles.css';
 import styles from '../../../styles/carSlider.module.scss';
+import { width } from '@mui/system';
 
+const buttonData = {
+    type: "getFreeQuoteBtn",
+    text: "Get Free Quote",
+}
 const CarSliderSection = (props) => {
 
     console.log(props);
@@ -31,22 +36,52 @@ const CarSliderSection = (props) => {
             slidesToSlide: 1 // optional, default to 1.
         }
     };
+
+    const CustomDot = ({ onMove, index, onClick, active }) => {
+        // onMove means if dragging or swiping in progress.
+        // active is provided by this lib for checking if the item is active or not.
+        return (
+          <li
+            className={active ? styles.active : styles.inactive}
+            onClick={() => onClick()}
+          >
+         
+          </li>
+        );
+      };
     return (
         <>
             <div className={styles.carSliderContainer}>
-                <Carousel additionalTransfrom={0} autoPlaySpeed={3000} centerMode={false} className=""
-                    containerClass="container" dotListClass="" ssr={true} // means to render carousel on server-side.
-                    draggable focusOnSelect={false} infinite
-                    itemClass="" keyBoardControl minimumTouchDrag={80}
-                    renderButtonGroupOutside={false} renderDotsOutside={false} responsive={responsive}
-                    showDots sliderClass="" slidesToSlide={1} swipeable
+                <Carousel additionalTransfrom={0}
+                    autoPlaySpeed={3000}
+                    arrows={false}
+                    centerMode={false}
+                    className=""
+                    containerClass="container"
+                    dotListClass={styles.dotList}
+                    ssr={true} // means to render carousel on server-side.
+                    draggable
+                    focusOnSelect={false}
+                    infinite
+                    itemClass=""
+                    keyBoardControl
+                    minimumTouchDrag={80}
+                    renderButtonGroupOutside={false}
+                    renderDotsOutside={false}
+                    responsive={responsive}
+                    showDots
+                    sliderClass=""
+                    slidesToSlide={1}
+                    swipeable
+                    customDot={<CustomDot />}
+
                 >
                     {carSliderInfo.map((item, index) => {
 
                         return (
                             <FiCard key={index}>
-                                <FiCardMedia media="picture" alt="Car" image={item.imagePath}>
-                                    <Image src={item.imagePath} layout="fill" objectFit="" priority loading="eager" />
+                                <FiCardMedia media="picture" alt="Car" >
+                                    <Image src={item.imagePath} layout="fill" objectFit="fill" priority loading="eager" />
                                 </FiCardMedia>
                                 <FiCardContent className={styles.cardContentResponsive}>
                                     <Box className={styles.titleContainer}>
@@ -62,7 +97,7 @@ const CarSliderSection = (props) => {
                                         )
                                     })}
 
-                                    <CustomizedButtons type="getFreeQuoteBtn" buttonText={item.Button} />
+                                    <CustomizedButtons type={buttonData.type} buttonText={buttonData.text} />
                                     {item.rating ?
                                         <Box className={styles.ratingBox}>
                                             <Card className={styles.rating}>
