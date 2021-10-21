@@ -273,6 +273,9 @@ const useStyles = makeStyles(theme => ({
       width: '-webkit-fill-available',
       height: '-webkit-fill-available',
       color: 'white',
+      [theme.breakpoints.down(800)]: {
+        height: '40px'
+      }
   },
   menuBtn : {
       whiteSpace: 'nowrap',
