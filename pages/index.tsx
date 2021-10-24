@@ -33,7 +33,7 @@ import client from "../services/homePage.service";
 const IndexPage: NextPage = ({ homepages  }: any) => {
 
   console.log(homepages[0]);
-  const [header, setHeader] = useState(homepages[0].headers[0]);
+  const [header, setHeader] = useState(homepages[0].headers);
   const [cars, setCars] = useState(homepages[0].carssliders);
   const [ourServices, setOurServices] = useState(homepages[0].ourservices);
   const [companyRelation, setCompanyRelation] = useState(homepages[0].clientsliders);
@@ -53,7 +53,7 @@ const IndexPage: NextPage = ({ homepages  }: any) => {
   // const [car, setCar] = useState<CarsSlider[]>(carouselData)
   return (
     <div>
-      <Header data={homepages[0].headers} />
+      <Header data={header} />
       <main >
         <CarSliderSection data={Items} ></CarSliderSection>
         <OurServices />
