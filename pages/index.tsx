@@ -27,99 +27,7 @@ import HomePageService from '../services/homePage.service';
 import { gql } from "@apollo/client";
 import client from "../services/homePage.service";
 
-//run at builtime
-export const getStaticProps: GetStaticProps = async (context) => {
-     const {data} = await client.query({
-        query: gql `
-        query GetHomePageData {
-            homepages(locale: "es") {
-                headers{
-                  menuoptions{
-                    displayname 
-                    img{url}
-                    menuoptionchilds{
-                      displayname
-                      path
-                    }
-                  }
-                  languages {
-                    displayname
-                    code
-                  }
-                  logopath {url}
-                }
-                carssliders{
-                  carsliderinfos{
-                    title
-                    desc
-                    img{url}
-                    rating
-                  }
-                  tripadvisors{
-                    logopath {url}
-                    desc
-                    url
-                  }
-                }
-                  ourservices {
-                title
-                  services{
-                    img{url}
-                    title
-                    desc
-                  }
-                }      
-                thustworthycarrentals{
-                  title
-                  thrustworthycarrentalinfos{
-                      img{url}
-                    title
-                    shortdesc
-                    longdesc
-                  }
-                }
-                clientsliders{
-                  title
-                  clientopinions{
-                      profileimagepath {url}
-                    comment
-                    name
-                    rate
-                  }      
-                }
-                faqs{
-                  title
-                  desc
-                  faqoptions{
-                    title
-                    desc
-                  }
-                }
-                otexperts{
-                  title
-                  teamimagepath{url}
-                  otexpertsinfos{
-                    img {url}
-                    desc
-                  }
-                }
-                footers{
-                  desc
-                }
-                buttons{
-                  type
-                  text
-                }
-              }    
-        }
-    `
-      })
-      return {
-        props: {
-          homepages: data.homepages
-        },
-     };
-}
+
 
 
 const IndexPage: NextPage = ({ homepages  }: any) => {
@@ -155,7 +63,7 @@ const IndexPage: NextPage = ({ homepages  }: any) => {
         <OurTravelSection />
       </main>
       <div>
-        <Footer></Footer>
+        <Footer footer={footer} button={buttons} ></Footer>
       </div>
     </div >
   )
@@ -164,22 +72,96 @@ const IndexPage: NextPage = ({ homepages  }: any) => {
 export default IndexPage
 
 
-
-
-// <Grid container
-//           spacing={{ xs: 1, md: 1, lg: 1, xl: 1 }}
-//           direction="row"
-//           justifyContent="center"
-//           alignItems="center"
-//           sx={{ mb: 3, backgroundColor: "#fc0;" }} >
-
-//           <Box sx={{ flexGrow: 1 }} >
-
-//             {cards.map((card: iCardCar, index) => (
-//               <Grid item xs={4} sm={4} md={4} key={index} mb={20} sx={{ mt: 2 }}>
-//                   <Card {...card}></Card>
-//               </Grid>
-//             ))}
-//           </Box>
-
-//         </Grid>
+//run at builtime
+export const getStaticProps: GetStaticProps = async (context) => {
+  const {data} = await client.query({
+     query: gql `
+     query GetHomePageData {
+         homepages(locale: "es") {
+             headers{
+               menuoptions{
+                 displayname 
+                 img{url}
+                 menuoptionchilds{
+                   displayname
+                   path
+                 }
+               }
+               languages {
+                 displayname
+                 code
+               }
+               logopath {url}
+             }
+             carssliders{
+               carsliderinfos{
+                 title
+                 desc
+                 img{url}
+                 rating
+               }
+               tripadvisors{
+                 logopath {url}
+                 desc
+                 url
+               }
+             }
+               ourservices {
+             title
+               services{
+                 img{url}
+                 title
+                 desc
+               }
+             }      
+             thustworthycarrentals{
+               title
+               thrustworthycarrentalinfos{
+                   img{url}
+                 title
+                 shortdesc
+                 longdesc
+               }
+             }
+             clientsliders{
+               title
+               clientopinions{
+                   profileimagepath {url}
+                 comment
+                 name
+                 rate
+               }      
+             }
+             faqs{
+               title
+               desc
+               faqoptions{
+                 title
+                 desc
+               }
+             }
+             otexperts{
+               title
+               teamimagepath{url}
+               otexpertsinfos{
+                 img {url}
+                 desc
+               }
+             }
+             footers{
+               desc
+             }
+             buttons{
+               type
+               text
+             }
+           }    
+     }
+ `
+   })
+   return {
+     props: {
+       homepages: data.homepages
+     },
+  };
+}

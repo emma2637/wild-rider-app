@@ -21,10 +21,14 @@ const useStyles = makeStyles(theme => ({
         fontSize: '20px',
         letterSpacing: 'normal',
     }
-}),{name: 'MuiFooterComponent'})
+}), { name: 'MuiFooterComponent' })
 //#endregion Styles
 
-const Footer = () => {
+const Footer = (props) => {
+    const { footer, button } = props;
+    const footerDescription = footer[0].desc;
+    const getFreeQuoteBtn = button.find(item => item.type.includes("QUOTE"));
+
     const classes = useStyles();
     return (
         <Box>
@@ -33,9 +37,9 @@ const Footer = () => {
                     <Toolbar>
                         <Container className={classes.content}>
                             <Typography className={classes.footerText}>
-                                We are the specialists for your individual Costa Rica adventure!<br />For 20+ years we have been renting 4×4 cars at economic rates.
+                                {footerDescription}
                             </Typography>
-                            <CustomizedButtons type="getFreeQuoteBtn" buttonText={"GET A FREE QUOTE"} />
+                            <CustomizedButtons type={"getFreeQuoteBtn"} buttonText={getFreeQuoteBtn.text} />
                         </Container>
                     </Toolbar>
                 </Container>
