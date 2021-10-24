@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.16",
     "@emotion/cache": "latest",
     "@emotion/react": "^11.4.1",
     "@emotion/server": "latest",
@@ -21,6 +22,7 @@
     "@types/prop-types": "^15.7.4",
     "classnames": "^2.3.1",
     "flag-icon-css": "^3.5.0",
+    "graphql": "^15.6.1",
     "mobile-detect": "^1.4.5",
     "next": "11.1.2",
     "react": "17.0.2",

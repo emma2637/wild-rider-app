@@ -249,8 +249,11 @@ const useStyles = makeStyles(theme => ({
 {name: "MuiHeaderComponent"}
 );
 
-const Header = () => {
+const Header = (props) => {
   //#region Const
+
+  
+  console.log(props);
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down(800));

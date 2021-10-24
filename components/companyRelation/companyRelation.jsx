@@ -157,7 +157,7 @@ const useStyles = makeStyles(theme => ({
         width: '291px',
         padding: '10px 20px 10px 20px',
         margin: '0 auto',
-        width: 'fill',
+        width: 'strech',
     },
     divider: {
         width: '30px',

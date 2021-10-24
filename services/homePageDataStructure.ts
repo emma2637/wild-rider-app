@@ -123,7 +123,7 @@ interface Footer {
     text: string;
 }
 
-interface Button {
+export interface Button {
     type: string;
     text: string;
 }
