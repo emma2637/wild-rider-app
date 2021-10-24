@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { NextPage } from 'next'
+import { NextPage,GetStaticProps } from 'next'
+
 import Header from '../components/header/header.component'
 import OurServices from '../components/ourServices/ourServices.component'
 import FAQ from '../components/faq/faq.component'
@@ -16,26 +17,137 @@ import CarSliderSection from '../sections/homePage/carSlider/carSliderSection.co
 import TrustWortySection from '../sections/homePage/trustWorthyCarRental/trustWortySection.component'
 import OurTravelSection from '../sections/homePage/ourTravelExperts/ourTravelExperts.section.component'
 import Items from '../components/carousel/carousel.data'
+import HomePageService from '../services/homePage.service';
+
+import { gql } from "@apollo/client";
+import client from "../services/homePage.service";
+
+//run at builtime
+export const getStaticProps: GetStaticProps = async (context) => {
+     const {data} = await client.query({
+        query: gql `
+        query GetHomePageData {
+            homepages(locale: "es") {
+                headers{
+                  menuoptions{
+                    displayname 
+                    img{url}
+                    menuoptionchilds{
+                      displayname
+                      path
+                    }
+                  }
+                  languages {
+                    displayname
+                    code
+                  }
+                  logopath {url}
+                }
+                carssliders{
+                  carsliderinfos{
+                    title
+                    desc
+                    img{url}
+                    rating
+                  }
+                  tripadvisors{
+                    logopath {url}
+                    desc
+                    url
+                  }
+                }
+                  ourservices {
+                title
+                  services{
+                    img{url}
+                    title
+                    desc
+                  }
+                }      
+                thustworthycarrentals{
+                  title
+                  thrustworthycarrentalinfos{
+                      img{url}
+                    title
+                    shortdesc
+                    longdesc
+                  }
+                }
+                clientsliders{
+                  title
+                  clientopinions{
+                      profileimagepath {url}
+                    comment
+                    name
+                    rate
+                  }      
+                }
+                faqs{
+                  title
+                  desc
+                  faqoptions{
+                    title
+                    desc
+                  }
+                }
+                otexperts{
+                  title
+                  teamimagepath{url}
+                  otexpertsinfos{
+                    img {url}
+                    desc
+                  }
+                }
+                footers{
+                  desc
+                }
+                buttons{
+                  type
+                  text
+                }
+              }    
+        }
+    `
+      })
+      return {
+        props: {
+          homepages: data.homepages
+        },
+     };
+}
 
 
+const IndexPage: NextPage = ({ homepages  }: any) => {
 
-
-const IndexPage: NextPage = () => {
+  console.log(homepages[0]);
+  const [header, setHeader] = useState(homepages[0].headers[0]);
+  const [cars, setCars] = useState(homepages[0].carssliders);
+  const [ourServices, setOurServices] = useState(homepages[0].ourservices);
+  const [companyRelation, setCompanyRelation] = useState(homepages[0].clientsliders);
+  const [trustWorty, setTrustWorty] = useState(homepages[0].thustworthycarrentals);
+  const [faq, setFaq] = useState(homepages[0].faqs);
+  const [otExperts, setOtExperts] = useState(homepages[0].otexperts);
+  const [footer, setFooter] = useState(homepages[0].footers);
+  const [buttons, setButtons] = useState(homepages[0].buttons);
+  
 
   const [cards, setCards] = useState<iCardCar[]>(cardData)
-  const [cars, setCars] = useState(Items);
+
+  // console.log('carousel cars',cars);
+  // console.log('header ',header);
+  // console.log('ourServices ',ourServices);
   // const [tripAdvisor, setTripAdvisor] = useState<TripAdvisor >('https://www.tripadvisor.com/','')
   // const [car, setCar] = useState<CarsSlider[]>(carouselData)
   return (
     <div>
-      <Header />
+      <Header data={homepages[0].headers} />
       <main >
         <CarSliderSection data={Items} ></CarSliderSection>
-        <OurServices />    
+        <OurServices />
         <CompanyRelation />
-        <TrustWortySection/>
+        <TrustWortySection />
         <FAQ />
-        <OurTravelSection/>
+        <OurTravelSection />
       </main>
       <div>
         <Footer></Footer>
