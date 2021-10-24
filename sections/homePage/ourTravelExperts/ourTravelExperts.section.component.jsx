@@ -84,39 +84,22 @@ const useStyles = makeStyles((theme) => ({
 
 }), { name: 'MuiOurTravelExperts' });
 
-const ourTravelData = {
-    title: 'Our Travel Experts',
-    infoSections: [
-        {
-            imagePath: 'https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/56fc0452-de3e-4f1c-b770-750a78e0d99b.png',
-            description: 'We have all been living in Costa Rica for more than 25 years and have travelled a lot during this time. Morten is passionate surfer and know all beaches, waves, which tides and swells they need and the cool places you should check out. Along both coasts.'
-        },
-        {
-            imagePath: 'https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/56fc0452-de3e-4f1c-b770-750a78e0d99b.png',
-            description: 'As a motorcycle tour guide, Thomas has travelled about 500,000 km by motorcycle in Costa Rica. In the years 1992-1997 he was mainly traveling on his mountain bike through Costa Rica.'
-        },
-        {
-            imagePath: 'https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/56fc0452-de3e-4f1c-b770-750a78e0d99b.png',
-            description: 'Jose who worked less time outdoors, knows a lot of  the Costa Rica’s best restaurants and interesting destinations.  We look forward to sharing this knowledge and experience with you. Our goal is to organize an unforgettable and unique vacation for you.'
-        }
-    ],
-    teamImagePath: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-}
 
-const OurTravelSection = () => {
+const OurTravelSection = (props) => {
     const classes = useStyles();
-
-
+    const { title, otexpertsinfos, teamimagepath } = props.ourTravelData[0];
+   
     function TravelExpertsCard({ infoSection }) {
+        console.log(infoSection);
         return (
             <Card className={classes.card}>
                 <CardMedia>
-                    <Image className={classes.cardImg} src={infoSection.imagePath} height={242} width={350} />
+                    <Image className={classes.cardImg} src={infoSection.img[0].url} height={242} width={350} /> 
                 </CardMedia>
                 <CardContent className={classes.cardContent}>
                     <Box className={classes.cardTextContainer}>
                         <Typography className={classes.cardDescription}>
-                            {infoSection.description}
+                            {infoSection.desc}
                         </Typography>
                     </Box>
                 </CardContent>
@@ -129,11 +112,11 @@ const OurTravelSection = () => {
         <>
             <Box className={classes.container}>
                 <Box className={classes.content}>
-                    <Typography className={classes.title}>{ourTravelData.title}</Typography>
+                    <Typography className={classes.title}>{title}</Typography>
                     <Box className={classes.cardsContainer}>
 
                         {
-                            ourTravelData.infoSections.map((x, i) => {
+                            otexpertsinfos.map((x, i) => {
                                 return (
                                     <Box key={i} className={classes.cardContainer}>
                                         <TravelExpertsCard key={i} infoSection={x} />
@@ -143,8 +126,8 @@ const OurTravelSection = () => {
 
                     </Box>
                     <Box className={classes.cardsContainer}>
-                        <Image src={ourTravelData.teamImagePath} height={410} width={1020}>
-                        </Image>
+                         <Image src={teamimagepath[0].url} height={410} width={1020}>
+                        </Image> 
                     </Box>
                 </Box>
             </Box>

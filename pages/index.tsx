@@ -60,7 +60,7 @@ const IndexPage: NextPage = ({ homepages  }: any) => {
         <CompanyRelation />
         <TrustWortySection />
         <FAQ />
-        <OurTravelSection />
+        <OurTravelSection ourTravelData={otExperts} />
       </main>
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
