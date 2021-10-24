@@ -2,44 +2,6 @@ import Image from 'next/image'
 import { Box, Card, CardContent, Container, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
-//#region Data 
-const ourServicesData = {
-    title:"OurServices",
-    services: [
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/d8195461-2426-49b5-9e81-6a80ebec7369.svg",
-            title:"Maintenance",
-            description : "Constantly & perfectly maintained vehicles"
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/c49b95d2-7cb8-4c5e-8562-7af70320bb07.svg",
-            title: "Customer Service",
-            description : "Friendly & trustworthy customer service"
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/066dab86-b8f1-4cba-a1d0-cb87d259d4d0.svg",
-            title: "Insurance",
-            description : "Full cover insurance included in rates"
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/8f126a4a-ffee-4fd1-8770-1e75b20f6487.svg",
-            title: "Mileage",
-            description : "Unlimited mileage included in rates"
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/edfde89d-8ff9-4e5c-a8a7-f47d94fcbb3f.svg",
-            title: "Always with you",
-            description : "Roadside assistance included in rates"
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/e17ab05a-9026-45bc-a021-e0bfe046e8d5.svg",
-            title: "PICKUP",
-            description : "Just in time"
-        }
-    ]
-}
-//#endregion 
-
 //#region Styles
 const useStyles = makeStyles(theme => ({
     container: { 
@@ -115,22 +77,22 @@ const useStyles = makeStyles(theme => ({
 ,{name: "MuiOurServicesComponent"});
 //#endregion Styles
 
-const OurServices = () => {
+const OurServices = (props) => {
     const classes = useStyles();
-    
+    const {title, services} = props.ourservicesD[0];
     return(
         <Container className={classes.container}>
-            <Typography className={classes.title}>{ourServicesData.title}</Typography>
+            <Typography className={classes.title}>{title}</Typography>
             <Box className={classes.content}>
-                {ourServicesData.services.map((x, i) => (
+                {services.map((x, i) => (
                 <Card key={i} className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                        <Image src={x.imagePath} height={92} width={90} />
+                        <Image src={x.img[0].url} height={92} width={90} />
                         <Typography className={classes.cardTitle}>
                             {x.title}
                         </Typography>
                         <Typography className={classes.cardDescription}>
-                            {x.description}
+                            {x.desc}
                         </Typography>
                     </CardContent>
                 </Card>

@@ -56,7 +56,7 @@ const IndexPage: NextPage = ({ homepages  }: any) => {
       <Header data={header} />
       <main >
         <CarSliderSection data={Items} ></CarSliderSection>
-        <OurServices />
+        <OurServices  ourservicesD={ourServices}/>
         <CompanyRelation />
         <TrustWortySection />
         <FAQ faq={faqD} button={buttons}/>

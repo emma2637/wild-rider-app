@@ -90,7 +90,7 @@ const OurTravelSection = (props) => {
     const { title, otexpertsinfos, teamimagepath } = props.ourTravelData[0];
    
     function TravelExpertsCard({ infoSection }) {
-        console.log(infoSection);
+        // console.log(infoSection);
         return (
             <Card className={classes.card}>
                 <CardMedia>
