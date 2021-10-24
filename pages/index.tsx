@@ -38,7 +38,7 @@ const IndexPage: NextPage = ({ homepages  }: any) => {
   const [ourServices, setOurServices] = useState(homepages[0].ourservices);
   const [companyRelation, setCompanyRelation] = useState(homepages[0].clientsliders);
   const [trustWorty, setTrustWorty] = useState(homepages[0].thustworthycarrentals);
-  const [faq, setFaq] = useState(homepages[0].faqs);
+  const [faqD, setFaqD] = useState(homepages[0].faqs);
   const [otExperts, setOtExperts] = useState(homepages[0].otexperts);
   const [footer, setFooter] = useState(homepages[0].footers);
   const [buttons, setButtons] = useState(homepages[0].buttons);
@@ -59,7 +59,7 @@ const IndexPage: NextPage = ({ homepages  }: any) => {
         <OurServices />
         <CompanyRelation />
         <TrustWortySection />
-        <FAQ />
+        <FAQ faq={faqD} button={buttons}/>
         <OurTravelSection ourTravelData={otExperts} />
       </main>
       <div>
