@@ -1,9 +1,7 @@
-import { Button, Typography, Box,
-    Toolbar, useMediaQuery, AccordionSummary, AccordionDetails } from '@mui/material';
-import Accordion from "@mui/material/Accordion";
+import { Button, Typography, Box, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import AddIcon from '@mui/icons-material/Add';
-import CustomizedButtons from '../customizedButton/customizedButton.component';
+import CustomizedButtons from '../../../components/customizedButton/customizedButton.component';
 
 //#region FAQ Data 
 const faqData = {
@@ -38,14 +36,12 @@ const faqData = {
 }
 //#endregion FAQ Data
 
+//#region Styles
 const isMobileWidth = 800;
-
 const useStyles = makeStyles(theme => ({
     mainContainer: {
+        marginTop: '30px',
         backgroundColor: '#f3f3f3',
-        [theme.breakpoints.down(isMobileWidth)]: {
-            backgroundColor: 'unset'
-        }
     },
     title: {
         fontFamily: 'Raleway',
@@ -62,16 +58,22 @@ const useStyles = makeStyles(theme => ({
         fontWeight: '500',
         textAlign: 'center',
         color: '#262f39',
-        paddingBottom: '40px'
+        padding: '0 7% 40px 7%',
     },
     faqContainer: {
         display: 'flex',
         flexWrap: 'wrap',
+        justifyContent: 'center',
     },
     accordion: {
-        flexBasis: '50%',
+        margin: '0px 12px 0px 12px',
+        flexBasis: '46%',
+        justifyContent: 'center',
         [theme.breakpoints.down(isMobileWidth)]: {
             flexBasis: '100%'
+        },
+        [theme.breakpoints.down(400)]: {
+            margin: '0',
         },
         backgroundColor: 'transparent',
         boxShadow: 'unset',
@@ -85,12 +87,6 @@ const useStyles = makeStyles(theme => ({
         fontSize: '14px',
         fontWeight: 'bold',
         textAlign: 'center',
-        [theme.breakpoints.down(isMobileWidth)]: {
-            '& .MuiAccordionSummary-content': {
-                margin: 'unset',
-                height: '60px'
-            }
-        }
     },
     faqBtn: {
         color: '#262f39',
@@ -99,16 +95,6 @@ const useStyles = makeStyles(theme => ({
         height: '-webkit-fill-available',
         justifyContent: 'space-between',
         height: '50px',
-        [theme.breakpoints.down(isMobileWidth)]: {
-            borderTopStyle: 'groove',
-            borderWidth: '3px',
-            borderRadius: '0',
-            borderColor: '#f2f2f2;',
-            height: '60px',
-            '&.last':{
-                borderBottomStyle: 'groove',
-            },
-        },
         '& .MuiTypography-root': {
             fontFamily: 'Montserrat',
             fontSize: '14px',
@@ -128,6 +114,7 @@ const useStyles = makeStyles(theme => ({
 }),
 {name: "MuiFAQComponent"}
 );
+//#endregion Styles
 
 const FAQ = () => {
     const classes = useStyles();

@@ -10,13 +10,11 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from 'next/image'
 import 'flag-icon-css/css/flag-icon.min.css';
-import styles from '../../styles/header.module.scss'
 import Accordion from "@mui/material/Accordion";
 import { makeStyles } from '@mui/styles';
 
 //#region Left Menu
 const drawerWidth = 195;
-
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open'
 })(({ theme, open }) => ({
@@ -32,15 +30,9 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
-
-const Menuleft = styled(SwipeableDrawer)({
-});
-
-
-
 //#endregion Left Menu
 
-//#region Listas
+//#region Data
 const menuOptions = [
   { displayName: 'CARS & RATES', children: [
     {displayName: 'SUZUKI JIMNY', direction: 'suzuki jimny'}, 
@@ -62,192 +54,260 @@ const lenguageOption = [
 ]
 //#endregion
 
+//#region Styles
 const useStyles = makeStyles(theme => ({
   menuDesktopAccordion :{
-    backgroundColor: "#2866ae !important",
+    flexGrow: '1.5',
+    backgroundColor: '#2866ae !important',
     '&.MuiPaper-root':{
-      boxShadow: "none !important",
-      backgroundColor: "transparent",
+      boxShadow: 'none !important',
+      backgroundColor: 'transparent',
     },
     '& .MuiCollapse-root': {
-      position: "absolute",
-      backgroundColor: "#2866ae !important",
+      position: 'absolute',
+      backgroundColor: '#2866ae !important',
+      width: '100%',
     },
     '&.Mui-expanded': {
-      margin: "0 !important",
+      margin: '0 !important',
       '&::before': {
-        opacity: "unset"
+        opacity: 'unset'
       }
     },
   },
   menuDesktopAccordionSummary: {
-    height: "64px",
-    padding: "unset !important",
-    whiteSpace: "nowrap",
+    height: '64px',
+    padding: 'unset !important',
+    whiteSpace: 'nowrap',
     '& .MuiAccordionSummary-content':{
-      alignItems: "center",
-      margin: "unset",
+      alignItems: 'center',
+      margin: 'unset',
       '& .MuiSvgIcon-root': {
-        marginRight: "-2px"
+        marginRight: '-2px'
       }
     },
   },
   menuDesktopAccordionDetails: { 
-    padding: "0px 0px 0px 0px"
+    padding: '0px 0px 0px 0px'
   },
   menuMobileAccordion: {
-    width: "100%",
-    backgroundColor: "#2866ae !important",
-    color: "white",
+    width: '100%',
+    backgroundColor: '#2866ae !important',
+    color: 'white',
     '&.MuiPaper-root':{
-      boxShadow: "none !important",
-      backgroundColor: "transparent",
+      boxShadow: 'none !important',
+      backgroundColor: 'transparent',
     },
     '&.Mui-expanded': {
-      margin: "0 !important",
+      margin: '0 !important',
       '&::before': {
-        opacity: "unset"
+        opacity: 'unset'
       }
     },
   },
   menuDesktopAccordionList: {
-    color: "white",
-    width: "100%",
-    height: "36px",
-    textDecoration: "underline",
-    textAlign: "center",
+    color: 'white',
+    width: '100%',
+    height: '36px',
+    textDecoration: 'underline',
+    textAlign: 'center',
     '& .MuiTypography-root': {
-      fontFamily: "Raleway",
-      fontSize: "12px",
-      fontWeight: "800",
-      fontStretch: "normal",
-      fontStyle: "normal",
-      lineHeight: "3",
-      letterSpacing: "1.4px",
+      fontFamily: 'Raleway',
+      fontSize: '12px',
+      fontWeight: '800',
+      fontStretch: 'normal',
+      fontStyle: 'normal',
+      lineHeight: '3',
+      letterSpacing: '1.4px',
     }
     
   },
   menuMobileAccordionSummary: { 
-    padding: "unset",
-    borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
-    width: "100%",
+    padding: 'unset',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+    width: '100%',
     '& .MuiAccordionSummary-content': {
-      justifyContent: "center",
-      padding: "0 !important",
-      display: "contents"
+      justifyContent: 'center',
+      padding: '0 !important',
+      display: 'contents'
     },
     '&.MuiAccordionSummary-root': {
       '&.Mui-expanded': {
-        minHeight: "49px",
+        minHeight: '49px',
       },
     },
     '& .Mui-expanded': {
-      margin: "0 !important",
-      minHeight: "0 !important",
+      margin: '0 !important',
+      minHeight: '0 !important',
     },
     '& .MuiTypography-root': {
-      display: "contents",
+      display: 'contents',
     },
     '& .MuiSvgIcon-root': {
-      position: "absolute",
-      left: "3px"
+      position: 'absolute',
+      left: '3px'
     }
   },
   closeMenuBtn: {
-    width: "100%",
-    color: "white",
-    display: "flex",
-    justifyContent: "center"
+    width: '100%',
+    color: 'white',
+    display: 'flex',
+    justifyContent: 'center'
   },
   menuMobileAccordionDetails: { 
-    padding: "0px 0px 9px 0px"
+    padding: '0px 0px 9px 0px'
   },
   menuMobileAccordionList: {
-    backgroundColor: "#1B60AC",
-    width: "100%",
-    height: "36px",
-    textDecoration: "underline",
+    backgroundColor: '#1B60AC',
+    width: '100%',
+    height: '36px',
+    textDecoration: 'underline',
     '& .MuiTypography-root': {
-      fontFamily: "Raleway",
-      fontSize: "12px",
-      fontWeight: "800",
-      fontStretch: "normal",
-      fontStyle: "normal",
-      lineHeight: "3",
-      letterSpacing: "1.4px",
+      fontFamily: 'Raleway',
+      fontSize: '12px',
+      fontWeight: '800',
+      fontStretch: 'normal',
+      fontStyle: 'normal',
+      lineHeight: '3',
+      letterSpacing: '1.4px',
     }
     
   },
   menuItem:{
-    color: "white",
+    color: 'white',
     '& .MuiTypography-root': {
-      fontFamily: "Raleway",
-      fontSize: "16px",
-      fontWeight: "800",
-      fontStretch: "normal",
-      fontStyle: "normal",
-      lineHeight: "2.33",
-      letterSpacing: "2.16px"
+      fontFamily: 'Raleway',
+      fontSize: '16px',
+      fontWeight: '800',
+      fontStretch: 'normal',
+      fontStyle: 'normal',
+      lineHeight: '2.33',
+      letterSpacing: '2.16px'
     }
   },
   lenguageItem:{
-    color: "white",
+    color: 'white',
     '& .MuiTypography-root': {
-      fontFamily: "Raleway",
-      fontSize: "12px",
-      fontWeight: "800",
-      fontStretch: "normal",
-      fontStyle: "normal",
-      lineHeight: "3",
-      letterSpacing: "1.4px",
+      fontFamily: 'Raleway',
+      fontSize: '12px',
+      fontWeight: '800',
+      fontStretch: 'normal',
+      fontStyle: 'normal',
+      lineHeight: '3',
+      letterSpacing: '1.4px',
     }
   },
   languageMenu: {
     '& .MuiMenu-paper': {
-      backgroundColor: "#2866ae",
-      top: "60px !important",
-      borderRadius: "0px",
-      boxShadow: "unset",
+      backgroundColor: '#2866ae',
+      top: '60px !important',
+      borderRadius: '0px',
+      boxShadow: 'unset',
       left: `calc(100% - (136px)) !important`,
-      width: "136px !important",
+      width: '136px !important',
     },
     '& .MuiList-root': {
-      paddingTop: "0px",
-      paddingBottom: "0px"
+      paddingTop: '0px',
+      paddingBottom: '0px'
     },
     '& .MuiButton-root': {
-      color: "white",
-      padding: "8px 12px 8px 12px",
-      width: "100%",
-      display: "grid",
-      gridAutoFlow: "column",
-      gridColumnGap: "10px"
+      color: 'white',
+      padding: '8px 12px 8px 12px',
+      width: '100%',
+      display: 'grid',
+      gridAutoFlow: 'column',
+      gridColumnGap: '10px'
     },
     '& .MuiMenuItem-root':{
-      padding: "0px"
+      padding: '0px'
     }
   },
   menuLanguage: {
-    flexGrow: "0.3",
-    height: "64px",
+    flexGrow: '0.3',
+    height: '64px',
     '& .MuiButtonBase-root': {
-      height: "-webkit-fill-available",
-      width: "-webkit-fill-available",
-      borderRadius: "unset"
+      height: '-webkit-fill-available',
+      width: '-webkit-fill-available',
+      borderRadius: 'unset'
     }
   },
   lenguageOption: { 
-    fontFamily: "Raleway !important",
-    fontSize: "12px !important",
-    fontWeight: "800 !important",
+    fontFamily: 'Raleway !important',
+    fontSize: '12px !important',
+    fontWeight: '800 !important',
     '& .flag-icon': {
-      marginRight: "10px",
-      fontSize: "19px !important",
+      marginRight: '10px',
+      fontSize: '19px !important',
     }
+  },
+  appBar: {
+    backgroundColor: '#2866ae',
+  },
+  toolBar: {
+      paddingRight: '0px',
+      paddingLeft: '24px',
+      [theme.breakpoints.down(800)]:{
+        paddingRight: '0px !important',
+        paddingLeft: '0px !important'
+      }
+  },
+  logoContainer: {
+    position: 'relative', 
+    width: '222px', 
+    height: '64px',
+    paddingRight: '3%',
+    [theme.breakpoints.down(800)]: {
+        flex: '30',
+        position: 'relative', 
+        width: '222px', 
+        height: '55px',
+        paddingRight: 'unset',
+    }
+  },
+  headerOptions : {
+      display: 'flex',
+      width: '-webkit-fill-available',
+      alignItems: 'center',
+  },
+  menuIcon: {
+      width: '-webkit-fill-available',
+      height: '-webkit-fill-available',
+      color: 'white',
+      [theme.breakpoints.down(800)]: {
+        height: '40px'
+      }
+  },
+  menuBtn : {
+      whiteSpace: 'nowrap',
+      color: 'white',
+      flexGrow: '3',
+      height: '64px',
+      fontSize: '19px',
+  },
+  menuLeftHeader: {
+      display: 'flex',
+      color: 'white',
+      width: '-webkit-fill-available',
+      height: '64px',
+      [theme.breakpoints.down(600)]: {
+        height: '56px'
+      }
+  },
+  menuListItem: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  menuLeftContainer: {
+      width: '195px',
+      boxSizing: 'border-box',
+      backgroundColor: '#2866ae',
+      color: ' white !important',
+      alignItems: 'center',
   }
 }),
-{name: "MuiHeaderComponent"}
+{name: 'MuiHeaderComponent'}
 );
+//#endregion Styles
 
 const Header = (props) => {
   //#region Const
@@ -276,12 +336,12 @@ const Header = (props) => {
   //#endregion Functions
     return (<Box>
             {(stateMenuLeft) ? null : 
-              <Button className={styles.menuBtn} onClick={menuLeftHandler(true)} open={stateMenuLeft}>
-                <MenuIcon />
+              <Button className={classes.menuBtn} onClick={menuLeftHandler(true)} open={stateMenuLeft}>
+                <MenuIcon className={classes.menuIcon} />
               </Button>
             }
-            <SwipeableDrawer classes={{ paper: styles.menuLeftContainer }} anchor="left" open={stateMenuLeft} onClose={menuLeftHandler(false)} onOpen={menuLeftHandler(true)}>
-            <Box className={styles.menuLeftHeader }>
+            <SwipeableDrawer classes={{ paper: classes.menuLeftContainer }} anchor="left" open={stateMenuLeft} onClose={menuLeftHandler(false)} onOpen={menuLeftHandler(true)}>
+            <Box className={classes.menuLeftHeader }>
               <Button className={`${classes.closeMenuBtn} ${classes.menuItem}`} onClick={menuLeftHandler(false)}>
                 <ChevronLeftIcon />
                 <Typography>Menu</Typography>
@@ -292,7 +352,7 @@ const Header = (props) => {
                 return (
                   <Accordion key={i} className={classes.menuMobileAccordion}>
                     <AccordionSummary className={`${classes.menuMobileAccordionSummary} ${classes.menuItem}`} >
-                      <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
+                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)}>
                         <ExpandMoreIcon />
                         <Typography>{x.displayName}</Typography>
                       </Button>
@@ -300,7 +360,7 @@ const Header = (props) => {
                     <AccordionDetails className={classes.menuMobileAccordionDetails}>
                       {x.children.map((cx, ci) => (
                         <ListItem key={ci} onClick={() => GoTo(cx.direction)} className={classes.menuMobileAccordionList} button divider>
-                          <ListItemText className={`${classes.accordionItem} ${styles.menuListItem}`} primary={cx.displayName} />
+                          <ListItemText className={`${classes.accordionItem} ${classes.menuListItem}`} primary={cx.displayName} />
                         </ListItem>
                       ))}
                     </AccordionDetails>
@@ -308,7 +368,7 @@ const Header = (props) => {
                 )} else {
                   return (
                     <ListItem key={i} onClick={() => GoTo(x.direction)} button divider>
-                      <ListItemText className={`${styles.menuListItem} ${classes.menuItem}`} primary={x.displayName} />
+                      <ListItemText className={`${classes.menuListItem} ${classes.menuItem}`} primary={x.displayName} />
                     </ListItem>
                   )
                 }
@@ -341,17 +401,13 @@ const Header = (props) => {
     }
    //#endregion
     return <Box className={classes.menuLanguage}> 
-              <Button className={`${styles.menuBtn} ${styles.flagBtn}`}  onClick={handleClick}>
+              <Button className={`${classes.menuBtn} ${classes.flagBtn}`}  onClick={handleClick}>
                 <KeyboardArrowDownIcon />
                 <span className={`flag-icon flag-icon-${currentLenguageCode}`}></span>
               </Button>
               <Menu anchorEl={lenguageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
                 {lenguageOption.map((x, i) => {
                       return <MenuItem key={i} onClick={() => {changeLenguage(x.code); handleClose()}} className={classes.lenguageItem}>
-                              {/* <Button className={styles.flagBtn}>
-                                <span className={`flag-icon flag-icon-${x.code}`}></span>
-                                
-                              </Button> */}
                               <ListItem sx={{ textDecoration: "underline"}} button divider>
                                 <ListItemText>
                                   <Typography className={ classes.lenguageOption }>
@@ -373,29 +429,26 @@ const Header = (props) => {
   const logoPath = "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/bd8b2296-2030-49b5-9275-248d22739502.svg";
   return  (
     <Box>
-      <AppBar className={styles.appBar} open={stateMenuLeft}>
-        <Toolbar className={styles.toolBar}>
+      <AppBar className={classes.appBar} open={stateMenuLeft}>
+        <Toolbar className={classes.toolBar}>
         { isMobile ?
           (<>
             <MenuMobile />
-            <Box className={styles.logoContainer} sx={{margin: (stateMenuLeft ? "0px 10px 0 10px" : "0px 0px 0px 0px")}}>
+            <Box className={classes.logoContainer} sx={{margin: (stateMenuLeft ? "0px 10px 0 10px" : "0px 0px 0px 0px")}}>
               <Image src={logoPath} layout="fill" objectFit="contain" />
             </Box>
             { (stateMenuLeft) ? null : <Languages /> }
           </>) : (<>
-            <Box className={styles.logoContainer} >
+            <Box className={classes.logoContainer} >
               <Image src={logoPath} layout="fill" objectFit="contain" />
             </Box>
-            <Box className={styles.headerOptions}>
+            <Box className={classes.headerOptions}>
               {menuOptions.map((x, i) => {
-              // return <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
-              //         {x.displayName}
-              //         </Button>
               if (x.children != undefined) {
                 return (
                   <Accordion key={i} className={classes.menuDesktopAccordion} >
                     <AccordionSummary className={`${classes.menuDesktopAccordionSummary} ${classes.menuItem}`} >
-                      <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
+                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)}>
                         <ExpandMoreIcon />
                         {x.displayName}
                       </Button>
@@ -410,7 +463,7 @@ const Header = (props) => {
                   </Accordion>
                 )} else {
                   return (
-                    <Button key={i} className={styles.menuBtn} onClick={() => GoTo(x.direction)}>
+                    <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)}>
                       {x.displayName}
                     </Button>
                   )

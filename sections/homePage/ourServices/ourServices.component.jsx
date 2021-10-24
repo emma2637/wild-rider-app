@@ -30,6 +30,11 @@ const ourServicesData = {
             imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/edfde89d-8ff9-4e5c-a8a7-f47d94fcbb3f.svg",
             title: "Always with you",
             description : "Roadside assistance included in rates"
+        },
+        {
+            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/e17ab05a-9026-45bc-a021-e0bfe046e8d5.svg",
+            title: "PICKUP",
+            description : "Just in time"
         }
     ]
 }
@@ -39,30 +44,30 @@ const ourServicesData = {
 const useStyles = makeStyles(theme => ({
     container: { 
         display: 'block',
-        paddingTop: '30px',
+        paddingTop: '21px',
         height: '490px',
         paddingLeft: '0px',
         paddingRight: '0px',
-        [theme.breakpoints.down(750)]: {
+        [theme.breakpoints.down(940)]: {
             height: '700px',
         },
-        [theme.breakpoints.down(550)]: {
+        [theme.breakpoints.down(580)]: {
             height: '900px',
         },
-        [theme.breakpoints.down(350)]: {
-            height: '1300px',
+        [theme.breakpoints.down(290)]: {
+            height: '1450px',
         },
     },
     card: { 
         boxShadow: "unset",
-        flexBasis: '20%',
-        [theme.breakpoints.down(750)]: {
+        flexBasis: '16%',
+        [theme.breakpoints.down(940)]: {
             flexBasis: '26%',
         },
-        [theme.breakpoints.down(550)]: {
+        [theme.breakpoints.down(580)]: {
             flexBasis: '50%',
         },
-        [theme.breakpoints.down(350)]: {
+        [theme.breakpoints.down(290)]: {
             flexBasis: '100%',
         },
     },
@@ -84,7 +89,7 @@ const useStyles = makeStyles(theme => ({
         fontStretch: 'normal',
         fontStyle: 'normal',
         lineHeight: '1.61',
-        paddingBottom: '12px'
+        paddingBottom: '20px'
     },
     cardTitle: {
         fontFamily: 'Raleway',

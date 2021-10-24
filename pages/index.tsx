@@ -1,17 +1,22 @@
 import * as React from 'react'
 import { NextPage,GetStaticProps } from 'next'
 
-import Header from '../components/header/header.component'
-import OurServices from '../components/ourServices/ourServices.component'
-import FAQ from '../components/faq/faq.component'
-import Footer from '../components/footer/footer.component'
+// import Header from '../components/header/header.component'
+// import OurServices from '../components/ourServices/ourServices.component'
+// import FAQ from '../components/faq/faq.component'
+// import Footer from '../components/footer/footer.component'
+
+import Header from '../sections/homePage/header/header.component'
+import OurServices from '../sections/homePage/ourServices/ourServices.component'
+import FAQ from '../sections/homePage/faq/faq.component'
+import Footer from '../sections/homePage/footer/footer.component'
 
 
 import HomePage from '../services/homePageDataStructure'
 import cardData from '../components/card/card.data'
 import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
-import CompanyRelation from '../components/companyRelation/companyRelation'
+import CompanyRelation from '../sections/homePage/companyRelation/companyRelation'
 // import RatingCarouselSection from '../components/ratingCarousel/ratingCarousel.component'
 import CarSliderSection from '../sections/homePage/carSlider/carSliderSection.component'
 import TrustWortySection from '../sections/homePage/trustWorthyCarRental/trustWortySection.component'
