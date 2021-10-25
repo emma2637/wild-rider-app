@@ -1,10 +1,5 @@
 import * as React from 'react'
-import { NextPage,GetStaticProps } from 'next'
-
-// import Header from '../components/header/header.component'
-// import OurServices from '../components/ourServices/ourServices.component'
-// import FAQ from '../components/faq/faq.component'
-// import Footer from '../components/footer/footer.component'
+import { NextPage, GetStaticProps } from 'next'
 
 import Header from '../sections/homePage/header/header.component'
 import OurServices from '../sections/homePage/ourServices/ourServices.component'
@@ -25,12 +20,22 @@ import Items from '../components/carousel/carousel.data'
 import HomePageService from '../services/homePage.service';
 
 import { gql } from "@apollo/client";
-import client from "../services/homePage.service";
+import { client, queryClient } from "../services/homePage.service";
+import { LanguageContext } from '../src/hooks/language.context'
 
 
+// const getLanguange = () => {
+//   const detectBrowserLanguage = require('detect-browser-language')
+//   // const detectedLanguage = detectBrowserLanguage().slice(0, 2);
+//   const detectedLanguage = 'es';
+//   //update value of language in context
+//   const { language, updateLanguage } = React.useContext(LanguageContext);
+//   updateLanguage(detectedLanguage)
 
+//   return detectedLanguage
+// }
 
-const IndexPage: NextPage = ({ homepages  }: any) => {
+const IndexPage: NextPage = ({ homepages }: any) => {
 
   console.log(homepages[0]);
   const [header, setHeader] = useState(homepages[0].headers);
@@ -42,24 +47,19 @@ const IndexPage: NextPage = ({ homepages  }: any) => {
   const [otExperts, setOtExperts] = useState(homepages[0].otexperts);
   const [footer, setFooter] = useState(homepages[0].footers);
   const [buttons, setButtons] = useState(homepages[0].buttons);
-  
+
 
   const [cards, setCards] = useState<iCardCar[]>(cardData)
 
-  // console.log('carousel cars',cars);
-  // console.log('header ',header);
-  // console.log('ourServices ',ourServices);
-  // const [tripAdvisor, setTripAdvisor] = useState<TripAdvisor >('https://www.tripadvisor.com/','')
-  // const [car, setCar] = useState<CarsSlider[]>(carouselData)
   return (
     <div>
       <Header data={header} />
       <main >
         <CarSliderSection data={Items} ></CarSliderSection>
-        <OurServices  ourservicesD={ourServices}/>
+        <OurServices ourservicesD={ourServices} />
         <CompanyRelation />
         <TrustWortySection />
-        <FAQ faq={faqD} button={buttons}/>
+        <FAQ faq={faqD} button={buttons} />
         <OurTravelSection ourTravelData={otExperts} />
       </main>
       <div>
@@ -74,94 +74,14 @@ export default IndexPage
 
 //run at builtime
 export const getStaticProps: GetStaticProps = async (context) => {
-  const {data} = await client.query({
-     query: gql `
-     query GetHomePageData {
-         homepages(locale: "es") {
-             headers{
-               menuoptions{
-                 displayname 
-                 img{url}
-                 menuoptionchilds{
-                   displayname
-                   path
-                 }
-               }
-               languages {
-                 displayname
-                 code
-               }
-               logopath {url}
-             }
-             carssliders{
-               carsliderinfos{
-                 title
-                 desc
-                 img{url}
-                 rating
-               }
-               tripadvisors{
-                 logopath {url}
-                 desc
-                 url
-               }
-             }
-               ourservices {
-             title
-               services{
-                 img{url}
-                 title
-                 desc
-               }
-             }      
-             thustworthycarrentals{
-               title
-               thrustworthycarrentalinfos{
-                   img{url}
-                 title
-                 shortdesc
-                 longdesc
-               }
-             }
-             clientsliders{
-               title
-               clientopinions{
-                   profileimagepath {url}
-                 comment
-                 name
-                 rate
-               }      
-             }
-             faqs{
-               title
-               desc
-               faqoptions{
-                 title
-                 desc
-               }
-             }
-             otexperts{
-               title
-               teamimagepath{url}
-               otexpertsinfos{
-                 img {url}
-                 desc
-               }
-             }
-             footers{
-               desc
-             }
-             buttons{
-               type
-               text
-             }
-           }    
-     }
- `
-   })
-   return {
-     props: {
-       homepages: data.homepages
-     },
+
+  // const language = getLanguange();
+
+
+  const { data } = await queryClient('en');
+  return {
+    props: {
+      homepages: data.homepages
+    },
   };
 }

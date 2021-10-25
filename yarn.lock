@@ -1552,6 +1552,11 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
+detect-browser-language@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/detect-browser-language/-/detect-browser-language-0.0.2.tgz#3113c2f5951d9b9d6d79cfdaca0965ae75ca0564"
+  integrity sha512-P/MsYjpZArhT40nJkJuE9fCTCJxjt73iGPPQqbqB8swVB6vSiOQrsTGDaYLjeNogD2ImuR1qON/7QmQTnrNQFA==
+
 diffie-hellman@^5.0.0:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/diffie-hellman/-/diffie-hellman-5.0.3.tgz#40e8ee98f55a2149607146921c63e1ae5f3d2875"
