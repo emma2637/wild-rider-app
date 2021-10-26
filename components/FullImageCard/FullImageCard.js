@@ -36,7 +36,7 @@ export const FiCard = withStyles({
   
   export const FiCardMedia = withStyles({
     root: {
-      position: "absolute",
+      position: "fixed",
       top: 0,
       right: 0,
       height: "100%",

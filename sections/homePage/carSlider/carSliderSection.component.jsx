@@ -18,7 +18,7 @@ const buttonData = {
 const CarSliderSection = (props) => {
 
     console.log(props);
-    const { tripAdvisor, carSliderInfo } = props.data;
+    const { tripadvisors, carsliderinfos } = props.cars[0];
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -41,14 +41,14 @@ const CarSliderSection = (props) => {
         // onMove means if dragging or swiping in progress.
         // active is provided by this lib for checking if the item is active or not.
         return (
-          <li
-            className={active ? styles.active : styles.inactive}
-            onClick={() => onClick()}
-          >
-         
-          </li>
+            <li
+                className={active ? styles.active : styles.inactive}
+                onClick={() => onClick()}
+            >
+
+            </li>
         );
-      };
+    };
     return (
         <>
             <div className={styles.carSliderContainer}>
@@ -76,12 +76,43 @@ const CarSliderSection = (props) => {
                     customDot={<CustomDot />}
 
                 >
-                    {carSliderInfo.map((item, index) => {
+                    {carsliderinfos.map((item, index) => {
 
                         return (
-                            <FiCard key={index}>
+                            <FiCard key={index} >
                                 <FiCardMedia media="picture" alt="Car" >
-                                    <Image src={item.imagePath} layout="fill" objectFit="fill" priority loading="eager" />
+                                {/* <Image src={item.img[0].url}
+                                 width={1200} height={583}  quality={90} 
+                                layout="responsive"
+                                objectFit="fill"
+                                priority /> */}
+                                {/* <Image 
+                                        layout="responsive"
+                                        width="100%"
+                                        height="700px"
+                                        objectFit="fill"
+                                        objectPosition={"50% 50%"}
+                                        priority
+                                        className={styles.carSliderImage}
+                                        // loading="eager"
+                                        alt={item.title}
+                                        src={item.img[0].url}
+                                        placeholder={'blur'}
+                                        unoptimized={true}
+                                        blurDataURL={item.img[0].url} /> */}
+
+                                    {/* <Image 
+                                        layout="fill"
+                                        objectFit="fill"
+                                        objectPosition={"50% 50%"}
+                                        priority
+                                        // loading="eager"
+                                        alt={item.title}
+                                        src={item.img[0].url}
+                                        placeholder={'blur'}
+                                        unoptimized={true}
+                                        blurDataURL={item.img[0].url} /> */}
+                                         <Image src={item.img[0].url} layout="fill" objectFit="fill" priority loading="eager" alt={item.title} />
                                 </FiCardMedia>
                                 <FiCardContent className={styles.cardContentResponsive}>
                                     <Box className={styles.titleContainer}>
@@ -89,7 +120,7 @@ const CarSliderSection = (props) => {
                                             {item.title}
                                         </Typography>
                                     </Box>
-                                    {item.description.split('.').map((item, index) => {
+                                    {item.desc.split('.').map((item, index) => {
                                         return (
                                             <Typography variant="body2" className={styles.caption} component="p" key={index}>
                                                 {item}
@@ -98,17 +129,17 @@ const CarSliderSection = (props) => {
                                     })}
 
                                     <CustomizedButtons type={buttonData.type} buttonText={buttonData.text} />
-                                    {item.rating ?
+                                    {/* {item.rating ?
                                         <Box className={styles.ratingBox}>
                                             <Card className={styles.rating}>
                                                 <CardHeader
                                                     avatar={
                                                         <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.avatar}>
-                                                            <Image src={item.rating.profileImagePath} width={30} height={30} layout="responsive" objectFit="fill" />
+                                                            <Image src={item.rating.img.url} width={30} height={30} layout="responsive" objectFit="fill" alt={item.rating.name} />
                                                         </Avatar>
                                                     }
                                                     title={
-                                                        <Rating name="read-only" value={item.rating.rate} readOnly className={styles.rating.value} />
+                                                        <Rating name="read-only" value={item.rating} readOnly className={styles.rating.value} />
                                                     } />
                                                 <CardContent>
                                                     <Typography className={styles.rating.content}>
@@ -133,12 +164,12 @@ const CarSliderSection = (props) => {
 
                                                         avatar={
                                                             <Avatar sx={{ bgcolor: red[500] }} aria-label="tripadvisorImage" className={styles.avatar}>
-                                                                <Image src={tripAdvisor.tripAdvisorLogoPath} width={30} height={30} layout="responsive" objectFit="fill" />
+                                                                <Image src={tripAdvisor.tripAdvisorLogoPath} width={30} height={30} layout="responsive" objectFit="fill" alt="tripAdvisor" />
                                                             </Avatar>
                                                         } />
                                                 </Card>
                                             </Box> : null
-                                    }
+                                    } */}
                                 </FiCardContent>
                             </FiCard>
                         )

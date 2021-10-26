@@ -336,13 +336,13 @@ const Header = (props) => {
   //#endregion Functions
     return (<Box>
             {(stateMenuLeft) ? null : 
-              <Button className={classes.menuBtn} onClick={menuLeftHandler(true)} open={stateMenuLeft}>
+              <Button className={classes.menuBtn} onClick={menuLeftHandler(true)} open={stateMenuLeft} aria-label="icon">
                 <MenuIcon className={classes.menuIcon} />
               </Button>
             }
             <SwipeableDrawer classes={{ paper: classes.menuLeftContainer }} anchor="left" open={stateMenuLeft} onClose={menuLeftHandler(false)} onOpen={menuLeftHandler(true)}>
             <Box className={classes.menuLeftHeader }>
-              <Button className={`${classes.closeMenuBtn} ${classes.menuItem}`} onClick={menuLeftHandler(false)}>
+              <Button className={`${classes.closeMenuBtn} ${classes.menuItem}`} onClick={menuLeftHandler(false)} aria-label="menu">
                 <ChevronLeftIcon />
                 <Typography>Menu</Typography>
               </Button>
@@ -352,7 +352,7 @@ const Header = (props) => {
                 return (
                   <Accordion key={i} className={classes.menuMobileAccordion}>
                     <AccordionSummary className={`${classes.menuMobileAccordionSummary} ${classes.menuItem}`} >
-                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)}>
+                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayName}>
                         <ExpandMoreIcon />
                         <Typography>{x.displayName}</Typography>
                       </Button>
@@ -401,7 +401,7 @@ const Header = (props) => {
     }
    //#endregion
     return <Box className={classes.menuLanguage}> 
-              <Button className={`${classes.menuBtn} ${classes.flagBtn}`}  onClick={handleClick}>
+              <Button className={`${classes.menuBtn} ${classes.flagBtn}`}  onClick={handleClick} aria-label={currentLenguageCode}>
                 <KeyboardArrowDownIcon />
                 <span className={`flag-icon flag-icon-${currentLenguageCode}`}></span>
               </Button>
@@ -435,12 +435,12 @@ const Header = (props) => {
           (<>
             <MenuMobile />
             <Box className={classes.logoContainer} sx={{margin: (stateMenuLeft ? "0px 10px 0 10px" : "0px 0px 0px 0px")}}>
-              <Image src={logoPath} layout="fill" objectFit="contain" />
+              <Image src={logoPath} layout="fill" objectFit="contain"alt="Logo" />
             </Box>
             { (stateMenuLeft) ? null : <Languages /> }
           </>) : (<>
             <Box className={classes.logoContainer} >
-              <Image src={logoPath} layout="fill" objectFit="contain" />
+              <Image src={logoPath} layout="fill" objectFit="contain"alt="Logo" />
             </Box>
             <Box className={classes.headerOptions}>
               {menuOptions.map((x, i) => {
@@ -448,7 +448,7 @@ const Header = (props) => {
                 return (
                   <Accordion key={i} className={classes.menuDesktopAccordion} >
                     <AccordionSummary className={`${classes.menuDesktopAccordionSummary} ${classes.menuItem}`} >
-                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)}>
+                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayName}>
                         <ExpandMoreIcon />
                         {x.displayName}
                       </Button>
@@ -463,7 +463,7 @@ const Header = (props) => {
                   </Accordion>
                 )} else {
                   return (
-                    <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)}>
+                    <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayName}>
                       {x.displayName}
                     </Button>
                   )

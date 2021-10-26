@@ -14,7 +14,7 @@ import iCardCar from '../components/card/iCardCar'
 import CompanyRelation from '../sections/homePage/companyRelation/companyRelation'
 // import RatingCarouselSection from '../components/ratingCarousel/ratingCarousel.component'
 import CarSliderSection from '../sections/homePage/carSlider/carSliderSection.component'
-import TrustWortySection from '../sections/homePage/trustWorthyCarRental/trustWortySection.component'
+import ClientSliderSection from '../sections/homePage/ClientSliderRentCar/clientSliderSection.component'
 import OurTravelSection from '../sections/homePage/ourTravelExperts/ourTravelExperts.section.component'
 import Items from '../components/carousel/carousel.data'
 import HomePageService from '../services/homePage.service';
@@ -39,7 +39,7 @@ const IndexPage: NextPage = ({ homepages }: any) => {
 
   console.log(homepages[0]);
   const [header, setHeader] = useState(homepages[0].headers);
-  const [cars, setCars] = useState(homepages[0].carssliders);
+  const [carsD, setCarsD] = useState(homepages[0].carssliders);
   const [ourServices, setOurServices] = useState(homepages[0].ourservices);
   const [companyRelation, setCompanyRelation] = useState(homepages[0].clientsliders);
   const [trustWorty, setTrustWorty] = useState(homepages[0].thustworthycarrentals);
@@ -55,10 +55,10 @@ const IndexPage: NextPage = ({ homepages }: any) => {
     <div>
       <Header data={header} />
       <main >
-        <CarSliderSection data={Items} ></CarSliderSection>
+        <CarSliderSection cars={carsD}button={buttons} ></CarSliderSection>
         <OurServices ourservicesD={ourServices} />
         <CompanyRelation />
-        <TrustWortySection />
+        <ClientSliderSection />
         <FAQ faq={faqD} button={buttons} />
         <OurTravelSection ourTravelData={otExperts} />
       </main>

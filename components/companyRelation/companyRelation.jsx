@@ -264,7 +264,17 @@ const CompanyRelation = () => {
                     <Fade in={open}>
                     <Box className={classes.learnMoreModal}>
                     <Box className={classes.modalImage}>
-                        <Image className={classes.cardImg} src={cardInfo.imagePath} height={154} width={300} />
+                        <Image className={classes.cardImg} src={cardInfo.imagePath} height={154} width={300} alt={cardInfo.title}  />
+                        {/* use image [2] mobile 800w
+                        use image [1] tablet 1200w
+                        use image [0] desktop 1600w
+                        sizes="(max-width: 800px) 100vw, 800vw"
+
+                        module.exports={
+                            images: [
+                                deviceSizes:[640,750,828,1080,1200,1920,2048,3840]
+                        }
+                        */}
                     </Box>
                         <Box className={classes.learnMoreTextContent}>
                             <Typography className={classes.modalTitle}>
@@ -291,7 +301,7 @@ const CompanyRelation = () => {
         return (
             <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
-                    <Image className={classes.cardImg} src={cardInfo.imagePath} height={140} width={350} />
+                    <Image className={classes.cardImg} src={cardInfo.imagePath} height={140} width={350} alt={cardInfo.title} />
                     <Box className={classes.cardTextContainer}>
                         <Typography className={classes.cardTitle}>
                             {cardInfo.title}

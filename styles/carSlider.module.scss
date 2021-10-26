@@ -15,6 +15,7 @@
 .carSliderContainer {
     position: relative;
     margin-top: 56px;
+    
     .titleContainer {
         max-width: 656px;
         .title {
@@ -76,6 +77,9 @@
         max-width: 268px;
         max-height: 53px;
         margin-right: 260px;
+    }
+    .carSliderImage{
+        position:fixed !important;
     }
 
 }

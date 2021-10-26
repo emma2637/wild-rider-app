@@ -94,7 +94,7 @@ const OurTravelSection = (props) => {
         return (
             <Card className={classes.card}>
                 <CardMedia>
-                    <Image className={classes.cardImg} src={infoSection.img[0].url} height={242} width={350} /> 
+                    <Image className={classes.cardImg} src={infoSection.img[0].url} height={242} width={350}  alt="carSection"/> 
                 </CardMedia>
                 <CardContent className={classes.cardContent}>
                     <Box className={classes.cardTextContainer}>
@@ -126,7 +126,7 @@ const OurTravelSection = (props) => {
 
                     </Box>
                     <Box className={classes.cardsContainer}>
-                         <Image src={teamimagepath[0].url} height={410} width={1020}>
+                         <Image src={teamimagepath[0].url} height={410} width={1020} alt={title}>
                         </Image> 
                     </Box>
                 </Box>

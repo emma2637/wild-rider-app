@@ -19,6 +19,8 @@ export default function MyApp(props) {
       <Head>
         <title>My page</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta name="description" content="This is page for renting cars"/>
+        <meta name="robots" content="follow"/>
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

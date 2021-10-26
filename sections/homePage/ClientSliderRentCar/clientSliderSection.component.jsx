@@ -115,7 +115,7 @@ const responsive = {
 };
 
 
-const TrustWortySection = () => {
+const ClientSliderSection = () => {
     const classes = useStyles();
     const CustomDot = ({ onMove, index, onClick, active }) => {
         // onMove means if dragging or swiping in progress.
@@ -162,7 +162,7 @@ const TrustWortySection = () => {
                             <Card key={index}>
                                 <CardMedia>
                                     <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={classes.avatar} >
-                                        <Image src={clientOpinion.profileImagePath} width={137} height={137} layout="responsive" objectFit="fill" />
+                                        <Image src={clientOpinion.profileImagePath} width={137} height={137} layout="responsive" objectFit="fill" alt="ride" />
                                     </Avatar>
                                 </CardMedia>
                                 <CardContent>
@@ -188,4 +188,4 @@ const TrustWortySection = () => {
     );
 }
 
-export default TrustWortySection;
+export default ClientSliderSection;
