@@ -12,83 +12,88 @@ export async function queryClient(language) {
         query: gql`
             query {
                 homepages(locale: "${language}") {
-                    headers{
-                      menuoptions{
-                        displayname 
-                        img{url}
-                        menuoptionchilds{
-                          displayname
-                          path
-                        }
-                      }
-                      languages {
+                  headers{
+                    menuoptions{
+                      displayname
+                      img{url}
+                      menuoptionchilds{
                         displayname
-                        code
-                      }
-                      logopath {url}
-                    }
-                    carssliders{
-                      carsliderinfos{
-                        title
-                        desc
-                        img{url}
-                        rating
-                      }
-                      tripadvisors{
-                        logopath {url}
-                        desc
-                        url
+                        path
                       }
                     }
-                      ourservices {
-                    title
-                      services{
-                        img{url}
-                        title
-                        desc
-                      }
-                    }      
-                    thustworthycarrentals{
+                    languages {
+                      displayname
+                      code
+                    }
+                    logopath {url}
+                  }
+                  carssliders{
+                    carsliderinfos{
                       title
-                      thrustworthycarrentalinfos{
-                          img{url}
-                        title
-                        shortdesc
-                        longdesc
-                      }
-                    }
-                    clientsliders{
-                      title
-                      clientopinions{
-                          profileimagepath {url}
+                      desc
+                      img{url}
+                      carratings {
+                        rate
+                        img {url}
                         comment
                         name
-                        rate
-                      }      
-                    }
-                    faqs{
-                      title
-                      desc
-                      faqoptions{
-                        title
-                        desc
                       }
                     }
-                    otexperts{
-                      title
-                      teamimagepath{url}
-                      otexpertsinfos{
-                        img {url}
-                        desc
-                      }
+                    tripadvisors{
+                      logopath {url}
+                      desc
+                      url
                     }
-                    footers{
+                  }
+                  ourservices {
+                  title
+                    services{
+                      img{url}
+                      title
                       desc
                     }
-                    buttons{
-                      type
-                      text
+                  }      
+                  thustworthycarrentals{
+                    title
+                    thrustworthycarrentalinfos{
+                      img{url}
+                      title
+                      shortdesc
+                      longdesc
                     }
+                  }
+                  clientsliders{
+                    title
+                    clientopinions{
+                      profileimagepath {url}
+                      comment
+                      name
+                      rate
+                    }      
+                  }
+                  faqs{
+                    title
+                    desc
+                    faqoptions{
+                      title
+                      desc
+                    }
+                  }
+                  otexperts{
+                    title
+                    teamimagepath{url}
+                    otexpertsinfos{
+                      img {url}
+                      desc
+                    }
+                  }
+                  footers{
+                    desc
+                  }
+                  buttons{
+                    type
+                    text
+                  }
                   }    
             }
         `
