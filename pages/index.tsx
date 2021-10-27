@@ -56,8 +56,10 @@ const IndexPage: NextPage = ({ homepages }: any) => {
         <CarSliderSection cars={carsD}button={buttons} ></CarSliderSection>
          <OurServices ourservicesD={ourServices} />
         <CompanyRelation companyrelationD={companyRelation}  button={buttons}/>
-         {/*<ClientSliderSection />
+
         <FAQ faq={faqD} button={buttons} />
+         {/*<ClientSliderSection />
+       
         <OurTravelSection ourTravelData={otExperts} />   */}
       </main>
       <div>

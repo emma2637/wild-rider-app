@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         paddingBottom: '15px',
         paddingTop: '30px'
     },
-    description: {
+    descriptionription: {
         fontFamily: 'Montserrat',
         fontSize: '15px',
         fontWeight: '500',
@@ -86,15 +86,16 @@ const useStyles = makeStyles(theme => ({
 //#endregion Styles
 
 const FAQ = (props) => {
+    console.log(props);
     const classes = useStyles();
-    const {faq, button}=props;
-    const {desc, faqoptions, title} = faq[0];
+     const {faq, button}=props;
+     const {description, faqoptions, title} = faq[0];
     const readMoreBtn = button.find(item => item.type.includes("READ"));
     
     return (
         <Box className={classes.mainContainer}>
             <Typography className={classes.title}>{title}</Typography>
-            <Typography className={classes.description}>{desc}</Typography>
+            <Typography className={classes.descriptionription}>{description}</Typography>
             <Box className={classes.faqContainer}>
             {faqoptions.map((x, i) => {
                 return(
@@ -106,13 +107,13 @@ const FAQ = (props) => {
                             </Button>
                         </AccordionSummary>
                         <AccordionDetails className={classes.accordionDetails}>
-                            {x.desc}
+                            {x.description}
                         </AccordionDetails>
                     </Accordion>
                 )
-            })}
+            })} 
             </Box>
-            <CustomizedButtons className={classes.readMore} type="readMoreBtn" buttonText={readMoreBtn.text} ></CustomizedButtons>
+           <CustomizedButtons className={classes.readMore} type="readMoreBtn" buttonText={readMoreBtn.text} ></CustomizedButtons>
         </Box>
     )
 }
