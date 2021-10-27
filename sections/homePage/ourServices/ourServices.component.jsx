@@ -79,15 +79,15 @@ const useStyles = makeStyles(theme => ({
 
 const OurServices = (props) => {
     const classes = useStyles();
-    const {title, services} = props.ourservicesD[0];
+    const {title, services} = props.ourservicesD;
     return(
         <Container className={classes.container}>
-            <Typography className={classes.title}>{title}</Typography>
-            <Box className={classes.content}>
+        <Typography className={classes.title}>{title}</Typography>
+          <Box className={classes.content}>
                 {services.map((x, i) => (
                 <Card key={i} className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                        <Image src={x.img[0].url} height={92} width={90} alt={x.title}/>
+                         {/* <Image src={x.img[0].url} height={92} width={90} alt={x.title}/>  */}
                         <Typography className={classes.cardTitle}>
                             {x.title}
                         </Typography>
@@ -97,7 +97,7 @@ const OurServices = (props) => {
                     </CardContent>
                 </Card>
                 ))} 
-            </Box>
+            </Box> 
         </Container>
     );
 }

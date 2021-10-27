@@ -3,6 +3,9 @@
 const path = require('path')
 module.exports = {
   reactStrictMode: true,
+  experimental: {
+    granularChunks: true
+  },
   // productionBrowserSourceMaps: true,
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],

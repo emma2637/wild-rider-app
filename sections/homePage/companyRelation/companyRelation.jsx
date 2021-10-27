@@ -45,7 +45,7 @@ const companyRelationData = {
             shortDescription: "Our new office is extremely close to the airport.We pick up each travel group individually. You never have to wait for other customers. 1 call from the luggage belt and 6 minutes later we are there. The transport time to the office is 4 minutes. Absolutely stress-free as we do it.",
             longDescription: "Our new office is extremely close to the airport.\nWe pick up each travel group individually. You never have to wait for other customers. 1 call from the luggage belt and 6 minutes later we are there. The transport time to the office is 4 minutes.\nAbsolutely stress-free as we do it.\n\nBester Shuttle Service on the airport.",
         }
-    ]       
+    ]
 }
 //#endregion Data
 
@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
         },
         width: '350px',
         '& .MuiCardContent-root': {
-           padding: "unset !important" 
+            padding: "unset !important"
         }
     },
     cardsContainer: {
@@ -149,7 +149,7 @@ const useStyles = makeStyles(theme => ({
         textDecoration: 'underline',
         color: '#262f39',
         padding: '0px',
-        fontWeight:"bold",
+        fontWeight: "bold",
         '&:hover': {
             cursor: 'pointer',
             textDecoration: 'unset',
@@ -222,15 +222,21 @@ const useStyles = makeStyles(theme => ({
         fontSize: '33px'
     }
 })
-,{name: "MuiCompanyRelationComponent"});
+    , { name: "MuiCompanyRelationComponent" });
 
-const CompanyRelation = () => {
+const CompanyRelation = (props) => {
+
+    console.log("CompanyRelation props", props);
+
+    const { button, companyrelationD } = props;
+    const { thrustworthycarrentalinfos, title } = companyrelationD;
+
     const theme = useTheme();
     const classes = useStyles();
     const isMobile = useMediaQuery(theme.breakpoints.down(mobileModeWidth));
 
     //#region Modal
-    function LearnMoreModal({cardInfo}){
+    function LearnMoreModal({ cardInfo }) {
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
@@ -240,21 +246,21 @@ const CompanyRelation = () => {
                 <Typography className={classes.learnMoreTxt} onClick={handleOpen}>{button.text}</Typography>
                 <Modal open={open} onClose={handleClose} closeAfterTransition BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
                     <Fade in={open}>
-                    <Box className={classes.learnMoreModal}>
-                    <CloseIcon className={classes.closeModalBtn} onClick={handleClose} />
-                    <Box className={classes.modalImage}>
-                        <Image className={classes.cardImg} src={cardInfo.imagePath} height={144} width={310} alt={cardInfo.title} />
-                    </Box>
-                        <Box className={classes.learnMoreTextContent}>
-                            <Typography className={classes.modalTitle}>
-                                {cardInfo.title}
-                            </Typography>
-                            <Divider className={classes.divider} />
-                            <Typography className={classes.modalDescription}>
-                                {cardInfo.longDescription}
-                            </Typography>
+                        <Box className={classes.learnMoreModal}>
+                            <CloseIcon className={classes.closeModalBtn} onClick={handleClose} />
+                            <Box className={classes.modalImage}>
+                                {/* <Image className={classes.cardImg} src={cardInfo.imagePath} height={144} width={310} alt={cardInfo.title} /> */}
+                            </Box>
+                            <Box className={classes.learnMoreTextContent}>
+                                <Typography className={classes.modalTitle}>
+                                    {cardInfo.title}
+                                </Typography>
+                                <Divider className={classes.divider} />
+                                <Typography className={classes.modalDescription}>
+                                    {cardInfo.longdescription}
+                                </Typography>
+                            </Box>
                         </Box>
-                    </Box>
                     </Fade>
                 </Modal>
             </Box>
@@ -263,18 +269,18 @@ const CompanyRelation = () => {
     //#endregion Modal
 
     //#region Card
-    function CompanyRelationCard({cardInfo}) {
+    function CompanyRelationCard({ cardInfo }) {
         return (
             <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
-                    <Image className={classes.cardImg} src={cardInfo.imagePath} height={140} width={350} alt={cardInfo.title} />
+                    {/* <Image className={classes.cardImg} src={cardInfo.imagePath} height={140} width={350} alt={cardInfo.title} /> */}
                     <Box className={classes.cardTextContainer}>
                         <Typography className={classes.cardTitle}>
                             {cardInfo.title}
                         </Typography>
                         <Divider className={classes.divider} />
                         <Typography className={classes.cardDescription}>
-                            {cardInfo.shortDescription}
+                            {cardInfo.shortdescription}
                         </Typography>
                         <LearnMoreModal cardInfo={cardInfo} />
                     </Box>
@@ -287,9 +293,10 @@ const CompanyRelation = () => {
     return (
         <Box className={classes.mainContainer}>
             <Box className={classes.content}>
-                <Typography className={classes.title}>{isMobile ? companyRelationData.shortTitle : companyRelationData.title}</Typography>
+                <Typography className={classes.title}>{isMobile ? title : title}</Typography>
+                {/* validate this data */}
                 <Box className={classes.cardsContainer}>
-                    {companyRelationData.cardsInfo.map((x, i) => (
+                    {thrustworthycarrentalinfos.map((x, i) => (
                         <Box key={i} className={classes.cardContainer}>
                             <CompanyRelationCard key={i} cardInfo={x} />
                         </Box>

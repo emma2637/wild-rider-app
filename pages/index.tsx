@@ -39,10 +39,10 @@ const IndexPage: NextPage = ({ homepages }: any) => {
 
   console.log(homepages[0]);
   const [header, setHeader] = useState(homepages[0].headers);
-  const [carsD, setCarsD] = useState(homepages[0].carssliders);
-  const [ourServices, setOurServices] = useState(homepages[0].ourservices);
-  const [companyRelation, setCompanyRelation] = useState(homepages[0].clientsliders);
-  const [trustWorty, setTrustWorty] = useState(homepages[0].thustworthycarrentals);
+  const [carsD, setCarsD] = useState(homepages[0].carssliders[0]);
+  const [ourServices, setOurServices] = useState(homepages[0].ourservices[0]);
+  const [companyRelation, setCompanyRelation] = useState(homepages[0].thustworthycarrentals[0]);
+  // const [trustWorty, setTrustWorty] = useState(homepages[0].thustworthycarrentals);
   const [faqD, setFaqD] = useState(homepages[0].faqs);
   const [otExperts, setOtExperts] = useState(homepages[0].otexperts);
   const [footer, setFooter] = useState(homepages[0].footers);
@@ -52,14 +52,14 @@ const IndexPage: NextPage = ({ homepages }: any) => {
   return (
     <div>
       <Header data={header} />
-      {/* <main >
+      <main >
         <CarSliderSection cars={carsD}button={buttons} ></CarSliderSection>
-        <OurServices ourservicesD={ourServices} />
-        <CompanyRelation />
-        <ClientSliderSection />
+         <OurServices ourservicesD={ourServices} />
+        <CompanyRelation companyrelationD={companyRelation}  button={buttons}/>
+         {/*<ClientSliderSection />
         <FAQ faq={faqD} button={buttons} />
-        <OurTravelSection ourTravelData={otExperts} /> 
-      </main>*/}
+        <OurTravelSection ourTravelData={otExperts} />   */}
+      </main>
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
       </div>

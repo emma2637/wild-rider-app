@@ -17,8 +17,10 @@ const buttonData = {
 }
 const CarSliderSection = (props) => {
 
-    console.log(props);
-    const { tripadvisors, carsliderinfos } = props.cars[0];
+    const { button, cars } = props;
+    const { tripadvisors, carsliderinfos } = cars;
+ 
+
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -81,38 +83,13 @@ const CarSliderSection = (props) => {
                         return (
                             <FiCard key={index} >
                                 <FiCardMedia media="picture" alt="Car" >
-                                {/* <Image src={item.img[0].url}
-                                 width={1200} height={583}  quality={90} 
-                                layout="responsive"
+                                 {/* <Image src={item.img[2].url}
+                                 width={item.img[2].width} height={item.img[2].height}  quality={90} 
+                                layout="fill"
                                 objectFit="fill"
-                                priority /> */}
-                                {/* <Image 
-                                        layout="responsive"
-                                        width="100%"
-                                        height="700px"
-                                        objectFit="fill"
-                                        objectPosition={"50% 50%"}
-                                        priority
-                                        className={styles.carSliderImage}
-                                        // loading="eager"
-                                        alt={item.title}
-                                        src={item.img[0].url}
-                                        placeholder={'blur'}
-                                        unoptimized={true}
-                                        blurDataURL={item.img[0].url} /> */}
-
-                                    {/* <Image 
-                                        layout="fill"
-                                        objectFit="fill"
-                                        objectPosition={"50% 50%"}
-                                        priority
-                                        // loading="eager"
-                                        alt={item.title}
-                                        src={item.img[0].url}
-                                        placeholder={'blur'}
-                                        unoptimized={true}
-                                        blurDataURL={item.img[0].url} /> */}
-                                         <Image src={item.img[0].url} layout="fill" objectFit="fill" priority loading="eager" alt={item.title} />
+                                priority
+                                alt={item.title} /> */}
+                               
                                 </FiCardMedia>
                                 <FiCardContent className={styles.cardContentResponsive}>
                                     <Box className={styles.titleContainer}>
@@ -120,7 +97,7 @@ const CarSliderSection = (props) => {
                                             {item.title}
                                         </Typography>
                                     </Box>
-                                    {item.desc.split('.').map((item, index) => {
+                                    {item.description?.split('.').map((item, index) => {
                                         return (
                                             <Typography variant="body2" className={styles.caption} component="p" key={index}>
                                                 {item}
@@ -129,47 +106,48 @@ const CarSliderSection = (props) => {
                                     })}
 
                                     <CustomizedButtons type={buttonData.type} buttonText={buttonData.text} />
-                                    {/* {item.rating ?
+                                    {
+                                    item.carratings[0] ?
                                         <Box className={styles.ratingBox}>
                                             <Card className={styles.rating}>
                                                 <CardHeader
                                                     avatar={
                                                         <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.avatar}>
-                                                            <Image src={item.rating.img.url} width={30} height={30} layout="responsive" objectFit="fill" alt={item.rating.name} />
+                                                            {/* <Image src={item.carratings.img.url[0]} width={item.carratings.img.url[0].width} height={item.carratings.img.url[0].height} layout="responsive" objectFit="fill" alt={item.rating.name} /> */}
                                                         </Avatar>
                                                     }
                                                     title={
-                                                        <Rating name="read-only" value={item.rating} readOnly className={styles.rating.value} />
+                                                        <Rating name="read-only" value={item.carratings[0].rate} readOnly className={styles.rating.value} />
                                                     } />
                                                 <CardContent>
                                                     <Typography className={styles.rating.content}>
-                                                        {item.rating.comment}
+                                                         {item.carratings[0].comment} 
                                                     </Typography>
                                                     <Typography className={styles.rating.subContent}>
-                                                        {item.rating.name}
+                                                        {item.carratings[0].name} 
                                                     </Typography>
                                                 </CardContent>
                                             </Card>
                                         </Box> : <Box />
                                     }
                                     {
-                                        item.hasTripAdvisor ?
+                                        tripadvisors[0] ?
                                             <Box className={styles.tripBox}>
                                                 <Card className={styles.tripAdvisor}>
                                                     <CardHeader title={
                                                         <Typography className={styles.tripAdvisor.title}>
-                                                            {tripAdvisor.content}
+                                                            {tripadvisors[0].content}
                                                         </Typography>
                                                     }
 
                                                         avatar={
                                                             <Avatar sx={{ bgcolor: red[500] }} aria-label="tripadvisorImage" className={styles.avatar}>
-                                                                <Image src={tripAdvisor.tripAdvisorLogoPath} width={30} height={30} layout="responsive" objectFit="fill" alt="tripAdvisor" />
+                                                                {/* <Image src={tripAdvisor.tripAdvisorLogoPath} width={30} height={30} layout="responsive" objectFit="fill" alt="tripAdvisor" /> */}
                                                             </Avatar>
                                                         } />
                                                 </Card>
                                             </Box> : null
-                                    } */}
+                                    }
                                 </FiCardContent>
                             </FiCard>
                         )
