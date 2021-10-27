@@ -33,25 +33,25 @@ const AppBar = styled(MuiAppBar, {
 //#endregion Left Menu
 
 //#region Data
-const menuOptions = [
-  { displayName: 'CARS & RATES', children: [
-    {displayName: 'SUZUKI JIMNY', direction: 'suzuki jimny'}, 
-    {displayName: 'DAIHATSU BEGO', direction: 'daihatsu bego'}, 
-    {displayName: 'HYUNDAI TUCSON', direction: 'hyundai tucson'},
-    {displayName: 'TOYOTA RAV4', direction: 'toyota rav4'},
-    {displayName: 'RATES', direction: 'Rates'},
-  ]},
-  { displayName: 'INSURANCE', direction: 'insurance' },
-  { displayName: 'FAQ', direction: 'faq' },
-  { displayName: 'CONTACT', direction: 'contact' },
-  { displayName: 'BLOG', direction: 'blog' },
-]
+// const menuOptions = [
+//   { displayName: 'CARS & RATES', children: [
+//     {displayName: 'SUZUKI JIMNY', direction: 'suzuki jimny'}, 
+//     {displayName: 'DAIHATSU BEGO', direction: 'daihatsu bego'}, 
+//     {displayName: 'HYUNDAI TUCSON', direction: 'hyundai tucson'},
+//     {displayName: 'TOYOTA RAV4', direction: 'toyota rav4'},
+//     {displayName: 'RATES', direction: 'Rates'},
+//   ]},
+//   { displayName: 'INSURANCE', direction: 'insurance' },
+//   { displayName: 'FAQ', direction: 'faq' },
+//   { displayName: 'CONTACT', direction: 'contact' },
+//   { displayName: 'BLOG', direction: 'blog' },
+// ]
 
-const lenguageOption = [
-  { code:'us', displayName: "ENGLISH" },
-  { code:'de', displayName: "DEUTSCH" },
-  { code:'es', displayName: "ESPAÑOL" },
-]
+// const lenguageOption = [
+//   { code:'us', displayName: "ENGLISH" },
+//   { code:'de', displayName: "DEUTSCH" },
+//   { code:'es', displayName: "ESPAÑOL" },
+// ]
 //#endregion
 
 //#region Styles
@@ -310,10 +310,13 @@ const useStyles = makeStyles(theme => ({
 //#endregion Styles
 
 const Header = (props) => {
-  //#region Const
 
-  
-  console.log(props);
+  const {languages,logopath,menuoptions} = props.data[0];
+  console.log('languages',languages);
+  console.log('logopath',logopath);
+  console.log('menuoptions',menuoptions);
+
+  //#region Const
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down(800));
@@ -347,20 +350,20 @@ const Header = (props) => {
                 <Typography>Menu</Typography>
               </Button>
             </Box>
-            {menuOptions.map((x, i) => {
-              if (x.children != undefined) {
+            {menuoptions.map((x, i) => {
+              if (x.menuoptionchilds != undefined) {
                 return (
                   <Accordion key={i} className={classes.menuMobileAccordion}>
                     <AccordionSummary className={`${classes.menuMobileAccordionSummary} ${classes.menuItem}`} >
-                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayName}>
+                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayname}>
                         <ExpandMoreIcon />
-                        <Typography>{x.displayName}</Typography>
+                        <Typography>{x.displayname}</Typography>
                       </Button>
                     </AccordionSummary>
                     <AccordionDetails className={classes.menuMobileAccordionDetails}>
-                      {x.children.map((cx, ci) => (
+                      {x.menuoptionchilds.map((cx, ci) => (
                         <ListItem key={ci} onClick={() => GoTo(cx.direction)} className={classes.menuMobileAccordionList} button divider>
-                          <ListItemText className={`${classes.accordionItem} ${classes.menuListItem}`} primary={cx.displayName} />
+                          <ListItemText className={`${classes.accordionItem} ${classes.menuListItem}`} primary={cx.displayname} />
                         </ListItem>
                       ))}
                     </AccordionDetails>
@@ -368,7 +371,7 @@ const Header = (props) => {
                 )} else {
                   return (
                     <ListItem key={i} onClick={() => GoTo(x.direction)} button divider>
-                      <ListItemText className={`${classes.menuListItem} ${classes.menuItem}`} primary={x.displayName} />
+                      <ListItemText className={`${classes.menuListItem} ${classes.menuItem}`} primary={x.displayname} />
                     </ListItem>
                   )
                 }
@@ -386,7 +389,6 @@ const Header = (props) => {
     const [lenguageMenuOpen, setLenguageMenuOpen] = React.useState(null);
     const open = Boolean(lenguageMenuOpen);
     //#endregion
-
     //#region Functions
     const handleClick = (event) => {
       setLenguageMenuOpen(event.currentTarget);
@@ -406,19 +408,19 @@ const Header = (props) => {
                 <span className={`flag-icon flag-icon-${currentLenguageCode}`}></span>
               </Button>
               <Menu anchorEl={lenguageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
-                {lenguageOption.map((x, i) => {
+                {languages.map((x, i) => {
                       return <MenuItem key={i} onClick={() => {changeLenguage(x.code); handleClose()}} className={classes.lenguageItem}>
                               <ListItem sx={{ textDecoration: "underline"}} button divider>
                                 <ListItemText>
                                   <Typography className={ classes.lenguageOption }>
                                     <span className={`flag-icon flag-icon-${x.code}`}></span>
-                                    {x.displayName}
+                                    {x.displayname}
                                   </Typography>
                                 </ListItemText>
                               </ListItem>
                             </MenuItem>
                             
-                })}
+                })} 
               </Menu>
             </Box>
   }
@@ -426,7 +428,7 @@ const Header = (props) => {
 
   
 
-  const logoPath = "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/bd8b2296-2030-49b5-9275-248d22739502.svg";
+    const logoPath = logopath[0].url;
   return  (
     <Box>
       <AppBar className={classes.appBar} open={stateMenuLeft}>
@@ -435,7 +437,7 @@ const Header = (props) => {
           (<>
             <MenuMobile />
             <Box className={classes.logoContainer} sx={{margin: (stateMenuLeft ? "0px 10px 0 10px" : "0px 0px 0px 0px")}}>
-              <Image src={logoPath} layout="fill" objectFit="contain"alt="Logo" />
+              <Image src={logopath} layout="fill" objectFit="contain"alt="Logo" priority />
             </Box>
             { (stateMenuLeft) ? null : <Languages /> }
           </>) : (<>
@@ -443,33 +445,33 @@ const Header = (props) => {
               <Image src={logoPath} layout="fill" objectFit="contain"alt="Logo" />
             </Box>
             <Box className={classes.headerOptions}>
-              {menuOptions.map((x, i) => {
-              if (x.children != undefined) {
+              {menuoptions.map((x, i) => {
+              if (x.menuoptionchilds != undefined) {
                 return (
                   <Accordion key={i} className={classes.menuDesktopAccordion} >
                     <AccordionSummary className={`${classes.menuDesktopAccordionSummary} ${classes.menuItem}`} >
-                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayName}>
+                      <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayname}>
                         <ExpandMoreIcon />
-                        {x.displayName}
+                        {x.displayname}
                       </Button>
                     </AccordionSummary>
                     <AccordionDetails className={classes.menuDesktopAccordionDetails}>
-                      {x.children.map((cx, ci) => (
+                      {x.menuoptionchilds.map((cx, ci) => (
                         <ListItem key={ci} className={classes.menuDesktopAccordionList} onClick={() => GoTo(cx.direction)} button divider>
-                          <ListItemText  primary={cx.displayName} />
+                          <ListItemText  primary={cx.displayname} />
                         </ListItem>
                       ))}
                     </AccordionDetails>
                   </Accordion>
                 )} else {
                   return (
-                    <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayName}>
-                      {x.displayName}
+                    <Button key={i} className={classes.menuBtn} onClick={() => GoTo(x.direction)} aria-label={x.displayname}>
+                      {x.displayname}
                     </Button>
                   )
                 }
               
-              })}
+              })} 
               <Languages />
             </Box>
           </>)

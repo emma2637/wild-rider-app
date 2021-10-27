@@ -47,21 +47,19 @@ const IndexPage: NextPage = ({ homepages }: any) => {
   const [otExperts, setOtExperts] = useState(homepages[0].otexperts);
   const [footer, setFooter] = useState(homepages[0].footers);
   const [buttons, setButtons] = useState(homepages[0].buttons);
-
-
   const [cards, setCards] = useState<iCardCar[]>(cardData)
 
   return (
     <div>
       <Header data={header} />
-      <main >
+      {/* <main >
         <CarSliderSection cars={carsD}button={buttons} ></CarSliderSection>
         <OurServices ourservicesD={ourServices} />
         <CompanyRelation />
         <ClientSliderSection />
         <FAQ faq={faqD} button={buttons} />
-        <OurTravelSection ourTravelData={otExperts} />
-      </main>
+        <OurTravelSection ourTravelData={otExperts} /> 
+      </main>*/}
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
       </div>

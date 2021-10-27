@@ -15,7 +15,11 @@ export async function queryClient(language) {
                   headers{
                     menuoptions{
                       displayname
-                      img{url}
+                      path{
+                        url
+                        width
+                        height
+                      }
                       menuoptionchilds{
                         displayname
                         path
@@ -25,47 +29,75 @@ export async function queryClient(language) {
                       displayname
                       code
                     }
-                    logopath {url}
+                    logopath {
+                      url
+                      width
+                      height
+                    }
                   }
                   carssliders{
                     carsliderinfos{
                       title
-                      desc
-                      img{url}
+                      description
+                      imagepath{
+                        url
+                        width
+                        height
+                      }
                       carratings {
                         rate
-                        img {url}
+                        profileimagepath {
+                          url
+                          width
+                          height
+                        }
                         comment
                         name
                       }
                     }
                     tripadvisors{
-                      logopath {url}
-                      desc
+                      tripadvisorlogopath {
+                        url
+                        width
+                        height
+                      }
+                      content
                       url
                     }
                   }
                   ourservices {
                   title
                     services{
-                      img{url}
+                      imagepath{
+                        url
+                        width
+                        height
+                      }
                       title
-                      desc
+                      description
                     }
                   }      
                   thustworthycarrentals{
                     title
                     thrustworthycarrentalinfos{
-                      img{url}
+                      imagepath{
+                        url
+                        width
+                        height
+                      }
                       title
-                      shortdesc
-                      longdesc
+                      shortdescription
+                      longdescription
                     }
                   }
                   clientsliders{
                     title
                     clientopinions{
-                      profileimagepath {url}
+                      profileimagepath {
+                        url
+                        width
+                        height
+                      }
                       comment
                       name
                       rate
@@ -73,22 +105,30 @@ export async function queryClient(language) {
                   }
                   faqs{
                     title
-                    desc
+                    description
                     faqoptions{
                       title
-                      desc
+                      description
                     }
                   }
                   otexperts{
                     title
-                    teamimagepath{url}
+                    teamimagepath{
+                      url
+                      width
+                      height
+                    }
                     otexpertsinfos{
-                      img {url}
-                      desc
+                      imagepath {
+                        url
+                        width
+                        height
+                      }
+                      description
                     }
                   }
                   footers{
-                    desc
+                    text
                   }
                   buttons{
                     type
