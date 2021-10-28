@@ -86,12 +86,10 @@ const useStyles = makeStyles((theme) => ({
 
 
 const OurTravelSection = ({data}) => {
-    console.log('expertshit', data);
     const classes = useStyles();
     const { title, otexpertsinfos, teamimagepath } = data;
    
     function TravelExpertsCard({ infoSection }) {
-        console.log('shitsion', infoSection);
         return (
             <Card className={classes.card}>
                 <CardMedia>
