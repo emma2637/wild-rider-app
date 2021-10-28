@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const { i18n } = require('./next-i18next.config');
 
 const path = require('path')
 module.exports = {
@@ -12,12 +13,6 @@ module.exports = {
   },
   images: {
     domains: ['res.cloudinary.com','st4.depositphotos.com','cdn.zeplin.io','thumbor.forbes.com','images.unsplash.com'],
-  }
+  },
+  i18n
 }
-// const withImages = require('next-images')
-// module.exports = withImages({
-//   exclude: path.resolve(__dirname, 'public/svg'),
-//   webpack(config, options) {
-//     return config
-//   }
-// })

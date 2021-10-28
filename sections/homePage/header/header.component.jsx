@@ -14,6 +14,7 @@ import Image from 'next/image'
 import 'flag-icon-css/css/flag-icon.min.css';
 import Accordion from "@mui/material/Accordion";
 import { makeStyles } from '@mui/styles';
+import { useRouter } from 'next/router'
 
 //#region Left Menu
 const drawerWidth = 195;
@@ -49,7 +50,7 @@ const AppBar = styled(MuiAppBar, {
 //   { displayName: 'BLOG', direction: 'blog' },
 // ]
 
-// const lenguageOption = [
+// const languageOption = [
 //   { code:'us', displayName: "ENGLISH" },
 //   { code:'de', displayName: "DEUTSCH" },
 //   { code:'es', displayName: "ESPAÑOL" },
@@ -187,7 +188,7 @@ const useStyles = makeStyles(theme => ({
       letterSpacing: '2.16px'
     }
   },
-  lenguageItem: {
+  languageItem: {
     color: 'white',
     '& .MuiTypography-root': {
       fontFamily: 'Raleway',
@@ -233,14 +234,15 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 'unset'
     }
   },
-  lenguageOption: {
+  languageOption: {
     fontFamily: 'Raleway !important',
     fontSize: '12px !important',
     fontWeight: '800 !important',
     '& .flag-icon': {
       marginRight: '10px',
       fontSize: '19px !important',
-    }
+    },
+    textTransform: "uppercase"
   },
   appBar: {
     backgroundColor: '#2866ae',
@@ -311,9 +313,8 @@ const useStyles = makeStyles(theme => ({
 );
 //#endregion Styles
 
-const Header = (props) => {
-
-  const { languages, logopath, menuoptions } = props.data[0];
+const Header = ({data}) => {
+  const { languages, logopath, menuoptions } = data.header[0];
   //#region Const
   const classes = useStyles();
   const theme = useTheme();
@@ -349,7 +350,7 @@ const Header = (props) => {
           </Button>
         </Box>
         {menuoptions.map((x, i) => {
-          if (x.menuoptionchilds != undefined) {
+          if (x.menuoptionchilds != undefined && x.menuoptionchilds.length > 0) {
             return (
               <Accordion key={i} className={classes.menuMobileAccordion}>
                 <AccordionSummary className={`${classes.menuMobileAccordionSummary} ${classes.menuItem}`} >
@@ -384,48 +385,52 @@ const Header = (props) => {
   //#region Flag Button
   function Languages() {
     //#region Const
-    const [currentLenguageCode, setcurrentLenguageCode] = React.useState("us");
-    const [lenguageMenuOpen, setLenguageMenuOpen] = React.useState(null);
-    const open = Boolean(lenguageMenuOpen);
+    const router = useRouter()
+    const [currentLanguageCode, setcurrentLanguageCode] = React.useState(data.locale);
+    const [languageMenuOpen, setLanguageMenuOpen] = React.useState(null);
+    const open = Boolean(languageMenuOpen);
+    //console.log("CurrentInit: " + currentLanguageCode)
     //#endregion
+    
     //#region Functions
     const handleClick = (event) => {
-      setLenguageMenuOpen(event.currentTarget);
+      setLanguageMenuOpen(event.currentTarget);
     };
     const handleClose = () => {
-      setLenguageMenuOpen(null);
+      setLanguageMenuOpen(null);
     };
-    const changeLenguage = (lenguage) => {
-      setcurrentLenguageCode(lenguage)
-      handleClose()
-      console.log("add code to change the lenguage to " + currentLenguageCode)
+    const changeLanguage = (language) => {
+      setcurrentLanguageCode(language);
+      router.push('/', '/', { locale: language });
     }
-    //#endregion
-    return <Box className={classes.menuLanguage}>
-      <Button className={`${classes.menuBtn} ${classes.flagBtn}`} onClick={handleClick} aria-label={currentLenguageCode}>
-        <KeyboardArrowDownIcon />
-        <span className={`flag-icon flag-icon-${currentLenguageCode}`}></span>
-      </Button>
-      <Menu anchorEl={lenguageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
-        {languages.map((x, i) => {
-          return <MenuItem key={i} onClick={() => { changeLenguage(x.code); handleClose() }} className={classes.lenguageItem}>
-            <ListItem sx={{ textDecoration: "underline" }} button divider>
-              <ListItemText>
-                <Typography className={classes.lenguageOption}>
-                  <span className={`flag-icon flag-icon-${x.code}`}></span>
-                  {x.displayname}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-          </MenuItem>
-
-        })}
-      </Menu>
-    </Box>
+    const getLanguageCode = (locale) => {
+      return locale == 'en' ? 'us': locale;
+    };
+   //#endregion
+    return <Box className={classes.menuLanguage}> 
+              <Button className={`${classes.menuBtn} ${classes.flagBtn}`}  onClick={handleClick}>
+                <KeyboardArrowDownIcon />
+                <span className={`flag-icon flag-icon-${getLanguageCode(currentLanguageCode)}`}>{}</span>
+              </Button>
+              <Menu anchorEl={languageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
+                {languages.map((x, i) => {
+                      return <MenuItem key={i} onClick={() => {changeLanguage(x.code); handleClose()}} className={classes.languageItem}>
+                              <ListItem sx={{ textDecoration: "underline"}} button divider>
+                                <ListItemText>
+                                  <Typography className={ classes.languageOption }>
+                                    <span className={`flag-icon flag-icon-${getLanguageCode(x.code)}`}></span>
+                                    {x.displayname}
+                                  </Typography>
+                                </ListItemText>
+                              </ListItem>
+                            </MenuItem>
+                })}
+              </Menu>
+            </Box>
   }
   //#endregion Flag Button
 
-  const logoPath = logopath[0].url;
+  //const logoPath = logopath[0].url;
   return (
     <Box>
       <AppBar className={classes.appBar} open={stateMenuLeft}>
@@ -434,16 +439,16 @@ const Header = (props) => {
             (<>
               <MenuMobile />
               <Box className={classes.logoContainer} sx={{ margin: (stateMenuLeft ? "0px 10px 0 10px" : "0px 0px 0px 0px") }}>
-                <Image src={logopath} layout="fill" objectFit="contain" alt="Logo" priority />
+                {/* <Image src={logopath} layout="fill" objectFit="contain" alt="Logo" priority /> */}
               </Box>
               {(stateMenuLeft) ? null : <Languages />}
             </>) : (<>
               <Box className={classes.logoContainer} >
-                <Image src={logoPath} layout="fill" objectFit="contain" alt="Logo" />
+                {/* <Image src={logoPath} layout="fill" objectFit="contain" alt="Logo" /> */}
               </Box>
               <Box className={classes.headerOptions}>
                 {menuoptions.map((x, i) => {
-                  if (x.menuoptionchilds != undefined) {
+                  if (x.menuoptionchilds != undefined && x.menuoptionchilds.length > 0) {
                     return (
                       <Accordion key={i} className={classes.menuDesktopAccordion} >
                         <AccordionSummary className={`${classes.menuDesktopAccordionSummary} ${classes.menuItem}`} >

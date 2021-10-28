@@ -115,7 +115,8 @@ const responsive = {
 };
 
 
-const ClientSliderSection = () => {
+const ClientSliderSection = ({data}) => {
+    const {title, clientopinions } = data
     const classes = useStyles();
     const CustomDot = ({ onMove, index, onClick, active }) => {
         // onMove means if dragging or swiping in progress.
@@ -131,7 +132,7 @@ const ClientSliderSection = () => {
     return (
         <Box className={classes.container}>
             <Typography variant="h5" component="p" gutterBottom className={classes.titleText}>
-                {TrustwortyData.title}
+                {title}
             </Typography>
 
             <Container maxWidth="sm">
@@ -156,13 +157,13 @@ const ClientSliderSection = () => {
                     swipeable
                     customDot={<CustomDot />}
                 >
-                    {TrustwortyData.clientOpinions.map((clientOpinion, index) => {
+                    {clientopinions.map((clientOpinion, index) => {
 
                         return (
                             <Card key={index}>
                                 <CardMedia>
                                     <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={classes.avatar} >
-                                        <Image src={clientOpinion.profileImagePath} width={137} height={137} layout="responsive" objectFit="fill" alt="ride" />
+                                        {/* <Image src={clientOpinion.profileimagepath} width={137} height={137} layout="responsive" objectFit="fill" alt="ride" /> */}
                                     </Avatar>
                                 </CardMedia>
                                 <CardContent>

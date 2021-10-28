@@ -35,32 +35,32 @@ import { LanguageContext } from '../src/hooks/language.context'
 //   return detectedLanguage
 // }
 
-const IndexPage: NextPage = ({ homepages }: any) => {
+const IndexPage: NextPage = ({ locale, homepages }: any) => {
 
   console.log(homepages[0]);
   const [header, setHeader] = useState(homepages[0].headers);
   const [carsD, setCarsD] = useState(homepages[0].carssliders[0]);
   const [ourServices, setOurServices] = useState(homepages[0].ourservices[0]);
   const [companyRelation, setCompanyRelation] = useState(homepages[0].thustworthycarrentals[0]);
-  // const [trustWorty, setTrustWorty] = useState(homepages[0].thustworthycarrentals);
+  const [clientsliders, setClientSliders] = useState(homepages[0].clientsliders[0]);
   const [faqD, setFaqD] = useState(homepages[0].faqs);
-  const [otExperts, setOtExperts] = useState(homepages[0].otexperts);
+  const [otExperts, setOtExperts] = useState(homepages[0].otexperts[0]);
   const [footer, setFooter] = useState(homepages[0].footers);
   const [buttons, setButtons] = useState(homepages[0].buttons);
   const [cards, setCards] = useState<iCardCar[]>(cardData)
 
   return (
     <div>
-      <Header data={header} />
+      <Header data={{header, locale}} />
       <main >
         <CarSliderSection cars={carsD}button={buttons} ></CarSliderSection>
-         <OurServices ourservicesD={ourServices} />
+        <OurServices ourservicesD={ourServices} />
         <CompanyRelation companyrelationD={companyRelation}  button={buttons}/>
 
         <FAQ faq={faqD} button={buttons} />
-         {/*<ClientSliderSection />
+        <ClientSliderSection data={clientsliders}/>
        
-        <OurTravelSection ourTravelData={otExperts} />   */}
+        <OurTravelSection data={otExperts} />
       </main>
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
@@ -73,15 +73,16 @@ export default IndexPage
 
 
 //run at builtime
-export const getStaticProps: GetStaticProps = async (context) => {
+export async function getStaticProps({locale}) {
 
   // const language = getLanguange();
-
-
-  const { data } = await queryClient('en');
+  console.log("local: ", locale)
+  const { data } = await queryClient(locale);
   return {
     props: {
+      locale,
       homepages: data.homepages
     },
   };
 }
+
