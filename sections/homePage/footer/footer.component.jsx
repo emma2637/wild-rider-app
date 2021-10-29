@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 const Footer = (props) => {
     const { footer, button } = props;
-    const footerDescription = footer[0].desc;
+    const footerDescription = footer[0].text;
     const getFreeQuoteBtn = button.find(item => item.type.includes("QUOTE"));
 
     const classes = useStyles();
