@@ -15,11 +15,6 @@ export async function queryClient(language) {
                   headers{
                     menuoptions{
                       displayname
-                      path{
-                        url
-                        width
-                        height
-                      }
                       menuoptionchilds{
                         displayname
                         path

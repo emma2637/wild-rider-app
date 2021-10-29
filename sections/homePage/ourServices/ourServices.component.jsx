@@ -87,7 +87,7 @@ const OurServices = (props) => {
                 {services.map((x, i) => (
                 <Card key={i} className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                         {/* <Image src={x.img[0].url} height={92} width={90} alt={x.title}/>  */}
+                         <Image src={x.imagepath[0].url} height={92} width={90} alt={x.title}/> 
                         <Typography className={classes.cardTitle}>
                             {x.title}
                         </Typography>

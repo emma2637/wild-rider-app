@@ -20,6 +20,7 @@ const CarSliderSection = (props) => {
     const { button, cars } = props;
     const { tripadvisors, carsliderinfos } = cars;
  
+    // console.log('carsliderinfos',carsliderinfos);
 
     const responsive = {
         desktop: {
@@ -83,12 +84,12 @@ const CarSliderSection = (props) => {
                         return (
                             <FiCard key={index} >
                                 <FiCardMedia media="picture" alt="Car" >
-                                 {/* <Image src={item.img[2].url}
-                                 width={item.img[2].width} height={item.img[2].height}  quality={90} 
+                                  <Image src={item.imagepath[2].url}
+                                 width={item.imagepath[2].width} height={item.imagepath[2].height}  quality={90} 
                                 layout="fill"
                                 objectFit="fill"
                                 priority
-                                alt={item.title} /> */}
+                                alt={item.title} />
                                
                                 </FiCardMedia>
                                 <FiCardContent className={styles.cardContentResponsive}>
@@ -113,7 +114,7 @@ const CarSliderSection = (props) => {
                                                 <CardHeader
                                                     avatar={
                                                         <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.avatar}>
-                                                            {/* <Image src={item.carratings.img.url[0]} width={item.carratings.img.url[0].width} height={item.carratings.img.url[0].height} layout="responsive" objectFit="fill" alt={item.rating.name} /> */}
+                                                         <Image src={item.carratings[0].profileimagepath[0].url} width={item.carratings[0].profileimagepath[0].width} height={item.carratings[0].profileimagepath[0].height} layout="responsive" objectFit="fill" alt={item.carratings.name} />
                                                         </Avatar>
                                                     }
                                                     title={
@@ -142,7 +143,7 @@ const CarSliderSection = (props) => {
 
                                                         avatar={
                                                             <Avatar sx={{ bgcolor: red[500] }} aria-label="tripadvisorImage" className={styles.avatar}>
-                                                                {/* <Image src={tripAdvisor.tripAdvisorLogoPath} width={30} height={30} layout="responsive" objectFit="fill" alt="tripAdvisor" /> */}
+                                                                <Image src={tripadvisors[0].tripadvisorlogopath[0].url} width={30} height={30} layout="responsive" objectFit="fill" alt="tripAdvisor" /> 
                                                             </Avatar>
                                                         } />
                                                 </Card>

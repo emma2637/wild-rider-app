@@ -439,12 +439,12 @@ const Header = ({data}) => {
             (<>
               <MenuMobile />
               <Box className={classes.logoContainer} sx={{ margin: (stateMenuLeft ? "0px 10px 0 10px" : "0px 0px 0px 0px") }}>
-                {/* <Image src={logopath} layout="fill" objectFit="contain" alt="Logo" priority /> */}
+                 <Image src={logopath[0].url} layout="fill" objectFit="contain" alt="Logo" priority />
               </Box>
               {(stateMenuLeft) ? null : <Languages />}
             </>) : (<>
               <Box className={classes.logoContainer} >
-                {/* <Image src={logoPath} layout="fill" objectFit="contain" alt="Logo" /> */}
+                 <Image src={logopath[0].url} layout="fill" objectFit="contain" alt="Logo" /> 
               </Box>
               <Box className={classes.headerOptions}>
                 {menuoptions.map((x, i) => {

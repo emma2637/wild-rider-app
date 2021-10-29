@@ -51,7 +51,8 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
 
   return (
     <div>
-      <Header data={{header, locale}} />
+
+       <Header data={{header, locale}} />
       <main >
         <CarSliderSection cars={carsD}button={buttons} ></CarSliderSection>
         <OurServices ourservicesD={ourServices} />
@@ -64,7 +65,7 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
       </main>
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
-      </div>
+      </div> 
     </div >
   )
 }
@@ -73,11 +74,12 @@ export default IndexPage
 
 
 //run at builtime
-export async function getStaticProps({locale}) {
+export async function getStaticProps(locale: any) {
 
   // const language = getLanguange();
-  console.log("local: ", locale)
-  const { data } = await queryClient(locale);
+  console.log("local: ", locale.locale)
+  const { data } = await queryClient(locale.locale);
+  console.log("data: ", data.homepages)
   return {
     props: {
       locale,
