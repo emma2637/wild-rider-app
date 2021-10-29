@@ -163,7 +163,7 @@ const ClientSliderSection = ({data}) => {
                             <Card key={index}>
                                 <CardMedia>
                                     <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={classes.avatar} >
-                                        {/* <Image src={clientOpinion.profileimagepath} width={137} height={137} layout="responsive" objectFit="fill" alt="ride" /> */}
+                                        <Image src={clientOpinion.profileimagepath[0].url} width={137} height={137} layout="responsive" objectFit="fill" alt="ride" />
                                     </Avatar>
                                 </CardMedia>
                                 <CardContent>

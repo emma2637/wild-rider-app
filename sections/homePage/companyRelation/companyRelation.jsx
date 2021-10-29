@@ -249,7 +249,7 @@ const CompanyRelation = (props) => {
                         <Box className={classes.learnMoreModal}>
                             <CloseIcon className={classes.closeModalBtn} onClick={handleClose} />
                             <Box className={classes.modalImage}>
-                                {/* <Image className={classes.cardImg} src={cardInfo.imagePath} height={144} width={310} alt={cardInfo.title} /> */}
+                                <Image className={classes.cardImg} src={cardInfo.imagepath[1].url} height={144} width={310} alt={cardInfo.title} />
                             </Box>
                             <Box className={classes.learnMoreTextContent}>
                                 <Typography className={classes.modalTitle}>
@@ -273,7 +273,7 @@ const CompanyRelation = (props) => {
         return (
             <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
-                    {/* <Image className={classes.cardImg} src={cardInfo.imagePath} height={140} width={350} alt={cardInfo.title} /> */}
+                    <Image className={classes.cardImg} src={cardInfo.imagepath[1].url} height={140} width={350} alt={cardInfo.title} />
                     <Box className={classes.cardTextContainer}>
                         <Typography className={classes.cardTitle}>
                             {cardInfo.title}

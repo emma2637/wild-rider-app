@@ -114,7 +114,7 @@ const CarSliderSection = (props) => {
                                                 <CardHeader
                                                     avatar={
                                                         <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.avatar}>
-                                                         <Image src={item.carratings[0].profileimagepath[0].url} width={item.carratings[0].profileimagepath[0].width} height={item.carratings[0].profileimagepath[0].height} layout="responsive" objectFit="fill" alt={item.carratings.name} />
+                                                         <Image src={item.carratings[0].profileimagepath[0].url} width={item.carratings[0].profileimagepath[0].width} height={item.carratings[0].profileimagepath[0].height} layout="responsive" objectFit="fill" alt={item.carratings[0].name} />
                                                         </Avatar>
                                                     }
                                                     title={
