@@ -21,19 +21,6 @@ import HomePageService from '../services/homePage.service';
 
 import { gql } from "@apollo/client";
 import { client, queryClient } from "../services/homePage.service";
-import { LanguageContext } from '../src/hooks/language.context'
-
-
-// const getLanguange = () => {
-//   const detectBrowserLanguage = require('detect-browser-language')
-//   // const detectedLanguage = detectBrowserLanguage().slice(0, 2);
-//   const detectedLanguage = 'es';
-//   //update value of language in context
-//   const { language, updateLanguage } = React.useContext(LanguageContext);
-//   updateLanguage(detectedLanguage)
-
-//   return detectedLanguage
-// }
 
 const IndexPage: NextPage = ({ locale, homepages }: any) => {
 

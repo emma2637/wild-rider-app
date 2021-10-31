@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.0.3",
     "@mui/material": "^5.0.3",
     "@mui/styles": "^5.0.1",
+    "@types/hoist-non-react-statics": "^3.3.1",
     "@types/prop-types": "^15.7.4",
     "classnames": "^2.3.1",
     "detect-browser-language": "^0.0.2",
