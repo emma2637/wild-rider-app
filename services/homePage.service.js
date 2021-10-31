@@ -1,15 +1,15 @@
-import {ApolloClient, InMemoryCache,gql,} from '@apollo/client';
+import { ApolloClient, InMemoryCache, gql, } from '@apollo/client';
 // import  detectBrowserLanguage  from 'detect-browser-language';
 const apiDefaultUrl = 'https://wild-rider-strapi.herokuapp.com/graphql';
 
 export const client = new ApolloClient({
-    uri: apiDefaultUrl,
-    cache: new InMemoryCache()
+  uri: apiDefaultUrl,
+  cache: new InMemoryCache()
 });
 export async function queryClient(language) {
 
-    return await client.query({
-        query: gql`
+  return await client.query({
+    query: gql`
             query {
                 homepages(locale: "${language}") {
                   headers{
@@ -74,6 +74,7 @@ export async function queryClient(language) {
                   }      
                   thustworthycarrentals{
                     title
+                    Shorttitle
                     thrustworthycarrentalinfos{
                       imagepath{
                         url
@@ -132,7 +133,7 @@ export async function queryClient(language) {
                   }    
             }
         `
-    });
+  });
 }
 
 export default client;
