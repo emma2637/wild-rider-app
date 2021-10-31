@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '20px',
     },
     title: {
+        fontDisplay: 'optional',
         fontFamily: "Raleway",
         fontSize: "36px",
         fontWeight: 600,
@@ -59,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "20px"
     },
     cardDescription: {
+        fontDisplay: 'optional',
         fontFamily: 'Montserrat',
         fontSize: '14px',
         fontWeight: '500',

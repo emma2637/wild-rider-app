@@ -23,7 +23,7 @@ const GetFreeQuoteButton = {
   marginTop: "1em",
   height: "40px",
   marginBottom: "1em",
-  maxWidth: "150px",
+  maxWidth: "180px",
 
 };
 

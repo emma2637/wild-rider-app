@@ -44,6 +44,7 @@ const useStyles = makeStyles(theme => ({
         flexWrap: 'wrap',
     },
     title: {
+        fontDisplay: 'optional',
         textAlign: 'center',
         fontFamily: 'Raleway',
         fontSize: '30px',
@@ -54,6 +55,7 @@ const useStyles = makeStyles(theme => ({
         paddingBottom: '20px'
     },
     cardTitle: {
+        fontDisplay: 'optional',
         fontFamily: 'Raleway',
         fontSize: '18px',
         fontWeight: '800',
@@ -64,6 +66,7 @@ const useStyles = makeStyles(theme => ({
         margin: '0 auto',
     },
     cardDescription: { 
+        fontDisplay: 'optional',
         fontFamily: 'Montserrat',
         fontSize: '14px',
         fontWeight: '500',

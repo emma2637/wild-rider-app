@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: '#f3f3f3',
     },
     title: {
+        fontDisplay: 'optional',
         fontFamily: 'Raleway',
         fontSize: '36px',
         fontWeight: '600',
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
         paddingTop: '30px'
     },
     descriptionription: {
+        fontDisplay: 'optional',
         fontFamily: 'Montserrat',
         fontSize: '15px',
         fontWeight: '500',
@@ -52,6 +54,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     accordionSummary: {
+        fontDisplay: 'optional',
         fontFamily: 'Montserrat',
         fontSize: '14px',
         fontWeight: 'bold',
@@ -65,7 +68,8 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'space-between',
         height: '50px',
         '& .MuiTypography-root': {
-            fontFamily: 'Montserrat',
+        fontDisplay: 'optional',
+        fontFamily: 'Montserrat',
             fontSize: '14px',
             fontWeight: 'bold',
             color: '#262f39',

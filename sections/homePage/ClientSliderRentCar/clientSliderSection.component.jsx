@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     },
     titleText: {
         fontFamily: "Raleway",
+        fontDisplay: 'optional',
         fontSize: "36px",
         fontWeight: 600,
         fontStretch: "normal",
@@ -115,8 +116,8 @@ const responsive = {
 };
 
 
-const ClientSliderSection = ({data}) => {
-    const {title, clientopinions } = data
+const ClientSliderSection = ({ data }) => {
+    const { title, clientopinions } = data
     const classes = useStyles();
     const CustomDot = ({ onMove, index, onClick, active }) => {
         // onMove means if dragging or swiping in progress.

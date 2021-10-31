@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
           <meta name="description" content="This is a page for renting cars"/>
           <meta name="robots" content="follow"/>
           <link
-            rel="stylesheet"
+            rel="preload"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>

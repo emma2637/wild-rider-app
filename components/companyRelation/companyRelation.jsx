@@ -4,75 +4,7 @@ import { Box, Button, Card, CardContent, Divider, Fade, ListItem, ListItemText, 
 import { makeStyles } from '@mui/styles';
 import Image from 'next/image'
 
-//#region Data
-const button = {
-    type: "LearnMore",
-    text: "Learn More"
-}
-const companyRelationData = {
-    title: "Trustworty Car Rental with strong customer-company relation",
-    shortTitle: "What makes us different?",
-    cardsInfo: [
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/de984a0f-dae2-422a-83ee-ae9d51b50213-2x.png",
-            title: "25 Years of Costa Rica Experience",
-            shortDescription: "All of our customers receive in-depth training on the condition of the roads and the corresponding rules of conduct. Our customers leave the rental station well prepared.",
-            longDescription: "We started our business in the 90's when tourism in Costa Rica was in its infancy. Mobility became our business field. Back then, asphalt roads were more the exception than the rule, the dangerous road network has been improved decade by decade.\n\nAt that time, the enduro motorcycle was the better choice. That's why we started our company as a motorcycle rental company.\nSince it was a wild time in wild surroundings, we called ourselves WILD RIDER.\n\nLittle by little, more and more 4 x 4 vehicles came into our fleet. The motorcycles have gone, the name WILD RIDER has stayed. We now offer small to medium-sized all-wheel drive vehicles for 1-5 travelers\n\nBut there are still wobbly suspension bridges, landslides, tropical heavy rain, fog banks, missing road markings and missing  safety barriers. And there is always a little war going on in the streets. The polite Ticos become egoists in traffic.\nThat is why all of our customers receive in-depth training on the condition of the roads and the corresponding rules of conduct. Our customers leave the rental station well prepared.",
-            isMobilInfo: false
 
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/7166b674-e2b2-4ee2-9e06-b4622236c259-2x.png",
-            title: "3 languages SUPPORT",
-            shortDescription: "Since we also welcome many European customers in addition to our North American & South American customers, we can communicate in English, German or Spanish when making reservations and correspondence as well as when renting, solving technical problems or in the event of an accident.",
-            longDescription: "Since we also welcome many European customers in addition to our North American & South American customers, we can communicate in English, German or Spanish when making reservations and correspondence as well as when renting, solving technical problems or in the event of an accident.\nIn the event of an emergency or urgent question, every customer can contact the boss on his mobile phone number. You will never end up in a telephone queue at Wild Rider. Have you ever experienced this at Herz or Budget?",
-            isMobilInfo: false
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/de984a0f-dae2-422a-83ee-ae9d51b50213-2x.png",
-            title: "A family company with its own standards.",
-            shortDescription: "As a family business, we work with lower overheads and can therefore offer cheaper rental prices.\nBut why are you more expensive than these big companies?\nWe are never more expensive, but our offer is always honest and with no hidden costs.",
-            longDescription: "Many customers believe that the major international car rental companies have their own branches in Costa Rica and thus also US / Canada standards. Unfortunately this is not the case. They are licensees. They have to pay around 15% of fees and commissions to the parent company. This is not their own money, but your money. They have leasing agreements with banks and car financiers. This money, too, has to be paid by you, the customer.\nAs a family business, we work with lower overheads and can therefore offer cheaper rental prices.\n</br />But why are you more expensive than these big companies?<br>We are never more expensive, but our offer is always honest and with no hidden costs.",
-            isMobilInfo: false
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/7166b674-e2b2-4ee2-9e06-b4622236c259-2x.png",
-            title: "Never hidden costs",
-            shortDescription: "Our prices are honest, we never ask for extra money when you are at the counter. Many of our extras are free or we only charge the purchase price (SIM cards KOELBI).\nWe don't suddenly charge CDW, TPL, license plate fee, environmental tax, Red Cross tax or sales tax ",
-            longDescription: "Our prices are honest, we never ask for extra money when you are at the counter. Many of our extras are free or we only charge the purchase price (SIM cards KÖLBI). We don't suddenly charge CDW, TPL, license plate fee, environmental tax, Red Cross tax or sales tax.\n\nBut we offer 2 fully comprehensive insurances with different ones Deductibles. We never force our customers to choose the expensive version.\nWe prove this trust every day. Google and Tripadvisor reviews tell the truth",
-            isMobilInfo: false
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/de984a0f-dae2-422a-83ee-ae9d51b50213-2x.png",
-            title: "Best shuttle service on the airport",
-            shortDescription: "Our new office is extremely close to the airport.We pick up each travel group individually. You never have to wait for other customers. 1 call from the luggage belt and 6 minutes later we are there. The transport time to the office is 4 minutes. Absolutely stress-free as we do it.",
-            longDescription: "Our new office is extremely close to the airport.\nWe pick up each travel group individually. You never have to wait for other customers. 1 call from the luggage belt and 6 minutes later we are there. The transport time to the office is 4 minutes.\nAbsolutely stress-free as we do it.\n\nBester Shuttle Service on the airport.",
-            isMobilInfo: false
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/de984a0f-dae2-422a-83ee-ae9d51b50213-2x.png",
-            title: "+25 Years",
-            shortDescription: "For over 20 year we have been renting 4x4 cars at economic rates and helped plan thousands of individual dream vacations as a free compliment to your rental experience.",
-            longDescription: null,
-            isMobilInfo: true
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/7166b674-e2b2-4ee2-9e06-b4622236c259-2x.png",
-            title: "3 Languages Assistance",
-            shortDescription: "In addition to getting a well-maintained car and a 3 languages 24/7 roadside assistance, you will receive individual insider tips from our travel experts that know our country by heart.",
-            longDescription: null,
-            isMobilInfo: true
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/de984a0f-dae2-422a-83ee-ae9d51b50213-2x.png",
-            title: "#1 in costa rica",
-            shortDescription: "Those are only few of the reasons why we are rated the number 1 car rental agency in Costa Rica.",
-            longDescription: null,
-            isMobilInfo: true
-        },
-    ]       
-}
-//#endregion Data
 
 const mobileModeWidth = 742;
 const useStyles = makeStyles(theme => ({
@@ -132,6 +64,7 @@ const useStyles = makeStyles(theme => ({
     },
     cardTitle: {
         fontFamily: 'Raleway',
+        fontDisplay: 'optional',
         fontSize: '18px',
         fontWeight: '800',
         color: '#262f39',
@@ -144,6 +77,7 @@ const useStyles = makeStyles(theme => ({
     },
     cardDescription: {
         fontFamily: 'Montserrat',
+        fontDisplay: 'optional',
         fontSize: '16px',
         fontWeight: '500',
         paddingTop: '12px',
@@ -166,6 +100,7 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         fontFamily: 'Raleway',
+        fontDisplay: 'optional',
         fontSize: '30px',
         fontWeight: '600',
         lineHeight: '1.61',
@@ -213,6 +148,7 @@ const useStyles = makeStyles(theme => ({
     modalTitle: {
         width: '281px',
         fontFamily: 'Raleway',
+        fontDisplay: 'optional',
         fontSize: '18px',
         fontWeight: '800',
         lineHeight: '1.33',
@@ -224,6 +160,8 @@ const useStyles = makeStyles(theme => ({
     modalDescription: {
         paddingTop: '15px',
         fontFamily: 'Montserrat',
+        fontDisplay: 'optional',
+
         fontSize: '14px',
         lineHeight: '1.5',
         letterSpacing: '2.16px',

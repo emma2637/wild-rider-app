@@ -104,6 +104,7 @@ const useStyles = makeStyles(theme => ({
     },
     cardTitle: {
         fontFamily: 'Raleway',
+        fontDisplay: 'optional',
         fontSize: '18px',
         fontWeight: '800',
         color: '#262f39',
@@ -116,6 +117,7 @@ const useStyles = makeStyles(theme => ({
     },
     cardDescription: {
         fontFamily: 'Montserrat',
+        fontDisplay: 'optional',
         fontSize: '16px',
         fontWeight: '500',
         paddingTop: '12px',
@@ -137,6 +139,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: '#c4c4c4'
     },
     title: {
+        fontDisplay: 'optional',
         fontFamily: 'Raleway',
         fontSize: '30px',
         fontWeight: '600',
@@ -184,6 +187,7 @@ const useStyles = makeStyles(theme => ({
     },
     modalTitle: {
         width: '281px',
+        fontDisplay: 'optional',
         fontFamily: 'Raleway',
         fontSize: '18px',
         fontWeight: '800',
@@ -195,6 +199,7 @@ const useStyles = makeStyles(theme => ({
     },
     modalDescription: {
         paddingTop: '15px',
+        fontDisplay: 'optional',
         fontFamily: 'Montserrat',
         fontSize: '14px',
         lineHeight: '1.5',

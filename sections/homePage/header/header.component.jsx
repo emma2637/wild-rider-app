@@ -115,7 +115,8 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'underline',
     textAlign: 'center',
     '& .MuiTypography-root': {
-      fontFamily: 'Raleway',
+        fontDisplay: 'optional',
+        fontFamily: 'Raleway',
       fontSize: '12px',
       fontWeight: '800',
       fontStretch: 'normal',
@@ -166,7 +167,8 @@ const useStyles = makeStyles(theme => ({
     height: '36px',
     textDecoration: 'underline',
     '& .MuiTypography-root': {
-      fontFamily: 'Raleway',
+        fontDisplay: 'optional',
+        fontFamily: 'Raleway',
       fontSize: '12px',
       fontWeight: '800',
       fontStretch: 'normal',
@@ -179,7 +181,8 @@ const useStyles = makeStyles(theme => ({
   menuItem: {
     color: 'white',
     '& .MuiTypography-root': {
-      fontFamily: 'Raleway',
+        fontDisplay: 'optional',
+        fontFamily: 'Raleway',
       fontSize: '16px',
       fontWeight: '800',
       fontStretch: 'normal',
@@ -191,7 +194,8 @@ const useStyles = makeStyles(theme => ({
   languageItem: {
     color: 'white',
     '& .MuiTypography-root': {
-      fontFamily: 'Raleway',
+        fontDisplay: 'optional',
+        fontFamily: 'Raleway',
       fontSize: '12px',
       fontWeight: '800',
       fontStretch: 'normal',
@@ -235,7 +239,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   languageOption: {
-    fontFamily: 'Raleway !important',
+        fontDisplay: 'optional',
+        fontFamily: 'Raleway !important',
     fontSize: '12px !important',
     fontWeight: '800 !important',
     '& .flag-icon': {
