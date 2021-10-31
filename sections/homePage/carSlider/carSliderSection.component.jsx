@@ -1,7 +1,19 @@
 import React from 'react';
 import Image from 'next/image'
 import Carousel from 'react-multi-carousel';
-import { Avatar, Card, CardContent, CardHeader, CardActionArea, CardActions, Grid, Button, CardMedia, Box, Typography, Rating } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardActions from '@mui/material/CardActions';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import CardMedia from '@mui/material/CardMedia';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Rating from '@mui/material/Rating';
+
 import { red } from '@mui/material/colors';
 
 import CustomizedButtons from '../../../components/customizedButton/customizedButton.component';

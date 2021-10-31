@@ -1,5 +1,15 @@
 import React from 'react';
-import { Box, Button, Card, CardContent, Divider, Container, CardMedia, ListItemText, Modal, Typography, useMediaQuery, useTheme } from '@mui/material';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Divider from '@mui/material/Divider';
+import CardMedia from '@mui/material/CardMedia';
+import ListItemText from '@mui/material/ListItemText';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/styles';
+import Container from '@mui/material/Container';
 import { makeStyles } from '@mui/styles';
 import Image from 'next/image'
 

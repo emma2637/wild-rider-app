@@ -5,9 +5,6 @@ import Header from '../sections/homePage/header/header.component'
 import OurServices from '../sections/homePage/ourServices/ourServices.component'
 import FAQ from '../sections/homePage/faq/faq.component'
 import Footer from '../sections/homePage/footer/footer.component'
-
-
-import HomePage from '../services/homePageDataStructure'
 import cardData from '../components/card/card.data'
 import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
@@ -16,11 +13,11 @@ import CompanyRelation from '../sections/homePage/companyRelation/companyRelatio
 import CarSliderSection from '../sections/homePage/carSlider/carSliderSection.component'
 import ClientSliderSection from '../sections/homePage/ClientSliderRentCar/clientSliderSection.component'
 import OurTravelSection from '../sections/homePage/ourTravelExperts/ourTravelExperts.section.component'
-import Items from '../components/carousel/carousel.data'
-import HomePageService from '../services/homePage.service';
+import { queryClient } from "../services/homePage.service";
 
-import { gql } from "@apollo/client";
-import { client, queryClient } from "../services/homePage.service";
+export const config = { 
+  unstable_runtimeJS: false
+}
 
 const IndexPage: NextPage = ({ locale, homepages }: any) => {
 

@@ -1,6 +1,16 @@
 import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
-import { Box, Button, Card, CardContent, Divider, Fade, ListItem, ListItemText, Modal, Typography, useMediaQuery, useTheme } from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Divider from '@mui/material/Divider';
+import Fade from '@mui/material/Fade';
+import Modal from '@mui/material/Modal'
+import Typography from '@mui/material/Typography';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/styles';
+
 import { makeStyles } from '@mui/styles';
 import Image from 'next/image'
 import CloseIcon from '@mui/icons-material/Close';

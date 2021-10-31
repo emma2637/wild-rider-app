@@ -1,19 +1,29 @@
 import * as React from 'react';
-import {
-  Button, CssBaseline, Divider, IconButton, List,
-  ListItem, ListItemText, Menu, MenuItem, Typography, Box,
-  Toolbar, useMediaQuery, useTheme, styled, alpha,
-  SwipeableDrawer, AccordionSummary, AccordionDetails
-} from '@mui/material';
+
+import Button from '@mui/material/Button';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material';
+import { styled } from '@mui/system';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from 'next/image'
-import 'flag-icon-css/css/flag-icon.min.css';
 import Accordion from "@mui/material/Accordion";
 import { makeStyles } from '@mui/styles';
+
+import Image from 'next/image'
+import 'flag-icon-css/css/flag-icon.min.css';
 import { useRouter } from 'next/router'
 
 //#region Left Menu
@@ -115,8 +125,8 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'underline',
     textAlign: 'center',
     '& .MuiTypography-root': {
-        fontDisplay: 'optional',
-        fontFamily: 'Raleway',
+      fontDisplay: 'optional',
+      fontFamily: 'Raleway',
       fontSize: '12px',
       fontWeight: '800',
       fontStretch: 'normal',
@@ -167,8 +177,8 @@ const useStyles = makeStyles(theme => ({
     height: '36px',
     textDecoration: 'underline',
     '& .MuiTypography-root': {
-        fontDisplay: 'optional',
-        fontFamily: 'Raleway',
+      fontDisplay: 'optional',
+      fontFamily: 'Raleway',
       fontSize: '12px',
       fontWeight: '800',
       fontStretch: 'normal',
@@ -181,8 +191,8 @@ const useStyles = makeStyles(theme => ({
   menuItem: {
     color: 'white',
     '& .MuiTypography-root': {
-        fontDisplay: 'optional',
-        fontFamily: 'Raleway',
+      fontDisplay: 'optional',
+      fontFamily: 'Raleway',
       fontSize: '16px',
       fontWeight: '800',
       fontStretch: 'normal',
@@ -194,8 +204,8 @@ const useStyles = makeStyles(theme => ({
   languageItem: {
     color: 'white',
     '& .MuiTypography-root': {
-        fontDisplay: 'optional',
-        fontFamily: 'Raleway',
+      fontDisplay: 'optional',
+      fontFamily: 'Raleway',
       fontSize: '12px',
       fontWeight: '800',
       fontStretch: 'normal',
@@ -239,8 +249,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   languageOption: {
-        fontDisplay: 'optional',
-        fontFamily: 'Raleway !important',
+    fontDisplay: 'optional',
+    fontFamily: 'Raleway !important',
     fontSize: '12px !important',
     fontWeight: '800 !important',
     '& .flag-icon': {
@@ -318,7 +328,7 @@ const useStyles = makeStyles(theme => ({
 );
 //#endregion Styles
 
-const Header = ({data}) => {
+const Header = ({ data }) => {
   const { languages, logopath, menuoptions } = data.header[0];
   //#region Const
   const classes = useStyles();
@@ -396,7 +406,7 @@ const Header = ({data}) => {
     const open = Boolean(languageMenuOpen);
     //console.log("CurrentInit: " + currentLanguageCode)
     //#endregion
-    
+
     //#region Functions
     const handleClick = (event) => {
       setLanguageMenuOpen(event.currentTarget);
@@ -409,29 +419,29 @@ const Header = ({data}) => {
       router.push('/', '/', { locale: language });
     }
     const getLanguageCode = (locale) => {
-      return locale == 'en' ? 'us': locale;
+      return locale == 'en' ? 'us' : locale;
     };
-   //#endregion
-    return <Box className={classes.menuLanguage}> 
-              <Button className={`${classes.menuBtn} ${classes.flagBtn}`}  onClick={handleClick}>
-                <KeyboardArrowDownIcon />
-                <span className={`flag-icon flag-icon-${getLanguageCode(currentLanguageCode)}`}>{}</span>
-              </Button>
-              <Menu anchorEl={languageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
-                {languages.map((x, i) => {
-                      return <MenuItem key={i} onClick={() => {changeLanguage(x.code); handleClose()}} className={classes.languageItem}>
-                              <ListItem sx={{ textDecoration: "underline"}} button divider>
-                                <ListItemText>
-                                  <Typography className={ classes.languageOption }>
-                                    <span className={`flag-icon flag-icon-${getLanguageCode(x.code)}`}></span>
-                                    {x.displayname}
-                                  </Typography>
-                                </ListItemText>
-                              </ListItem>
-                            </MenuItem>
-                })}
-              </Menu>
-            </Box>
+    //#endregion
+    return <Box className={classes.menuLanguage}>
+      <Button className={`${classes.menuBtn} ${classes.flagBtn}`} onClick={handleClick}>
+        <KeyboardArrowDownIcon />
+        <span className={`flag-icon flag-icon-${getLanguageCode(currentLanguageCode)}`}>{ }</span>
+      </Button>
+      <Menu anchorEl={languageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
+        {languages.map((x, i) => {
+          return <MenuItem key={i} onClick={() => { changeLanguage(x.code); handleClose() }} className={classes.languageItem}>
+            <ListItem sx={{ textDecoration: "underline" }} button divider>
+              <ListItemText>
+                <Typography className={classes.languageOption}>
+                  <span className={`flag-icon flag-icon-${getLanguageCode(x.code)}`}></span>
+                  {x.displayname}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+          </MenuItem>
+        })}
+      </Menu>
+    </Box>
   }
   //#endregion Flag Button
 
@@ -444,12 +454,12 @@ const Header = ({data}) => {
             (<>
               <MenuMobile />
               <Box className={classes.logoContainer} sx={{ margin: (stateMenuLeft ? "0px 10px 0 10px" : "0px 0px 0px 0px") }}>
-                 <Image src={logopath[0].url} layout="fill" objectFit="contain" alt="Logo" priority />
+                <Image src={logopath[0].url} layout="fill" objectFit="contain" alt="Logo" priority />
               </Box>
               {(stateMenuLeft) ? null : <Languages />}
             </>) : (<>
               <Box className={classes.logoContainer} >
-                 <Image src={logopath[0].url} layout="fill" objectFit="contain" alt="Logo" /> 
+                <Image src={logopath[0].url} layout="fill" objectFit="contain" alt="Logo" />
               </Box>
               <Box className={classes.headerOptions}>
                 {menuoptions.map((x, i) => {

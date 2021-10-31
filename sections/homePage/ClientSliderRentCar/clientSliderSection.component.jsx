@@ -3,7 +3,9 @@ import Image from 'next/image'
 import Carousel from 'react-multi-carousel';
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography';
-import { Card, Button, Box } from '@mui/material'
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';

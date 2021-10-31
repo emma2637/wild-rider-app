@@ -1,4 +1,9 @@
-import { Button, Typography, Box, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import Button from '@mui/material/Button';
+import Typography  from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import { makeStyles } from '@mui/styles';
 import AddIcon from '@mui/icons-material/Add';
 import CustomizedButtons from '../../../components/customizedButton/customizedButton.component';

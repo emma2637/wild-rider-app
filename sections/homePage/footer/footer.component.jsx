@@ -1,4 +1,7 @@
-import { AppBar, Toolbar, Container, Typography } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import { makeStyles } from '@mui/styles';
 import CustomizedButtons from '../../../components/customizedButton/customizedButton.component';
