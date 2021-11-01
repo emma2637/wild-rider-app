@@ -1,0 +1,51 @@
+{
+  "homepage": "https://emma2637.github.io/wild-riders-app",
+  "name": "wild-rider-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "replaceFilePaths": "node replacer.js",
+    "dev": "next dev",
+    "build": "next build && next export -o build && npm run replaceFilePaths",
+    "start": "next start",
+    "export": "next export -o build && npm run replaceFilePaths",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.4.16",
+    "@emotion/cache": "latest",
+    "@emotion/react": "^11.4.1",
+    "@emotion/server": "latest",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.3",
+    "@mui/material": "^5.0.3",
+    "@mui/styles": "^5.0.1",
+    "@types/hoist-non-react-statics": "^3.3.1",
+    "@types/prop-types": "^15.7.4",
+    "classnames": "^2.3.1",
+    "detect-browser-language": "^0.0.2",
+    "flag-icon-css": "^3.5.0",
+    "gh-pages": "^3.2.3",
+    "graphql": "^15.6.1",
+    "mobile-detect": "^1.4.5",
+    "next": "11.1.2",
+    "next-i18next": "^8.9.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-material-ui-carousel": "^2.3.5",
+    "react-multi-carousel": "^2.6.5",
+    "react-useragent": "^1.1.2",
+    "sass": "^1.42.1",
+    "sharp": "^0.29.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@types/react": "17.0.27",
+    "babel-loader": "^8.2.2",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "^4.4.4"
+  }
+}

@@ -1,0 +1,43 @@
+.Container {
+  position: initial;
+  > button {
+    &:hover {
+      background-color: #c5c5c5;
+    }
+    &:hover::before {
+      color: #f3f3f3;
+    }
+    &::before {
+      color: #c5c5c5;
+    }
+    background-color: #f3f3f3;
+  }
+}
+.itemClass {
+  // border:2px solid red;
+  > div {
+    box-shadow: none !important;
+  }
+}
+
+.sliderClass {
+  box-shadow: none;
+}
+
+
+.carouselDots {
+  width: 10px;
+  height: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.active {
+  background-color: #c4c4c4 !important;
+  @extend .carouselDots !optional;
+}
+.inactive {
+  background-color: #f2f2f2;
+  @extend .carouselDots !optional;
+}
+
