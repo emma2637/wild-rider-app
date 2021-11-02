@@ -15,9 +15,6 @@ import ClientSliderSection from '../sections/homePage/ClientSliderRentCar/client
 import OurTravelSection from '../sections/homePage/ourTravelExperts/ourTravelExperts.section.component'
 import { queryClient } from "../services/homePage.service";
 
-export const config = { 
-  unstable_runtimeJS: false
-}
 
 const IndexPage: NextPage = ({ locale, homepages }: any) => {
 
