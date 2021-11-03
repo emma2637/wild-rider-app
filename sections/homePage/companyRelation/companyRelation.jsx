@@ -15,88 +15,32 @@ import { makeStyles } from '@mui/styles';
 import Image from 'next/image'
 import CloseIcon from '@mui/icons-material/Close';
 
-//#region Data
-const button = {
-    type: "LearnMore",
-    text: "Learn More"
-}
-const companyRelationData = {
-    title: "Trustworty Car Rental with strong customer-company relation",
-    shortTitle: "What makes us different?",
-    cardsInfo: [
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/de984a0f-dae2-422a-83ee-ae9d51b50213-2x.png",
-            title: "25 Years of Costa Rica Experience",
-            shortDescription: "All of our customers receive in-depth training on the condition of the roads and the corresponding rules of conduct. Our customers leave the rental station well prepared.",
-            longDescription: "We started our business in the 90's when tourism in Costa Rica was in its infancy. Mobility became our business field. Back then, asphalt roads were more the exception than the rule, the dangerous road network has been improved decade by decade.\n\nAt that time, the enduro motorcycle was the better choice. That's why we started our company as a motorcycle rental company.\nSince it was a wild time in wild surroundings, we called ourselves WILD RIDER.\n\nLittle by little, more and more 4 x 4 vehicles came into our fleet. The motorcycles have gone, the name WILD RIDER has stayed. We now offer small to medium-sized all-wheel drive vehicles for 1-5 travelers\n\nBut there are still wobbly suspension bridges, landslides, tropical heavy rain, fog banks, missing road markings and missing  safety barriers. And there is always a little war going on in the streets. The polite Ticos become egoists in traffic.\nThat is why all of our customers receive in-depth training on the condition of the roads and the corresponding rules of conduct. Our customers leave the rental station well prepared.",
 
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/7166b674-e2b2-4ee2-9e06-b4622236c259-2x.png",
-            title: "3 languages SUPPORT",
-            shortDescription: "Since we also welcome many European customers in addition to our North American & South American customers, we can communicate in English, German or Spanish when making reservations and correspondence as well as when renting, solving technical problems or in the event of an accident.",
-            longDescription: "Since we also welcome many European customers in addition to our North American & South American customers, we can communicate in English, German or Spanish when making reservations and correspondence as well as when renting, solving technical problems or in the event of an accident.\nIn the event of an emergency or urgent question, every customer can contact the boss on his mobile phone number. You will never end up in a telephone queue at Wild Rider. Have you ever experienced this at Herz or Budget?",
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/577e025f-cd97-4888-b66d-33bcddbc3a62-2x.png",
-            title: "A family company with its own standards.",
-            shortDescription: "As a family business, we work with lower overheads and can therefore offer cheaper rental prices.\nBut why are you more expensive than these big companies?\nWe are never more expensive, but our offer is always honest and with no hidden costs.",
-            longDescription: "Many customers believe that the major international car rental companies have their own branches in Costa Rica and thus also US / Canada standards. Unfortunately this is not the case. They are licensees. They have to pay around 15% of fees and commissions to the parent company. This is not their own money, but your money. They have leasing agreements with banks and car financiers. This money, too, has to be paid by you, the customer.\nAs a family business, we work with lower overheads and can therefore offer cheaper rental prices.\n</br />But why are you more expensive than these big companies?<br>We are never more expensive, but our offer is always honest and with no hidden costs.",
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/d3729dfb-89ec-42e1-94d1-e6ca7046a8a4-2x.png",
-            title: "Never hidden costs",
-            shortDescription: "Our prices are honest, we never ask for extra money when you are at the counter. Many of our extras are free or we only charge the purchase price (SIM cards KOELBI).\nWe don't suddenly charge CDW, TPL, license plate fee, environmental tax, Red Cross tax or sales tax ",
-            longDescription: "Our prices are honest, we never ask for extra money when you are at the counter. Many of our extras are free or we only charge the purchase price (SIM cards KÖLBI). We don't suddenly charge CDW, TPL, license plate fee, environmental tax, Red Cross tax or sales tax.\n\nBut we offer 2 fully comprehensive insurances with different ones Deductibles. We never force our customers to choose the expensive version.\nWe prove this trust every day. Google and Tripadvisor reviews tell the truth",
-        },
-        {
-            imagePath: "https://cdn.zeplin.io/61044a546c36f17c9709e0c9/assets/56dac488-8884-4560-827a-2da7b3f6eac2-2x.png",
-            title: "Best shuttle service on the airport",
-            shortDescription: "Our new office is extremely close to the airport.We pick up each travel group individually. You never have to wait for other customers. 1 call from the luggage belt and 6 minutes later we are there. The transport time to the office is 4 minutes. Absolutely stress-free as we do it.",
-            longDescription: "Our new office is extremely close to the airport.\nWe pick up each travel group individually. You never have to wait for other customers. 1 call from the luggage belt and 6 minutes later we are there. The transport time to the office is 4 minutes.\nAbsolutely stress-free as we do it.\n\nBester Shuttle Service on the airport.",
-        }
-    ]
-}
-//#endregion Data
 
 const mobileModeWidth = 742;
 const useStyles = makeStyles(theme => ({
     content: {
         display: 'block',
-        position: 'absolute',
-        marginTop: '-151px',
-        width: '-webkit-fill-available'
+        position: 'relative',
+        top:'-150px',
+        zIndex: '5',
+        width: '-webkit-fill-available',
+        marginBottom: '-160px',
     },
     mainContainer: {
         backgroundColor: "#fc0;",
-        height: '915px',
+        height: '80%',
         paddingLeft: '0px',
         paddingRight: '0px',
-        [theme.breakpoints.down(1098)]: {
-            height: '1410px',
-        },
-        [theme.breakpoints.down(840)]: {
-            height: '1458px',
-        },
-        [theme.breakpoints.down(mobileModeWidth)]: {
-            height: '2330px',
-        },
-        [theme.breakpoints.down(355)]: {
-            height: '2375px',
-        },
-        [theme.breakpoints.down(300)]: {
-            height: '2480px',
-        },
     },
     card: {
-        margin: '0px 8px 8px 8px',
-        [theme.breakpoints.down(760)]: {
-            margin: '0px 6px 6px 6px',
-        },
         width: '350px',
         '& .MuiCardContent-root': {
-            padding: "unset !important"
-        }
+            padding: "unset !important",
+            height: '100%',
+            display: 'flex',
+            flexFlow: 'column'
+        },
     },
     cardsContainer: {
         display: 'flex',
@@ -107,8 +51,9 @@ const useStyles = makeStyles(theme => ({
         flexBasis: '28%',
         display: 'flex',
         justifyContent: 'center',
+        padding: '10px 10px 10px 10px',
         [theme.breakpoints.down(mobileModeWidth)]: {
-            flexBasis: '100%'
+            flexBasis: '100%',
         },
         width: '100%',
     },
@@ -119,8 +64,8 @@ const useStyles = makeStyles(theme => ({
         fontWeight: '800',
         color: '#262f39',
         textTransform: 'uppercase',
-        marginRight: '55px',
         height: '54px',
+        paddingBottom: '6px',
         [theme.breakpoints.down(mobileModeWidth)]: {
             height: 'unset',
         },
@@ -132,16 +77,16 @@ const useStyles = makeStyles(theme => ({
         fontWeight: '500',
         paddingTop: '12px',
         whiteSpace: "pre-line",
-        height: '240px',
-        [theme.breakpoints.down(300)]: {
-            height: '260px',
-        },
+        flexGrow: 1
     },
     cardTextContainer: {
         width: '291px',
         padding: '10px 20px 10px 20px',
         margin: '0 auto',
         width: 'fill',
+        display: 'flex',
+        flexFlow: 'column',
+        flexGrow: 1
     },
     divider: {
         width: '30px',
@@ -180,23 +125,38 @@ const useStyles = makeStyles(theme => ({
         },
         backgroundColor: 'white',
         border: 'unset',
-        display: 'flex',
-        justifyContent: 'center',
+        
         marginLeft: '8%',
         [theme.breakpoints.down(850)]: {
             marginLeft: '9%',
         },
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            display: 'flex',
+            justifyContent: 'center',
+        },
+        [theme.breakpoints.down(mobileModeWidth)]: {
+            marginLeft: 'unset',
+            width: '310px',
+            height: 'max-content',
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column'
+        },
         maxHeight: '90%'
     },
     learnMoreTextContent: {
-        width: '95%',
-        padding: '30px 0px 30px 0px',
         flexGrow: '0.4',
-        marginLeft: '150px',
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            marginLeft: '150px',
+            padding: '30px 0px 30px 0px',
+            width: '95%',
+        },
+        [theme.breakpoints.down(mobileModeWidth)]: {
+            padding: '10px 10px 10px 10px'
+        },
         whiteSpace: "pre-line",
     },
     modalTitle: {
-        width: '281px',
         fontDisplay: 'optional',
         fontFamily: 'Raleway',
         fontSize: '18px',
@@ -208,7 +168,6 @@ const useStyles = makeStyles(theme => ({
         paddingBottom: '7px',
     },
     modalDescription: {
-        paddingTop: '15px',
         fontDisplay: 'optional',
         fontFamily: 'Montserrat',
         fontSize: '14px',
@@ -218,23 +177,33 @@ const useStyles = makeStyles(theme => ({
         color: '#262f39',
         overflow: 'auto',
         height: '90%',
+        marginTop: '15px',
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            paddingTop: '15px',
+            paddingRight: '5%'
+        },
         '&::-webkit-scrollbar-thumb': {
             borderRadius: '10px',
             background: 'rgba(0,0,0,0.2)',
             marginLeft: '50px'
         },
-        paddingRight: '5%'
+        height: '-webkit-fill-available'
     },
     modalImage: {
-        position: 'absolute',
-        marginLeft: '-105%',
-        marginTop: '30px'
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            position: 'absolute',
+            marginLeft: '-105%',
+            marginTop: '30px'
+        },
     },
     closeModalBtn: {
         position: 'absolute',
         right: '10px',
         top: '6px',
-        fontSize: '33px'
+        fontSize: '21px',
+    },
+    learnMoreContainer: {
+        paddingTop: '20px'
     }
 })
     , { name: "MuiCompanyRelationComponent" });
@@ -244,12 +213,11 @@ const CompanyRelation = (props) => {
     console.log("CompanyRelation props", props);
 
     const { button, companyrelationD } = props;
-    const { thrustworthycarrentalinfos, title } = companyrelationD;
+    const { thrustworthycarrentalinfos, title, Shorttitle } = companyrelationD;
 
     const theme = useTheme();
     const classes = useStyles();
     const isMobile = useMediaQuery(theme.breakpoints.down(mobileModeWidth));
-
     //#region Modal
     function LearnMoreModal({ cardInfo }) {
         const [open, setOpen] = React.useState(false);
@@ -257,7 +225,7 @@ const CompanyRelation = (props) => {
         const handleClose = () => setOpen(false);
 
         return (
-            <Box>
+            <Box className={classes.learnMoreContainer}>
                 <Typography className={classes.learnMoreTxt} onClick={handleOpen}>{button.text}</Typography>
                 <Modal open={open} onClose={handleClose} closeAfterTransition BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
                     <Fade in={open}>
@@ -304,12 +272,10 @@ const CompanyRelation = (props) => {
         )
     }
     //#endregion Card
-    console.log(companyRelationData.cardsInfo)
     return (
         <Box className={classes.mainContainer}>
             <Box className={classes.content}>
-                <Typography className={classes.title}>{isMobile ? title : title}</Typography>
-                {/* validate this data */}
+                <Typography className={classes.title}>{isMobile ? Shorttitle : title}</Typography>
                 <Box className={classes.cardsContainer}>
                     {thrustworthycarrentalinfos.map((x, i) => (
                         <Box key={i} className={classes.cardContainer}>

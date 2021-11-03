@@ -37,7 +37,7 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
       <main >
         <CarSliderSection cars={carsD}button={buttons} ></CarSliderSection>
         <OurServices ourservicesD={ourServices} />
-        <CompanyRelation companyrelationD={companyRelation}  button={buttons}/>
+        <CompanyRelation companyrelationD={companyRelation}  button={buttons.find((x) => x.type === "LEARN MORE")}/>
 
         <FAQ faq={faqD} button={buttons} />
         <ClientSliderSection data={clientsliders}/>
