@@ -10,27 +10,16 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles(theme => ({
     container: { 
         display: 'block',
-        paddingTop: '21px',
-        height: '490px',
-        paddingLeft: '0px',
-        paddingRight: '0px',
-        [theme.breakpoints.down(940)]: {
-            height: '700px',
-        },
-        [theme.breakpoints.down(580)]: {
-            height: '900px',
-        },
-        [theme.breakpoints.down(400)]: {
-            height: '1450px',
-        },
+        maxWidth: 'unset',
+        padding: '21px 20px 190px 20px'
     },
     card: { 
-        boxShadow: "unset",
         flexBasis: '16%',
-        [theme.breakpoints.down(940)]: {
+        boxShadow: "unset",
+        [theme.breakpoints.down(1000)]: {
             flexBasis: '26%',
         },
-        [theme.breakpoints.down(580)]: {
+        [theme.breakpoints.down(650)]: {
             flexBasis: '50%',
         },
         [theme.breakpoints.down(400)]: {
@@ -46,6 +35,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         justifyContent: 'center',
         flexWrap: 'wrap',
+        justifyContent: 'space-around'
     },
     title: {
         fontDisplay: 'optional',
