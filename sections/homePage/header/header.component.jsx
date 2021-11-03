@@ -330,6 +330,7 @@ const useStyles = makeStyles(theme => ({
 
 const Header = ({ data }) => {
   const { languages, logopath, menuoptions } = data.header[0];
+  const locale = data.locale.locale;
   //#region Const
   const classes = useStyles();
   const theme = useTheme();
@@ -401,7 +402,7 @@ const Header = ({ data }) => {
   function Languages() {
     //#region Const
     const router = useRouter()
-    const [currentLanguageCode, setcurrentLanguageCode] = React.useState(data.locale);
+    const [currentLanguageCode, setcurrentLanguageCode] = React.useState(locale);
     const [languageMenuOpen, setLanguageMenuOpen] = React.useState(null);
     const open = Boolean(languageMenuOpen);
     //console.log("CurrentInit: " + currentLanguageCode)
