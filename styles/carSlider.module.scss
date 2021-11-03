@@ -1,9 +1,11 @@
 @import "global.scss";
+@import "typography.module.scss";
 
 .text {
     color: white;
     text-align: left;
 }
+
 .subText {
     font-stretch: normal;
     font-style: normal;
@@ -15,118 +17,175 @@
 .carSliderContainer {
     position: relative;
     margin-top: 56px;
-    
+
     .titleContainer {
-        max-width: 656px;
+        max-width: 600px;
+
         .title {
-            font-size: $font-huge-size;
-            @extend .text !optional;
+            font-family: Raleway;
+            font-size: 40px;
             font-weight: 800;
             font-stretch: normal;
             font-style: normal;
             line-height: 1.2;
             letter-spacing: normal;
+            text-align: left;
+            color: #fff;
         }
     }
+
     .caption {
-        @extend .text !optional;
-        font-size: $font-small--size;
-        color: white;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        text-align: left;
+        color: #fff;
     }
 
     .rating {
+        .ratingContent{
+            padding-left: 100px;
+            padding-top: 0;
+        }
+        .ratingHeader{
+            padding-bottom: 0;
+        }
         color: white;
         width: 383px;
         background-color: $graphite-dark;
+        display: inline-flex;
+        flex-direction: column;
 
         .value {
             text-align: left;
         }
+
         .content {
-            @extend .text !optional;
+            font-family: Montserrat;
+            font-size: 14px;
             font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            text-align: left;
+            color: #fff;
         }
+
         .subContent {
-            @extend .text !optional;
-            @extend .subText !optional;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            text-align: left;
+            color: #fff;
+          
         }
     }
+
     .tripAdvisor {
         background-color: transparent;
         color: white;
         font-weight: bold;
         height: 80px;
         box-shadow: none;
-        .title {
+
+        p {
             font-weight: bold;
             @extend .text !optional;
             @extend .subText !optional;
         }
     }
+
     .avatar {
         position: relative;
         display: flow-root;
+        margin-left: 20px;
+        margin-top: 15px;
     }
+
     .ratingBox {
         display: block;
         float: left;
+        margin-top: 25px;
     }
+
     .tripBox {
         display: block;
         float: right;
         max-width: 268px;
         max-height: 53px;
         margin-right: 260px;
+        margin-top: 25px;
     }
-    .carSliderImage{
-        position:fixed !important;
+
+    .carSliderImage {
+        position: fixed !important;
     }
 }
 
-.carouselDots{
-    width:10px;
-    height:10px;
+.carouselDots {
+    width: 10px;
+    height: 10px;
     border-radius: 20px;
     margin-bottom: 10px;
     margin-left: 10px;
 }
-.active{
+
+.active {
     background-color: #ffcc00 !important;
-   @extend .carouselDots !optional;
-}
-.inactive{
-    background-color:     #f2f2f2;
     @extend .carouselDots !optional;
-    
 }
-.react-multi-carousel-item{
+
+.inactive {
+    background-color: #f2f2f2;
+    @extend .carouselDots !optional;
+
+}
+
+.react-multi-carousel-item {
     height: 600px !important;
 }
+
 /* 
   ##Device = Desktops
   ##Screen = 2560px to higher resolution desktops
 */
 
 @media (min-width: 2559px) {
+
     /* CSS */
     .tripBox {
         margin-right: 900px !important;
     }
+
     .cardContentResponsive {
         margin-left: 285px !important;
     }
-        // margin-left: 285px !important;
+
+    // margin-left: 285px !important;
 
 }
+
 @media (min-width: 1400px) {
+
     /* CSS */
     .tripBox {
         margin-right: 240px !important;
     }
+
     .cardContentResponsive {
         margin-left: 150px !important;
     }
-        // margin-left: 285px !important;
+
+    // margin-left: 285px !important;
 
 }
 
@@ -136,6 +195,7 @@
   */
 
 @media (min-width: 1024px) and (max-width: 1280px) {
+
     /* CSS */
     .tripBox {
         margin-right: 85px !important;
@@ -151,20 +211,25 @@
     .cardContentResponsive {
         margin-left: 49px !important;
     }
+
     .tripBox {
         margin-right: 85px !important;
     }
+
     .rating {
         width: 333px !important;
     }
-    .ratingBox{
+
+    .ratingBox {
         width: 333px !important;
     }
+
     .tripAdvisor {
         .title {
             font-size: "14px" !important;
         }
     }
+
     .title {
         font-size: "14px" !important;
     }
@@ -175,13 +240,15 @@
     ##Screen = B/w 768px to 10
   */
 
-@media (min-width: 768px) and (max-width: 970px)  {
+@media (min-width: 768px) and (max-width: 970px) {
+
     /* CSS */
     .cardContentResponsive {
         margin-left: 55px !important;
     }
+
     .tripBox {
-        margin-right:0px !important;
+        margin-right: 0px !important;
     }
 }
 
@@ -191,18 +258,23 @@
   */
 
 @media (min-width: 481px) and (max-width: 767px) {
+
     /* CSS */
     .cardContentResponsive {
         margin-left: 0 !important;
     }
-    .rating {
-        width: 204px !important;
+
+    .ratingBox {
+        // width: 204px !important;
+        display: none !important;
     }
+
     .tripBox {
         margin-right: 0px !important;
         width: 244px;
         height: 169px;
     }
+
     .tripAdvisor {
         .title {
             font-size: "14px" !important;
@@ -220,42 +292,69 @@
         margin-left: 20px !important;
         margin-top: 20px !important;
     }
+
     /* CSS */
     .carSliderContainer {
         position: relative;
         margin-top: 56px;
+
         .titleContainer {
             max-width: 656px;
-            .title {
-                font-size: $font-small--size;
-            }
-        }
-        .caption {
-            font-size: $font-smaller-size;
-        }
-        .rating {
-            width: auto;
-            background-color: $graphite-dark;
+            margin-top: 56px;
 
-            .value {
+            .title {
+                font-family: Raleway;
+                font-size: 24px;
+                font-weight: 800;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.25;
+                letter-spacing: normal;
                 text-align: left;
-            }
-            .content {
-                @extend .text !optional;
-                font-weight: 500;
-            }
-            .subContent {
-                @extend .text !optional;
-                @extend .subText !optional;
+                color: #fff;
             }
         }
+
+        .caption {
+            font-family: Montserrat;
+            font-size: 14px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            text-align: left;
+            color: #fff;
+        }
+
+        .rating {
+            display: none !important;
+        }
+
         .tripBox {
-            margin-right: 43px !important;
-            width: auto;
-            height: 169px;
+            margin-top: 165px !important;
+            width: 270px;
+            height: 200px;
             float: left;
-            .title {
-                font-size: "14px" !important;
+
+
+        }
+
+        .tripAdvisor {
+            &>div {
+                padding: 0 !important;
+            }
+
+            p {
+                font-family: Montserrat;
+                font-size: 14px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.5;
+                letter-spacing: normal;
+                text-align: left;
+                color: #fff;
             }
         }
     }

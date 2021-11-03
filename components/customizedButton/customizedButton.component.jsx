@@ -19,7 +19,10 @@ const GetFreeQuoteButton = {
   '&:hover': {
     backgroundColor: theme.palette.custom.main,
   },
+  fontFamily: "Raleway",
+  fontSize: "18px",
   fontWeight: 800,
+  lineHeight: "1.1",
   marginTop: "1em",
   height: "40px",
   marginBottom: "1em",

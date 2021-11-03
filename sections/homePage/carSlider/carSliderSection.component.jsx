@@ -121,7 +121,7 @@ const CarSliderSection = (props) => {
                                     item.carratings[0] ?
                                         <Box className={styles.ratingBox}>
                                             <Card className={styles.rating}>
-                                                <CardHeader
+                                                <CardHeader className={styles.ratingHeader}
                                                     avatar={
                                                         <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.avatar}>
                                                          <Image src={item.carratings[0].profileimagepath[0].url} width={item.carratings[0].profileimagepath[0].width} height={item.carratings[0].profileimagepath[0].height} layout="responsive" objectFit="fill" alt={item.carratings[0].name} />
@@ -130,11 +130,11 @@ const CarSliderSection = (props) => {
                                                     title={
                                                         <Rating name="read-only" value={item.carratings[0].rate} readOnly className={styles.rating.value} />
                                                     } />
-                                                <CardContent>
-                                                    <Typography className={styles.rating.content}>
+                                                <CardContent className={styles.ratingContent}>
+                                                    <Typography className={styles.content}>
                                                          {item.carratings[0].comment} 
                                                     </Typography>
-                                                    <Typography className={styles.rating.subContent}>
+                                                    <Typography className={styles.subContent}>
                                                         {item.carratings[0].name} 
                                                     </Typography>
                                                 </CardContent>
