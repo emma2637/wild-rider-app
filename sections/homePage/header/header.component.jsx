@@ -425,8 +425,8 @@ const Header = ({ data }) => {
     //#endregion
     return <Box className={classes.menuLanguage}>
       <Button className={`${classes.menuBtn} ${classes.flagBtn}`} onClick={handleClick}>
-        <KeyboardArrowDownIcon />
         <span className={`flag-icon flag-icon-${getLanguageCode(currentLanguageCode)}`}>{ }</span>
+        <KeyboardArrowDownIcon />
       </Button>
       <Menu anchorEl={languageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
         {languages.map((x, i) => {
