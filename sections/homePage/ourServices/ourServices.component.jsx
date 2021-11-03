@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down(580)]: {
             height: '900px',
         },
-        [theme.breakpoints.down(380)]: {
+        [theme.breakpoints.down(400)]: {
             height: '1450px',
         },
     },
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down(580)]: {
             flexBasis: '50%',
         },
-        [theme.breakpoints.down(380)]: {
+        [theme.breakpoints.down(400)]: {
             flexBasis: '100%',
         },
     },
