@@ -99,7 +99,7 @@ const OurServices = (props) => {
                             {x.title}
                         </Typography>
                         <Typography className={classes.cardDescription}>
-                            {x.desc}
+                            {x.description}
                         </Typography>
                     </CardContent>
                 </Card>

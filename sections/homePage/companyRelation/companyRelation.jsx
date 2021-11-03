@@ -15,8 +15,6 @@ import { makeStyles } from '@mui/styles';
 import Image from 'next/image'
 import CloseIcon from '@mui/icons-material/Close';
 
-
-
 const mobileModeWidth = 742;
 const useStyles = makeStyles(theme => ({
     content: {
