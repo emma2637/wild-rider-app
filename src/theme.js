@@ -11,7 +11,7 @@ const theme = createTheme({
       main: "#ff9800",
     },
     custom: {
-      main: "#FFCC00",
+      main: "#ffcc00",
       text: "#6E5800"
     },
     cards: {

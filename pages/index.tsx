@@ -38,7 +38,7 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
         <OurServices ourservicesD={ourServices} />
         <CompanyRelation companyrelationD={companyRelation}  button={buttons}/>
         <FAQ faq={faqD} button={buttons} />
-        <ClientSliderSection data={clientsliders}/>
+        <ClientSliderSection data={clientsliders}   button={buttons}/>
         <OurTravelSection data={otExperts} />
       </main>
       <div>

@@ -17,32 +17,6 @@ import CustomizedButtons from '../../../components/customizedButton/customizedBu
 import styles from '../../../styles/ratingCustom.module.scss'
 import { red } from '@mui/material/colors';
 
-const TrustwortyData = {
-    title: "What are our clients saying about Wild Rider?",
-    clientOpinions: [{
-        profileImagePath: "https://st4.depositphotos.com/15648834/23779/v/1600/depositphotos_237795810-stock-illustration-unknown-person-silhouette-profile-picture.jpg",
-        comment: "Cannot recommend Wild Rider enough. They were really great and took all the changes in my booking (due to the Covid travel issues) in their stride. We arranged to have the car delivered to our hotel, which was really helpful.",
-        name: '— Shelley Trimmer',
-        rate: 4
-    },
-    {
-        profileImagePath: "https://st4.depositphotos.com/15648834/23779/v/1600/depositphotos_237795810-stock-illustration-unknown-person-silhouette-profile-picture.jpg",
-        comment: "lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptate.",
-        name: '— Juan Trimmer',
-        rate: 5
-    },
-    {
-        profileImagePath: "https://st4.depositphotos.com/15648834/23779/v/1600/depositphotos_237795810-stock-illustration-unknown-person-silhouette-profile-picture.jpg",
-        comment: "lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptate.",
-        name: '— Josh Trimmer',
-        rate: 5
-    }]
-}
-const button = {
-    type: 'readMoreBtn',
-    text: 'READ MORE'
-}
-
 const useStyles = makeStyles((theme) => ({
     container: {
         position: 'relative',
@@ -75,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flow-root',
     },
     cardContentText: {
+        fontFamily: "Montserrat",
         fontSize: "20px",
         fontWeight: "500",
         lineHeight: 1.6,
@@ -82,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#262f39"
     },
     cardActionNameText: {
+        fontFamily: "Raleway",
         fontSize: "18px",
         fontWeight: "800",
         lineHeight: 1.22,
@@ -118,12 +94,17 @@ const responsive = {
 };
 
 
-const ClientSliderSection = ({ data }) => {
-    const { title, clientopinions } = data
+const ClientSliderSection = ( props ) => {
+    const {data,button} = props;
+    const { title, clientopinions } =data
     const classes = useStyles();
+    const readMoreBtn = button.find(item => item.type.includes("READ"));
+
+    console.log(button);
     const CustomDot = ({ onMove, index, onClick, active }) => {
         // onMove means if dragging or swiping in progress.
         // active is provided by this lib for checking if the item is active or not.
+
         return (
             <li
                 className={active ? styles.active : styles.inactive}
@@ -180,7 +161,7 @@ const ClientSliderSection = ({ data }) => {
                                             {clientOpinion.name}
                                             <Rating name="read-only" value={clientOpinion.rate} readOnly className={classes.cardActionRatingValue} />
                                         </Typography>
-                                        <CustomizedButtons type={button.type} buttonText={button.text} ></CustomizedButtons>
+                                        <CustomizedButtons type="readMoreBtn" buttonText={readMoreBtn.text} ></CustomizedButtons>
                                     </Container>
                                 </CardActions>
                             </Card>

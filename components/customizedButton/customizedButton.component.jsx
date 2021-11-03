@@ -44,7 +44,9 @@ const ReadMoreButton = {
   alignItems: "center",
   border:"none",
   marginLeft: "auto",
-  marginRight: "auto"
+  marginRight: "auto",
+  fontFamily: "Raleway",
+  fontSize: "18px",
 
 };
 

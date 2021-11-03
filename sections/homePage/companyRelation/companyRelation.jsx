@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
         flexBasis: '28%',
         display: 'flex',
         justifyContent: 'center',
-        padding: '10px 10px 10px 10px',
+        padding: '30px 10px 10px',
         [theme.breakpoints.down(mobileModeWidth)]: {
             flexBasis: '100%',
         },
