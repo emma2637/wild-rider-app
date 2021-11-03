@@ -212,6 +212,7 @@ const CompanyRelation = (props) => {
 
     const { button, companyrelationD } = props;
     const { thrustworthycarrentalinfos, title, Shorttitle } = companyrelationD;
+    const learnMoreButton = button.find((x) => x.type === "LEARN MORE");
 
     const theme = useTheme();
     const classes = useStyles();
@@ -224,7 +225,7 @@ const CompanyRelation = (props) => {
 
         return (
             <Box className={classes.learnMoreContainer}>
-                <Typography className={classes.learnMoreTxt} onClick={handleOpen}>{button.text}</Typography>
+                <Typography className={classes.learnMoreTxt} onClick={handleOpen}>{learnMoreButton.text}</Typography>
                 <Modal open={open} onClose={handleClose} closeAfterTransition BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
                     <Fade in={open}>
                         <Box className={classes.learnMoreModal}>
