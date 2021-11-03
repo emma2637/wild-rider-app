@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
     footer: {
         backgroundColor: '#3f3f3f',
         color: 'white',
+
     },
     content: {
         alignItems: 'center',
@@ -20,8 +21,7 @@ const useStyles = makeStyles(theme => ({
     },
     footerText: {
         textAlign: 'center',
-        fontDisplay: 'optional',
-        fontfamily: 'Montserrat',
+        fontFamily: 'Montserrat !important',
         fontSize: '20px',
         letterSpacing: 'normal',
     }
