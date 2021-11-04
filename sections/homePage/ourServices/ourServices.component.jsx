@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down(650)]: {
             flexBasis: '50%',
         },
-        [theme.breakpoints.down(400)]: {
+        [theme.breakpoints.down(480)]: {
             flexBasis: '100%',
         },
     },

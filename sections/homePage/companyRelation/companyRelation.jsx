@@ -15,7 +15,10 @@ import { makeStyles } from '@mui/styles';
 import Image from 'next/image'
 import CloseIcon from '@mui/icons-material/Close';
 
-const mobileModeWidth = 742;
+const mobileModeWidth = 752;
+const mobileSmallModeWidth = 430;
+const mobileModalModeWidth = 650;
+const smallScreenModeWith = 1000;
 const useStyles = makeStyles(theme => ({
     content: {
         display: 'block',
@@ -49,7 +52,7 @@ const useStyles = makeStyles(theme => ({
         flexBasis: '28%',
         display: 'flex',
         justifyContent: 'center',
-        padding: '30px 10px 10px',
+        padding: '13px 13px 13px 13px',
         [theme.breakpoints.down(mobileModeWidth)]: {
             flexBasis: '100%',
         },
@@ -101,6 +104,7 @@ const useStyles = makeStyles(theme => ({
         color: '#262f39',
         padding: '0px 9px 16px 9px',
     },
+
     learnMoreTxt: {
         textDecoration: 'underline',
         color: '#262f39',
@@ -111,48 +115,126 @@ const useStyles = makeStyles(theme => ({
             textDecoration: 'unset',
         },
         width: 'max-content',
+        paddingTop: '16px'
     },
     learnMoreModal: {
         position: 'absolute',
         top: '50%',
-        left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '66%',
-        [theme.breakpoints.down(1150)]: {
-            width: '72%',
-        },
         backgroundColor: 'white',
         border: 'unset',
-        
-        marginLeft: '8%',
-        [theme.breakpoints.down(850)]: {
-            marginLeft: '9%',
+        [theme.breakpoints.down(mobileModeWidth)]:{
+            width: '100%',
+            display:'block',
+            overflow:'hidden',
+            left: '50% !important',
+            maxWidth: '400px',
+            height: '100%'
         },
-        [theme.breakpoints.up(mobileModeWidth)]: {
-            display: 'flex',
+        
+        [theme.breakpoints.up(mobileModeWidth)]:{
+            width: '70%',
+            display:'flex',
             justifyContent: 'center',
+            height: 'fit-content',
+            left: '55%',
+            maxWidth: '920px',
+            maxHeight: '616px',
+            height: '616px !important',
+        },
+        [theme.breakpoints.up(1800)]:{
+            left: '49% !important',
+        },
+        [theme.breakpoints.up(1400)]:{
+            left: '58% !important',
+        },
+        [theme.breakpoints.down(1320)]:{
+            left: '59% !important',
+        },
+        [theme.breakpoints.up(1100)]:{
+            left: '56%',
+        },
+        [theme.breakpoints.down(1100)]:{
+            left: '58%',
+        },
+        [theme.breakpoints.down(880)]:{
+            left: '60%',
+        },
+        minWidth: '250px',
+        
+    },
+
+    closeModalBtn: {
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            position: 'absolute',
+            marginLeft: '94%',
+            marginTop: '5px'
         },
         [theme.breakpoints.down(mobileModeWidth)]: {
-            marginLeft: 'unset',
-            width: '310px',
-            height: 'max-content',
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column'
+            margin: '8px 5px 8px 0px',
+            fontSize: '22px',
+            float: 'right'
         },
-        maxHeight: '90%'
+        
+    },
+    imageContainer: {
+        [theme.breakpoints.down(mobileModeWidth)]: {
+            width: '100%',
+            height: '170px',
+            position: 'relative',
+            image: {
+                width: '100%',
+                height: '100%',
+                position: 'relative !important',
+                objectFit: 'cover',
+            }
+        },
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            width: '360px',
+            height: '220px',
+            position: 'absolute',
+            image: {
+                width: '100%',
+                height: '100%',
+                position: 'relative !important',
+                objectFit: 'cover',
+            }
+        },
+    },
+    modalImage: {
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            position: 'absolute',
+            marginLeft: '-153%',
+            marginTop: '30px'
+        },
+        [theme.breakpoints.down(mobileModeWidth)]: {
+            display: 'inline-block',
+            textAlign: 'center',
+            width: '100%',
+        },
+        padding: '0px 15px 0px 15px',
+        
     },
     learnMoreTextContent: {
         flexGrow: '0.4',
+        whiteSpace: "pre-line",
         [theme.breakpoints.up(mobileModeWidth)]: {
             marginLeft: '150px',
-            padding: '30px 0px 30px 0px',
-            width: '95%',
+            padding: '30px 12% 59px 0px',
+			height: '-webkit-fill-available',
+			overflow: 'hidden'
         },
         [theme.breakpoints.down(mobileModeWidth)]: {
-            padding: '10px 10px 10px 10px'
+            padding: '3px 0px 0px 15px',
         },
-        whiteSpace: "pre-line",
+    },
+    titleContainer:{
+        [theme.breakpoints.down(mobileModeWidth)]: {
+            width: '281px',
+            height: '42px',
+            padding: '12px 0px 11px 0px',
+            display: 'inline-table'
+        },
     },
     modalTitle: {
         fontDisplay: 'optional',
@@ -163,7 +245,23 @@ const useStyles = makeStyles(theme => ({
         letterSpacing: '2.16px',
         textAlign: 'left',
         color: '#262f39',
-        paddingBottom: '7px',
+    },
+    divider: {
+        width: '30px',
+        height: '4px',
+        backgroundColor: '#c4c4c4'
+    },
+    modalDescBox: {
+        overflow: 'auto',
+        margin: '16px 3px 10px 0px',
+        '&::-webkit-scrollbar-thumb': {
+            borderRadius: '10px',
+            background: 'rgba(0,0,0,0.2)',
+            marginLeft: '50px'
+        },
+        [theme.breakpoints.down(mobileModeWidth)]: {
+            height: '50vh'
+        },
     },
     modalDescription: {
         fontDisplay: 'optional',
@@ -174,35 +272,9 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'left',
         color: '#262f39',
         overflow: 'auto',
-        height: '90%',
-        marginTop: '15px',
-        [theme.breakpoints.up(mobileModeWidth)]: {
-            paddingTop: '15px',
-            paddingRight: '5%'
-        },
-        '&::-webkit-scrollbar-thumb': {
-            borderRadius: '10px',
-            background: 'rgba(0,0,0,0.2)',
-            marginLeft: '50px'
-        },
-        height: '-webkit-fill-available'
+        paddingRight: '12px',
     },
-    modalImage: {
-        [theme.breakpoints.up(mobileModeWidth)]: {
-            position: 'absolute',
-            marginLeft: '-105%',
-            marginTop: '30px'
-        },
-    },
-    closeModalBtn: {
-        position: 'absolute',
-        right: '10px',
-        top: '6px',
-        fontSize: '21px',
-    },
-    learnMoreContainer: {
-        paddingTop: '20px'
-    }
+    
 })
     , { name: "MuiCompanyRelationComponent" });
 
@@ -217,6 +289,8 @@ const CompanyRelation = (props) => {
     const theme = useTheme();
     const classes = useStyles();
     const isMobile = useMediaQuery(theme.breakpoints.down(mobileModeWidth));
+    const isMobileS = useMediaQuery(theme.breakpoints.down(mobileSmallModeWidth));
+
     //#region Modal
     function LearnMoreModal({ cardInfo }) {
         const [open, setOpen] = React.useState(false);
@@ -224,30 +298,85 @@ const CompanyRelation = (props) => {
         const handleClose = () => setOpen(false);
 
         return (
-            <Box className={classes.learnMoreContainer}>
+            <Box>
                 <Typography className={classes.learnMoreTxt} onClick={handleOpen}>{learnMoreButton.text}</Typography>
                 <Modal open={open} onClose={handleClose} closeAfterTransition BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
-                    <Fade in={open}>
-                        <Box className={classes.learnMoreModal}>
-                            <CloseIcon className={classes.closeModalBtn} onClick={handleClose} />
+                     <Fade in={open}>
+                         <Box className={classes.learnMoreModal}>
+                             <CloseIcon className={classes.closeModalBtn} onClick={handleClose} />
                             <Box className={classes.modalImage}>
-                                <Image className={classes.cardImg} src={cardInfo.imagepath[1].url} height={144} width={310} alt={cardInfo.title} />
-                            </Box>
-                            <Box className={classes.learnMoreTextContent}>
-                                <Typography className={classes.modalTitle}>
-                                    {cardInfo.title}
-                                </Typography>
-                                <Divider className={classes.divider} />
-                                <Typography className={classes.modalDescription}>
-                                    {cardInfo.longdescription}
-                                </Typography>
-                            </Box>
-                        </Box>
-                    </Fade>
-                </Modal>
+                                 {isMobileS ?
+                                    (<>
+                                        <Box className={classes.imageContainer }>
+                                            <Image className={classes.modalImage} src={cardInfo.imagepath[1].url} layout="fill" alt={cardInfo.title} />
+                                        </Box>
+                                    </>) :
+                                    isMobile ? 
+                                    (<>
+                                        <Box className={classes.imageContainer }>
+                                            <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />                                            
+                                        </Box>
+                                    </>) :
+                                    (<>
+                                        <Box className={classes.imageContainer }>
+                                            <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />
+                                        </Box>
+                                    </>) 
+                                 }
+                             </Box>
+                             <Box className={classes.learnMoreTextContent}>
+                                 <Box className={classes.titleContainer}>
+                                    <Typography className={classes.modalTitle}>
+                                        {cardInfo.title}
+                                    </Typography>
+                                 </Box>
+                                 <Divider className={classes.divider} />
+                                 <Box className={classes.modalDescBox}>
+                                     <Typography className={classes.modalDescription}>
+                                         {cardInfo.longdescription}
+                                     </Typography>
+                                 </Box>
+                             </Box>
+                         </Box>
+                     </Fade>
+                 </Modal>
             </Box>
         )
     }
+    //     return (
+    //         <Box className={classes.learnMoreContainer}>
+    //             <Typography className={classes.learnMoreTxt} onClick={handleOpen}>{learnMoreButton.text}</Typography>
+    //             <Modal open={open} onClose={handleClose} closeAfterTransition BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
+    //                 <Fade in={open}>
+    //                     <Box className={classes.learnMoreModal}>
+    //                         <CloseIcon className={classes.closeModalBtn} onClick={handleClose} />
+    //                         <Box className={classes.modalImage}>
+    //                             {isSmallScreen ?
+    //                                     (<>
+    //                                         <Image className={classes.cardImg} src={cardInfo.imagepath[1].url} height={200} width={340} alt={cardInfo.title} />
+    //                                     </>) :
+    //                                     (<>
+    //                                         <Image className={classes.cardImg} src={cardInfo.imagepath[0].url} height={259} width={414} alt={cardInfo.title} />
+    //                                     </>) 
+    //                             }
+    //                         </Box>
+    //                         <Box className={classes.learnMoreTextContent}>
+    //                             <Typography className={classes.modalTitle}>
+    //                                 {cardInfo.title}
+    //                             </Typography>
+    //                             <Divider className={classes.divider} />
+    //                             <Box className={classes.modalDescBox}>
+    //                                 <Typography className={classes.modalDescription}>
+    //                                     {cardInfo.longdescription}
+    //                                 </Typography>
+    //                             </Box>
+    //                         </Box>
+    //                     </Box>
+    //                 </Fade>
+    //             </Modal>
+    //         </Box>
+    //     )
+    // }
     //#endregion Modal
 
     //#region Card
@@ -288,38 +417,3 @@ const CompanyRelation = (props) => {
 }
 
 export default CompanyRelation;
-
-// {companyRelationData.cardsInfo.map((x, i) => {
-//     if (x.isMobilInfo != undefined) {
-//         return(<CompanyRelationCard key={i} cardInfo={x} />)
-//     }
-//     else {
-//         return(<CompanyRelationCard key={i} cardInfo={x} />) 
-//     }
-// })}
-
-{/* <Grid sx={{ flexGrow: 1, mb: 3, mt: 3, backgroundColor: "#fc0;" }} 
-  container 
-  spacing={1}
-  justifyContent="center"
-  direction="row"
-  alignItems="center"
-  //sx={{ mb: 3, mt: 3, backgroundColor: "#fc0;" }}
-  > */}
-
-
-
-{/* <Grid item xs={12}>
-  <Grid container
-   justifyContent="center"
-    spacing={1}
-   >
-    {cards.map((card: iCardCar, index) => (
-      <Grid key={index} item xs={4}>
-        <Paper sx={{ height: 450, width: 350 }} />
-      </Grid>
-    ))}
-
-  </Grid>
-</Grid> */}
-{/* </Grid> */ }
