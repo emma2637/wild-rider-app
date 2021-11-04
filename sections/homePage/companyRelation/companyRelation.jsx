@@ -148,7 +148,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.up(1400)]:{
             left: '58% !important',
         },
-        [theme.breakpoints.down(1320)]:{
+        [theme.breakpoints.between(mobileModeWidth,1320)]:{
             left: '59% !important',
         },
         [theme.breakpoints.up(1100)]:{
