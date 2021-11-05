@@ -82,6 +82,7 @@ export async function queryClient(language) {
                         url
                         width
                         height
+                        alternativeText
                       }
                       title
                       shortdescription
