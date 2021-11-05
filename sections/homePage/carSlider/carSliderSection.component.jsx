@@ -24,12 +24,12 @@ const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
         items: 1,
-        slidesToSlide:1// optional, default to 1.
+        slidesToSlide: 1// optional, default to 1.
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
         items: 1,
-        slidesToSlide:1 // optional, default to 1.
+        slidesToSlide: 1 // optional, default to 1.
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
@@ -42,7 +42,8 @@ const CarSliderSection = (props) => {
     const { button, cars } = props;
     const { tripadvisors, carsliderinfos } = cars;
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down(800));
+    const isMobile = useMediaQuery(theme.breakpoints.down(767));
+    const isTablet = useMediaQuery(theme.breakpoints.down(1023));
     const getFreeQuoteBtn = button.find(item => item.type.includes("QUOTE"));
 
     // console.log('carsliderinfos',carsliderinfos);
@@ -57,6 +58,8 @@ const CarSliderSection = (props) => {
                 onClick={() => onClick()} />
         );
     };
+
+    
     return (
         <>
             <div className={styles.carSliderContainer}>
@@ -85,16 +88,20 @@ const CarSliderSection = (props) => {
 
                 >
                     {carsliderinfos.map((item, index) => {
-                        console.log('item', item.imagepath);
+                        let image = isMobile ? item.imagepath.find(image =>image.alternativeText === "mobile") : isTablet ? item.imagepath.find(image =>image.alternativeText === "tablet"): item.imagepath.find(image =>image.alternativeText === "web");
+                        console.log('image',image);
+                        console.log('isMobile',isMobile);
                         return (
                             <FiCard key={index} >
                                 <FiCardMedia media="picture" alt="Car" >
-                                    <Image src={item.imagepath[0].url}
-                                        width={item.imagepath[0].width} height={item.imagepath[0].height} quality={90}
+
+                                    <Image src={image.url}
+                                        quality={90}
                                         layout="fill"
                                         objectFit="fill"
                                         priority
                                         alt={item.title} />
+
                                 </FiCardMedia>
                                 <FiCardContent className={styles.cardContentResponsive}>
                                     <Box className={styles.titleContainer}>
