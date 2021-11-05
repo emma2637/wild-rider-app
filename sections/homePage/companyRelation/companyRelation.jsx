@@ -17,8 +17,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const mobileModeWidth = 752;
 const mobileSmallModeWidth = 430;
-const mobileModalModeWidth = 650;
-const smallScreenModeWith = 1000;
+const desktopSmallModeWith = 1000;
 const useStyles = makeStyles(theme => ({
     content: {
         display: 'block',
@@ -143,22 +142,25 @@ const useStyles = makeStyles(theme => ({
             height: '616px !important',
         },
         [theme.breakpoints.up(1800)]:{
-            left: '49% !important',
+            left: '49%',
         },
         [theme.breakpoints.up(1400)]:{
-            left: '58% !important',
+            left: '59%',
         },
-        [theme.breakpoints.between(mobileModeWidth,1320)]:{
-            left: '59% !important',
+        [theme.breakpoints.down(1400)]:{
+            left: '60%',
         },
-        [theme.breakpoints.up(1100)]:{
-            left: '56%',
+        [theme.breakpoints.down(1200)]:{
+            left: '61%',
         },
         [theme.breakpoints.down(1100)]:{
-            left: '58%',
+            left: '62%',
         },
-        [theme.breakpoints.down(880)]:{
+        [theme.breakpoints.down(1000)]:{
             left: '60%',
+        },
+        [theme.breakpoints.down(860)]:{
+            left: '62%',
         },
         minWidth: '250px',
         
@@ -180,7 +182,7 @@ const useStyles = makeStyles(theme => ({
     imageContainer: {
         [theme.breakpoints.down(mobileModeWidth)]: {
             width: '100%',
-            height: '170px',
+            height: '160px',
             position: 'relative',
             image: {
                 width: '100%',
@@ -189,10 +191,10 @@ const useStyles = makeStyles(theme => ({
                 objectFit: 'cover',
             }
         },
-        [theme.breakpoints.up(mobileModeWidth)]: {
+        [theme.breakpoints.up(desktopSmallModeWith)]: {
             width: '360px',
             height: '220px',
-            position: 'absolute',
+            
             image: {
                 width: '100%',
                 height: '100%',
@@ -200,11 +202,27 @@ const useStyles = makeStyles(theme => ({
                 objectFit: 'cover',
             }
         },
+        [theme.breakpoints.between(mobileModeWidth, desktopSmallModeWith)]: {
+            width: '300px',
+            height: '180px',
+            image: {
+                width: '100%',
+                height: '100%',
+                position: 'relative !important',
+                objectFit: 'cover',
+            }
+        },
+        
     },
     modalImage: {
         [theme.breakpoints.up(mobileModeWidth)]: {
             position: 'absolute',
-            marginLeft: '-153%',
+            marginLeft: '-116%',
+            marginTop: '30px'
+        },
+        [theme.breakpoints.between(mobileModeWidth, desktopSmallModeWith)]: {
+            marginLeft: '-110%',
+            position: 'absolute',
             marginTop: '30px'
         },
         [theme.breakpoints.down(mobileModeWidth)]: {
@@ -224,20 +242,25 @@ const useStyles = makeStyles(theme => ({
 			height: '-webkit-fill-available',
 			overflow: 'hidden'
         },
+        [theme.breakpoints.between(mobileModeWidth, 1200)]:{
+            marginLeft: '158px',
+        },
         [theme.breakpoints.down(mobileModeWidth)]: {
             padding: '3px 0px 0px 15px',
         },
     },
     titleContainer:{
         [theme.breakpoints.down(mobileModeWidth)]: {
-            width: '281px',
-            height: '42px',
             padding: '12px 0px 11px 0px',
             display: 'inline-table'
         },
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            paddingBottom: '14px'
+        },
     },
     modalTitle: {
-        fontDisplay: 'optional',
+        width: '281px',
+        height: '42px',
         fontFamily: 'Raleway',
         fontSize: '18px',
         fontWeight: '800',
@@ -245,6 +268,8 @@ const useStyles = makeStyles(theme => ({
         letterSpacing: '2.16px',
         textAlign: 'left',
         color: '#262f39',
+        fontStretch: 'normal',
+        fontStyle: 'normal'
     },
     divider: {
         width: '30px',
@@ -260,19 +285,22 @@ const useStyles = makeStyles(theme => ({
             marginLeft: '50px'
         },
         [theme.breakpoints.down(mobileModeWidth)]: {
-            height: '50vh'
+            height: 'calc(100vh - 315px);'
         },
+        
     },
     modalDescription: {
         fontDisplay: 'optional',
         fontFamily: 'Montserrat',
         fontSize: '14px',
         lineHeight: '1.5',
-        letterSpacing: '2.16px',
+        letterSpacing: 'normal',
         textAlign: 'left',
         color: '#262f39',
         overflow: 'auto',
         paddingRight: '12px',
+        position: 'absolute',
+        height: 'inherit;'
     },
     
 })
@@ -290,6 +318,7 @@ const CompanyRelation = (props) => {
     const classes = useStyles();
     const isMobile = useMediaQuery(theme.breakpoints.down(mobileModeWidth));
     const isMobileS = useMediaQuery(theme.breakpoints.down(mobileSmallModeWidth));
+    const isDesktopS = useMediaQuery(theme.breakpoints.down(desktopSmallModeWith));
 
     //#region Modal
     function LearnMoreModal({ cardInfo }) {
@@ -312,16 +341,22 @@ const CompanyRelation = (props) => {
                                         </Box>
                                     </>) :
                                     isMobile ? 
-                                    (<>
-                                        <Box className={classes.imageContainer }>
-                                            <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />                                            
-                                        </Box>
-                                    </>) :
-                                    (<>
-                                        <Box className={classes.imageContainer }>
-                                            <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />
-                                        </Box>
-                                    </>) 
+                                        (<>
+                                            <Box className={classes.imageContainer }>
+                                                <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />                                            
+                                            </Box>
+                                        </>) :
+                                        isDesktopS ?
+                                            (<>
+                                                <Box className={classes.imageContainer }>
+                                                    <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />                                            
+                                                </Box>
+                                            </>) :
+                                            (<>
+                                                <Box className={classes.imageContainer }>
+                                                    <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />
+                                                </Box>
+                                            </>) 
                                  }
                              </Box>
                              <Box className={classes.learnMoreTextContent}>
