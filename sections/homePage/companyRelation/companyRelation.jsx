@@ -117,6 +117,7 @@ const useStyles = makeStyles(theme => ({
         paddingTop: '16px'
     },
     learnMoreModal: {
+        minHeight: '288px',
         position: 'absolute',
         top: '50%',
         transform: 'translate(-50%, -50%)',
@@ -138,8 +139,6 @@ const useStyles = makeStyles(theme => ({
             height: 'fit-content',
             left: '55%',
             maxWidth: '920px',
-            maxHeight: '616px',
-            height: '616px !important',
         },
         [theme.breakpoints.up(1800)]:{
             left: '49%',
@@ -237,30 +236,34 @@ const useStyles = makeStyles(theme => ({
         flexGrow: '0.4',
         whiteSpace: "pre-line",
         [theme.breakpoints.up(mobileModeWidth)]: {
-            marginLeft: '150px',
-            padding: '30px 12% 59px 0px',
 			height: '-webkit-fill-available',
 			overflow: 'hidden'
         },
-        [theme.breakpoints.between(mobileModeWidth, 1200)]:{
-            marginLeft: '158px',
+        [theme.breakpoints.up(1100)]:{
+            margin: '30px 96px 30px 155px'
+        },
+        [theme.breakpoints.between(mobileModeWidth, 1100)]:{
+            margin: '30px 40px 30px 155px'
         },
         [theme.breakpoints.down(mobileModeWidth)]: {
-            padding: '3px 0px 0px 15px',
+            margin: '3px 0px 0px 15px',
         },
     },
     titleContainer:{
+        width: '281px',
         [theme.breakpoints.down(mobileModeWidth)]: {
+            width: '281px',
+            height: '42px',
             padding: '12px 0px 11px 0px',
             display: 'inline-table'
         },
         [theme.breakpoints.up(mobileModeWidth)]: {
-            paddingBottom: '14px'
+            marginBottom: '14px',
         },
+
     },
     modalTitle: {
-        width: '281px',
-        height: '42px',
+        fontDisplay: 'optional',
         fontFamily: 'Raleway',
         fontSize: '18px',
         fontWeight: '800',
@@ -268,8 +271,6 @@ const useStyles = makeStyles(theme => ({
         letterSpacing: '2.16px',
         textAlign: 'left',
         color: '#262f39',
-        fontStretch: 'normal',
-        fontStyle: 'normal'
     },
     divider: {
         width: '30px',
@@ -287,6 +288,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down(mobileModeWidth)]: {
             height: 'calc(100vh - 315px);'
         },
+        [theme.breakpoints.up(mobileModeWidth)]: {
+            height: 'calc(100% - 69px)'
+        },
         
     },
     modalDescription: {
@@ -299,8 +303,6 @@ const useStyles = makeStyles(theme => ({
         color: '#262f39',
         overflow: 'auto',
         paddingRight: '12px',
-        position: 'absolute',
-        height: 'inherit;'
     },
     
 })
