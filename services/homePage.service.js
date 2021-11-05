@@ -39,6 +39,9 @@ export async function queryClient(language) {
                         width
                         height
                       }
+                      hastripadvisor
+                      ismobile
+                      istablet
                       carratings {
                         rate
                         profileimagepath {
