@@ -212,7 +212,8 @@ const useStyles = makeStyles(theme => ({
       fontStyle: 'normal',
       lineHeight: '3',
       letterSpacing: '1.4px',
-    }
+    },
+    textDecoration: 'underline'
   },
   languageMenu: {
     '& .MuiMenu-paper': {
@@ -285,7 +286,7 @@ const useStyles = makeStyles(theme => ({
   },
   headerOptions: {
     display: 'flex',
-    width: '-webkit-fill-available',
+    width: '100%',
     alignItems: 'center',
   },
   menuIcon: {
@@ -322,6 +323,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#2866ae',
     color: ' white !important',
     alignItems: 'center',
+    textTransform: 'uppercase'
   }
 }),
   { name: 'MuiHeaderComponent' }
@@ -431,7 +433,7 @@ const Header = ({ data }) => {
       <Menu anchorEl={languageMenuOpen} open={open} onClose={handleClose} className={classes.languageMenu}>
         {languages.map((x, i) => {
           return <MenuItem key={i} onClick={() => { changeLanguage(x.code); handleClose() }} className={classes.languageItem}>
-            <ListItem sx={{ textDecoration: "underline" }} button divider>
+            <ListItem button divider>
               <ListItemText>
                 <Typography className={classes.languageOption}>
                   <span className={`flag-icon flag-icon-${getLanguageCode(x.code)}`}></span>
