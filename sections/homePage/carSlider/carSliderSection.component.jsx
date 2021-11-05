@@ -5,52 +5,48 @@ import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material';
 
 import { red } from '@mui/material/colors';
 
 import CustomizedButtons from '../../../components/customizedButton/customizedButton.component';
-import { FiCard, FiCardActionArea, FiCardActions, FiCardContent, FiCardMedia } from '../../../components/FullImageCard/FullImageCard';
+import { FiCard, FiCardContent, FiCardMedia } from '../../../components/FullImageCard/FullImageCard';
 
 import 'react-multi-carousel/lib/styles.css';
 import styles from '../../../styles/carSlider.module.scss';
-import { width } from '@mui/system';
 
-const buttonData = {
-    type: "getFreeQuoteBtn",
-    text: "Get Free Quote",
-}
+
+const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 1,
+        slidesToSlide:1// optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 1,
+        slidesToSlide:1 // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    }
+};
 const CarSliderSection = (props) => {
 
     const { button, cars } = props;
     const { tripadvisors, carsliderinfos } = cars;
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down(800));
+    const getFreeQuoteBtn = button.find(item => item.type.includes("QUOTE"));
 
     // console.log('carsliderinfos',carsliderinfos);
 
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 1,
-            slidesToSlide: 3// optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 1,
-            slidesToSlide: 3 // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 3 // optional, default to 1.
-        }
-    };
 
     const CustomDot = ({ onMove, index, onClick, active }) => {
         // onMove means if dragging or swiping in progress.
@@ -59,7 +55,6 @@ const CarSliderSection = (props) => {
             <li
                 className={active ? styles.active : styles.inactive}
                 onClick={() => onClick()} />
-
         );
     };
     return (
@@ -71,7 +66,7 @@ const CarSliderSection = (props) => {
                     centerMode={false}
                     className=""
                     containerClass="container"
-                    dotListClass={styles.dotList}
+                    // dotListClass={styles.dotList}
                     ssr={true} // means to render carousel on server-side.
                     draggable
                     focusOnSelect={false}
@@ -115,7 +110,7 @@ const CarSliderSection = (props) => {
                                         )
                                     })}
 
-                                    <CustomizedButtons type={buttonData.type} buttonText={buttonData.text} />
+                                    <CustomizedButtons type={"getFreeQuoteBtn"} buttonText={getFreeQuoteBtn.text} />
                                     {
                                         item.carratings[0] ?
                                             <Box className={styles.ratingBox}>
