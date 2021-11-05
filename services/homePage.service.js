@@ -38,7 +38,9 @@ export async function queryClient(language) {
                         url
                         width
                         height
+                        alternativeText
                       }
+                      hastripadvisor
                       carratings {
                         rate
                         profileimagepath {
@@ -137,3 +139,5 @@ export async function queryClient(language) {
 }
 
 export default client;
+
+

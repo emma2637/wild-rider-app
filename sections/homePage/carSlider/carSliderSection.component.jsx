@@ -5,52 +5,49 @@ import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material';
 
 import { red } from '@mui/material/colors';
 
 import CustomizedButtons from '../../../components/customizedButton/customizedButton.component';
-import { FiCard, FiCardActionArea, FiCardActions, FiCardContent, FiCardMedia } from '../../../components/FullImageCard/FullImageCard';
+import { FiCard, FiCardContent, FiCardMedia } from '../../../components/FullImageCard/FullImageCard';
 
 import 'react-multi-carousel/lib/styles.css';
 import styles from '../../../styles/carSlider.module.scss';
-import { width } from '@mui/system';
 
-const buttonData = {
-    type: "getFreeQuoteBtn",
-    text: "Get Free Quote",
-}
+
+const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 1,
+        slidesToSlide: 1// optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    }
+};
 const CarSliderSection = (props) => {
 
     const { button, cars } = props;
     const { tripadvisors, carsliderinfos } = cars;
- 
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down(767));
+    const isTablet = useMediaQuery(theme.breakpoints.down(1023));
+    const getFreeQuoteBtn = button.find(item => item.type.includes("QUOTE"));
+
     // console.log('carsliderinfos',carsliderinfos);
 
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 1,
-            slidesToSlide: 3// optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 1,
-            slidesToSlide: 3 // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 3 // optional, default to 1.
-        }
-    };
 
     const CustomDot = ({ onMove, index, onClick, active }) => {
         // onMove means if dragging or swiping in progress.
@@ -58,10 +55,11 @@ const CarSliderSection = (props) => {
         return (
             <li
                 className={active ? styles.active : styles.inactive}
-                onClick={() => onClick()}/>
-            
+                onClick={() => onClick()} />
         );
     };
+
+
     return (
         <>
             <div className={styles.carSliderContainer}>
@@ -71,7 +69,7 @@ const CarSliderSection = (props) => {
                     centerMode={false}
                     className=""
                     containerClass="container"
-                    dotListClass={styles.dotList}
+                    // dotListClass={styles.dotList}
                     ssr={true} // means to render carousel on server-side.
                     draggable
                     focusOnSelect={false}
@@ -90,17 +88,23 @@ const CarSliderSection = (props) => {
 
                 >
                     {carsliderinfos.map((item, index) => {
+                        let image = isMobile ? item.imagepath.find(image => image.alternativeText === "mobile") : isTablet ? item.imagepath.find(image => image.alternativeText === "tablet") : item.imagepath.find(image => image.alternativeText === "web");
+
+                        if (!image) {
+                            image = item.imagepath[0];
+                        }
 
                         return (
                             <FiCard key={index} >
                                 <FiCardMedia media="picture" alt="Car" >
-                                  <Image src={item.imagepath[2].url}
-                                 width={item.imagepath[2].width} height={item.imagepath[2].height}  quality={90} 
-                                layout="fill"
-                                objectFit="fill"
-                                priority
-                                alt={item.title} />
-                               
+
+                                    <Image src={image.url}
+                                        quality={90}
+                                        layout="fill"
+                                        objectFit="fill"
+                                        priority
+                                        alt={item.title} />
+
                                 </FiCardMedia>
                                 <FiCardContent className={styles.cardContentResponsive}>
                                     <Box className={styles.titleContainer}>
@@ -116,30 +120,30 @@ const CarSliderSection = (props) => {
                                         )
                                     })}
 
-                                    <CustomizedButtons type={buttonData.type} buttonText={buttonData.text} />
+                                    <CustomizedButtons type={"getFreeQuoteBtn"} buttonText={getFreeQuoteBtn.text} />
                                     {
-                                    item.carratings[0] ?
-                                        <Box className={styles.ratingBox}>
-                                            <Card className={styles.rating}>
-                                                <CardHeader className={styles.ratingHeader}
-                                                    avatar={
-                                                        <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.avatar}>
-                                                         <Image src={item.carratings[0].profileimagepath[0].url} width={item.carratings[0].profileimagepath[0].width} height={item.carratings[0].profileimagepath[0].height} layout="responsive" objectFit="fill" alt={item.carratings[0].name} />
-                                                        </Avatar>
-                                                    }
-                                                    title={
-                                                        <Rating name="read-only" value={item.carratings[0].rate} readOnly className={styles.rating.value} />
-                                                    } />
-                                                <CardContent className={styles.ratingContent}>
-                                                    <Typography className={styles.content}>
-                                                         {item.carratings[0].comment} 
-                                                    </Typography>
-                                                    <Typography className={styles.subContent}>
-                                                        {item.carratings[0].name} 
-                                                    </Typography>
-                                                </CardContent>
-                                            </Card>
-                                        </Box> : <Box />
+                                        item.carratings[0] ?
+                                            <Box className={styles.ratingBox}>
+                                                <Card className={styles.rating}>
+                                                    <CardHeader className={styles.ratingHeader}
+                                                        avatar={
+                                                            <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.avatar}>
+                                                                <Image src={item.carratings[0].profileimagepath[0].url} width={item.carratings[0].profileimagepath[0].width} height={item.carratings[0].profileimagepath[0].height} layout="responsive" objectFit="fill" alt={item.carratings[0].name} />
+                                                            </Avatar>
+                                                        }
+                                                        title={
+                                                            <Rating name="read-only" value={item.carratings[0].rate} readOnly className={styles.rating.value} />
+                                                        } />
+                                                    <CardContent className={styles.ratingContent}>
+                                                        <Typography className={styles.content}>
+                                                            {item.carratings[0].comment}
+                                                        </Typography>
+                                                        <Typography className={styles.subContent}>
+                                                            {item.carratings[0].name}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </Card>
+                                            </Box> : <Box />
                                     }
                                     {
                                         tripadvisors[0] ?
@@ -153,7 +157,7 @@ const CarSliderSection = (props) => {
 
                                                         avatar={
                                                             <Avatar sx={{ bgcolor: red[500] }} aria-label="tripadvisorImage" className={styles.avatar}>
-                                                                <Image src={tripadvisors[0].tripadvisorlogopath[0].url} width={30} height={30} layout="responsive" objectFit="fill" alt="tripAdvisor" /> 
+                                                                <Image src={tripadvisors[0].tripadvisorlogopath[0].url} width={30} height={30} layout="responsive" objectFit="fill" alt="tripAdvisor" />
                                                             </Avatar>
                                                         } />
                                                 </Card>
