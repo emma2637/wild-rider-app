@@ -59,7 +59,7 @@ const CarSliderSection = (props) => {
         );
     };
 
-    
+
     return (
         <>
             <div className={styles.carSliderContainer}>
@@ -88,9 +88,12 @@ const CarSliderSection = (props) => {
 
                 >
                     {carsliderinfos.map((item, index) => {
-                        let image = isMobile ? item.imagepath.find(image =>image.alternativeText === "mobile") : isTablet ? item.imagepath.find(image =>image.alternativeText === "tablet"): item.imagepath.find(image =>image.alternativeText === "web");
-                        console.log('image',image);
-                        console.log('isMobile',isMobile);
+                        let image = isMobile ? item.imagepath.find(image => image.alternativeText === "mobile") : isTablet ? item.imagepath.find(image => image.alternativeText === "tablet") : item.imagepath.find(image => image.alternativeText === "web");
+
+                        if (!image) {
+                            image = item.imagepath[0];
+                        }
+
                         return (
                             <FiCard key={index} >
                                 <FiCardMedia media="picture" alt="Car" >
