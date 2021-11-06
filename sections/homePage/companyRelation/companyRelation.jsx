@@ -239,10 +239,10 @@ const useStyles = makeStyles(theme => ({
 			overflow: 'hidden'
         },
         [theme.breakpoints.up(1100)]:{
-            margin: '30px 96px 30px 155px'
+            margin: '30px 96px 50px 155px'
         },
         [theme.breakpoints.between(mobileModeWidth, 1100)]:{
-            margin: '30px 40px 30px 155px'
+            margin: '30px 40px 50px 155px'
         },
         [theme.breakpoints.down(mobileModeWidth)]: {
             margin: '3px 0px 0px 15px',
@@ -288,7 +288,7 @@ const useStyles = makeStyles(theme => ({
             height: 'calc(100vh - 315px);'
         },
         [theme.breakpoints.up(mobileModeWidth)]: {
-            height: 'calc(100% - 69px)'
+            height: 'calc(100% - 68px)'
         },
         
     },
