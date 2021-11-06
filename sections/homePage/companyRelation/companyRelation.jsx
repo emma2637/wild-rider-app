@@ -16,7 +16,6 @@ import Image from 'next/image'
 import CloseIcon from '@mui/icons-material/Close';
 
 const mobileModeWidth = 752;
-const mobileSmallModeWidth = 430;
 const desktopSmallModeWith = 1000;
 const useStyles = makeStyles(theme => ({
     content: {
@@ -319,7 +318,6 @@ const CompanyRelation = (props) => {
     const theme = useTheme();
     const classes = useStyles();
     const isMobile = useMediaQuery(theme.breakpoints.down(mobileModeWidth));
-    const isMobileS = useMediaQuery(theme.breakpoints.down(mobileSmallModeWidth));
     const isDesktopS = useMediaQuery(theme.breakpoints.down(desktopSmallModeWith));
 
     //#region Modal
@@ -327,6 +325,9 @@ const CompanyRelation = (props) => {
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
+        const urlImgMobile = cardInfo.imagepath.find((x) => x.alternativeText == "web").url;//"mobile").url;
+        const urlImgWebSmall = cardInfo.imagepath.find((x) => x.alternativeText == "web").url;//"webSmall").url;
+        const urlImgWeb = cardInfo.imagepath.find((x) => x.alternativeText == "web").url;//"webSmall").url;;
 
         return (
             <Box>
@@ -336,29 +337,23 @@ const CompanyRelation = (props) => {
                          <Box className={classes.learnMoreModal}>
                              <CloseIcon className={classes.closeModalBtn} onClick={handleClose} />
                             <Box className={classes.modalImage}>
-                                 {isMobileS ?
+                                 {isMobile ? 
                                     (<>
                                         <Box className={classes.imageContainer }>
-                                            <Image className={classes.modalImage} src={cardInfo.imagepath[1].url} layout="fill" alt={cardInfo.title} />
+                                            <Image className={classes.modalImage} src={urlImgMobile} layout="fill" alt={cardInfo.title} />                                            
                                         </Box>
                                     </>) :
-                                    isMobile ? 
+                                    isDesktopS ?
                                         (<>
                                             <Box className={classes.imageContainer }>
-                                                <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />                                            
+                                                <Image className={classes.modalImage} src={urlImgWebSmall} layout="fill" alt={cardInfo.title} />                                            
                                             </Box>
                                         </>) :
-                                        isDesktopS ?
-                                            (<>
-                                                <Box className={classes.imageContainer }>
-                                                    <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />                                            
-                                                </Box>
-                                            </>) :
-                                            (<>
-                                                <Box className={classes.imageContainer }>
-                                                    <Image className={classes.modalImage} src={cardInfo.imagepath[0].url} layout="fill" alt={cardInfo.title} />
-                                                </Box>
-                                            </>) 
+                                        (<>
+                                            <Box className={classes.imageContainer }>
+                                                <Image className={classes.modalImage} src={urlImgWeb} layout="fill" alt={cardInfo.title} />
+                                            </Box>
+                                        </>) 
                                  }
                              </Box>
                              <Box className={classes.learnMoreTextContent}>
@@ -418,10 +413,11 @@ const CompanyRelation = (props) => {
 
     //#region Card
     function CompanyRelationCard({ cardInfo }) {
+        const urlImgCard = cardInfo.imagepath.find((x) => x.alternativeText == "mobile").url;//"card").url;
         return (
             <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
-                    <Image className={classes.cardImg} src={cardInfo.imagepath[1].url} height={140} width={350} alt={cardInfo.title} />
+                    <Image className={classes.cardImg} src={urlImgCard} height={140} width={350} alt={cardInfo.title} />
                     <Box className={classes.cardTextContainer}>
                         <Typography className={classes.cardTitle}>
                             {cardInfo.title}

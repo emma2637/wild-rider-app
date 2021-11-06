@@ -68,6 +68,8 @@ const AppBar = styled(MuiAppBar, {
 //#endregion
 
 //#region Styles
+
+const mobileModeWidth = 800;
 const useStyles = makeStyles(theme => ({
   menuDesktopAccordion: {
     flexGrow: '1.5',
@@ -266,34 +268,44 @@ const useStyles = makeStyles(theme => ({
   toolBar: {
     paddingRight: '0px',
     paddingLeft: '24px',
-    [theme.breakpoints.down(800)]: {
+    [theme.breakpoints.down(mobileModeWidth)]: {
       paddingRight: '0px !important',
       paddingLeft: '0px !important'
     }
   },
   logoContainer: {
     position: 'relative',
-    width: '222px',
+    minWidth: '215px',
     height: '64px',
     paddingRight: '3%',
-    [theme.breakpoints.down(800)]: {
+    flexBasis: '15%',
+    [theme.breakpoints.down(mobileModeWidth)]: {
       flex: '30',
       position: 'relative',
-      width: '222px',
-      height: '55px',
+      width: '200px',
+      height: '40px',
       paddingRight: 'unset',
+    },
+    [theme.breakpoints.between(mobileModeWidth,950)]: {
+      minWidth: '196px',
+    },
+    [theme.breakpoints.down(340)]: {
+      minWidth: 'unset',
     }
   },
   headerOptions: {
     display: 'flex',
     width: '100%',
     alignItems: 'center',
+    // [theme.breakpoints.down(950)]: {
+    //   width: '75%',
+    // }
   },
   menuIcon: {
     width: '-webkit-fill-available',
     height: '-webkit-fill-available',
     color: 'white',
-    [theme.breakpoints.down(800)]: {
+    [theme.breakpoints.down(mobileModeWidth)]: {
       height: '40px'
     }
   },
@@ -303,6 +315,9 @@ const useStyles = makeStyles(theme => ({
     flexGrow: '3',
     height: '64px',
     fontSize: '19px',
+    [theme.breakpoints.between(mobileModeWidth,950)]: {
+      fontSize: '90%',
+    }
   },
   menuLeftHeader: {
     display: 'flex',
