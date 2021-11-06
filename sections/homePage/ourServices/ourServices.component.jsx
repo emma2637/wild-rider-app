@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     card: { 
         flexBasis: '16%',
         boxShadow: "unset",
-        [theme.breakpoints.down(1000)]: {
+        [theme.breakpoints.down(1050)]: {
             flexBasis: '26%',
         },
         [theme.breakpoints.down(650)]: {
