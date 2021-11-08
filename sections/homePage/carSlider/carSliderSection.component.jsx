@@ -18,6 +18,7 @@ import { FiCard, FiCardContent, FiCardMedia } from '../../../components/FullImag
 
 import 'react-multi-carousel/lib/styles.css';
 import styles from '../../../styles/carSlider.module.scss';
+import { height, width } from '@mui/system';
 
 
 const responsive = {
@@ -68,13 +69,13 @@ const CarSliderSection = (props) => {
                     arrows={false}
                     centerMode={false}
                     className=""
-                    containerClass="container"
-                    // dotListClass={styles.dotList}
+                    containerClass="cardContainer"
+                     dotListClass={styles.dotList}
                     ssr={true} // means to render carousel on server-side.
                     draggable
                     focusOnSelect={false}
                     infinite
-                    itemClass=""
+                    // itemClass={styles.itemClass}
                     keyBoardControl
                     minimumTouchDrag={80}
                     renderButtonGroupOutside={false}
@@ -94,13 +95,27 @@ const CarSliderSection = (props) => {
                             image = item.imagepath[0];
                         }
 
-                        return (
-                            <FiCard key={index} >
-                                <FiCardMedia media="picture" alt="Car" >
+                        let heightImage = isMobile ? '731px !important' : isTablet ? '688px !important' : '720px !important';
+                        let widthImage = isMobile ? '375px !important' : isTablet ? '1024px !important' : '1440px !important';
+                        
+                        // let heightCard = isMobile ? '812px !important' : isTablet ? '688px !important' : '800px !important';
 
+                        return (
+                            <FiCard key={index} sx={{
+                                // height:heightImage
+                            }} 
+                                >
+                                <FiCardMedia media="picture" alt="Car"
+                                 sx={{
+                                //    height:heightImage, 
+                                    // width:widthM
+                                }} 
+                                 >
                                     <Image src={image.url}
                                         quality={90}
-                                        layout="fill"
+                                        layout="responsive"
+                                        height={heightImage}
+                                        width={widthImage}
                                         objectFit="fill"
                                         priority
                                         alt={item.title} />
@@ -121,7 +136,7 @@ const CarSliderSection = (props) => {
                                     })}
 
                                     <CustomizedButtons type={"getFreeQuoteBtn"} buttonText={getFreeQuoteBtn.text} />
-                                    {
+                                    {/* {
                                         item.carratings[0] ?
                                             <Box className={styles.ratingBox}>
                                                 <Card className={styles.rating}>
@@ -144,7 +159,7 @@ const CarSliderSection = (props) => {
                                                     </CardContent>
                                                 </Card>
                                             </Box> : <Box />
-                                    }
+                                    } */}
                                     {
                                         tripadvisors[0] ?
                                             <Box className={styles.tripBox}>

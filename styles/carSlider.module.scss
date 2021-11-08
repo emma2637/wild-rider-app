@@ -14,6 +14,10 @@
     font-size: $font-small--size;
 }
 
+.itemClass {
+    width: 100% !important;
+}
+
 .carSliderContainer {
     position: relative;
     margin-top: 56px;
@@ -47,13 +51,15 @@
     }
 
     .rating {
-        .ratingContent{
+        .ratingContent {
             padding-left: 100px;
             padding-top: 0;
         }
-        .ratingHeader{
+
+        .ratingHeader {
             padding-bottom: 0;
         }
+
         color: white;
         width: 383px;
         background-color: $graphite-dark;
@@ -86,7 +92,7 @@
             letter-spacing: normal;
             text-align: left;
             color: #fff;
-          
+
         }
     }
 
@@ -149,7 +155,9 @@
     @extend .carouselDots !optional;
 
 }
-
+.dotList{
+    bottom: 65px !important;
+}
 .react-multi-carousel-item {
     height: 600px !important;
 }
@@ -233,6 +241,7 @@
     .title {
         font-size: "14px" !important;
     }
+   
 }
 
 /* 
@@ -244,12 +253,14 @@
 
     /* CSS */
     .cardContentResponsive {
-        margin-left: 55px !important;
+        margin-left: 29px !important;
+        margin-top: 45px !important;
     }
 
     .tripBox {
         margin-right: 0px !important;
     }
+ 
 }
 
 /* 
@@ -287,12 +298,15 @@
     ##Screen = B/w 320px to 479px
   */
 
+
+
+
 @media (min-width: 320px) and (max-width: 480px) {
     .cardContentResponsive {
         margin-left: 20px !important;
         margin-top: 20px !important;
     }
-
+ 
     /* CSS */
     .carSliderContainer {
         position: relative;
