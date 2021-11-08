@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     card: { 
         flexBasis: '16%',
         boxShadow: "unset",
-        [theme.breakpoints.down(1000)]: {
+        [theme.breakpoints.down(1050)]: {
             flexBasis: '26%',
         },
         [theme.breakpoints.down(650)]: {
@@ -56,7 +56,6 @@ const useStyles = makeStyles(theme => ({
         fontStretch: 'normal',
         fontStyle: 'normal',
         lineHeight: '1.22',
-        width: '96px',
         margin: '0 auto',
     },
     cardDescription: { 
@@ -67,7 +66,6 @@ const useStyles = makeStyles(theme => ({
         fontStretch: 'normal',
         fontStyle: 'normal',
         lineHeight: '1.5',
-        width: '133px',
         margin: '0 auto'
     },
 })
