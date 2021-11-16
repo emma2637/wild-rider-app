@@ -20,14 +20,14 @@ const GetFreeQuoteButton = {
     backgroundColor: theme.palette.custom.main,
   },
   fontFamily: "Raleway",
-  fontSize: "18px",
+  fontSize: "16px",
   fontWeight: 800,
   lineHeight: "1.1",
   marginTop: "1em",
-  height: "40px",
-  marginBottom: "1em",
-  maxWidth: "250px",
-
+  height: "2rem",
+  marginBottom: "1rem",
+  maxWidth: "12rem",
+ 
 };
 
 
@@ -42,7 +42,7 @@ const ReadMoreButton = {
   height: "40px",
   marginBottom: "1em",
   alignItems: "center",
-  border:"none",
+  border: "none",
   marginLeft: "auto",
   marginRight: "auto",
   fontFamily: "Raleway",
@@ -51,7 +51,7 @@ const ReadMoreButton = {
 };
 
 
-const CarouselDotCustomButton={
+const CarouselDotCustomButton = {
   color: theme.palette.carousel.dots,
   backgroundColor: theme.palette.carousel.dots.default.backgroundColor,
   '&:active': {
@@ -61,7 +61,7 @@ const CarouselDotCustomButton={
   height: "10px",
   width: "10px",
   alignItems: "center",
-  border:"none",
+  border: "none",
   marginLeft: "auto",
   marginRight: "auto"
 };
@@ -75,22 +75,22 @@ export default function CustomizedButtons(props) {
     carouselDotBtn: CarouselDotCustomButton
   };
 
-  const button =()=>{
-    if(type === "getFreeQuoteBtn"){
+  const button = () => {
+    if (type === "getFreeQuoteBtn") {
       return <Button style={ButtonType.getFreeQuoteBtn}>{buttonText}</Button>
     }
-    else if(type === "readMoreBtn"){
-      return <Button className={props.className}  style={ButtonType.readMoreBtn}>{buttonText}</Button>
+    else if (type === "readMoreBtn") {
+      return <Button className={props.className} style={ButtonType.readMoreBtn}>{buttonText}</Button>
     }
-    else if(type === "carouselDotBtn"){
-      return <Button style={ButtonType.carouselDotBtn} sx={{width:"10px", height:"10px"}}>{buttonText}</Button>
+    else if (type === "carouselDotBtn") {
+      return <Button style={ButtonType.carouselDotBtn} sx={{ width: "10px", height: "10px" }}>{buttonText}</Button>
     }
   }
 
   return (
     <ThemeProvider theme={theme}>
       <Stack>
-          {button()}        
+        {button()}
       </Stack>
     </ThemeProvider>
   );

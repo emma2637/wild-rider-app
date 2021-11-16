@@ -18,8 +18,10 @@ import { FiCard, FiCardContent, FiCardMedia } from '../../../components/FullImag
 
 import 'react-multi-carousel/lib/styles.css';
 import styles from '../../../styles/carSlider.module.scss';
-import { height, width } from '@mui/system';
-
+import hero from '../../../public/hero@2x.png'
+import heroTablet from '../../../public/hero-tablet@2x.jpg'
+import heroMobile from '../../../public/carousel_Mobile@2x.jpg'
+import { flexbox, grid, width } from '@mui/system';
 
 const responsive = {
     desktop: {
@@ -43,8 +45,8 @@ const CarSliderSection = (props) => {
     const { button, cars } = props;
     const { tripadvisors, carsliderinfos } = cars;
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down(767));
-    const isTablet = useMediaQuery(theme.breakpoints.down(1023));
+    const isMobile = useMediaQuery(theme.breakpoints.down(425));
+    const isTablet = useMediaQuery(theme.breakpoints.down(1024));
     const getFreeQuoteBtn = button.find(item => item.type.includes("QUOTE"));
 
     // console.log('carsliderinfos',carsliderinfos);
@@ -70,7 +72,7 @@ const CarSliderSection = (props) => {
                     centerMode={false}
                     className=""
                     containerClass="cardContainer"
-                     dotListClass={styles.dotList}
+                    dotListClass={styles.dotList}
                     ssr={true} // means to render carousel on server-side.
                     draggable
                     focusOnSelect={false}
@@ -89,97 +91,46 @@ const CarSliderSection = (props) => {
 
                 >
                     {carsliderinfos.map((item, index) => {
-                        let image = isMobile ? item.imagepath.find(image => image.alternativeText === "mobile") : isTablet ? item.imagepath.find(image => image.alternativeText === "tablet") : item.imagepath.find(image => image.alternativeText === "web");
+                        let image = isMobile ?
+                            item.imagepath.find(image => image.alternativeText === "mobile") :
+                            isTablet ?
+                                // item.imagepath.find(image => image.alternativeText === "tablet") 
+                                heroTablet :
+                                item.imagepath.find(image => image.alternativeText === "web");
 
-                        if (!image) {
-                            image = item.imagepath[0];
-                        }
 
                         let heightImage = isMobile ? '731px !important' : isTablet ? '688px !important' : '720px !important';
                         let widthImage = isMobile ? '375px !important' : isTablet ? '1024px !important' : '1440px !important';
-                        
-                        // let heightCard = isMobile ? '812px !important' : isTablet ? '688px !important' : '800px !important';
 
+                        // let image = isMobile ? heroMobile : isTablet ? heroTablet : hero;
                         return (
-                            <FiCard key={index} sx={{
-                                // height:heightImage
-                            }} 
-                                >
-                                <FiCardMedia media="picture" alt="Car"
-                                 sx={{
-                                //    height:heightImage, 
-                                    // width:widthM
-                                }} 
-                                 >
-                                    <Image src={image.url}
-                                        quality={90}
-                                        layout="responsive"
-                                        height={heightImage}
-                                        width={widthImage}
-                                        objectFit="fill"
-                                        priority
-                                        alt={item.title} />
 
-                                </FiCardMedia>
-                                <FiCardContent className={styles.cardContentResponsive}>
-                                    <Box className={styles.titleContainer}>
-                                        <Typography gutterBottom variant="h5" component="div" className={styles.title}>
-                                            {item.title}
-                                        </Typography>
-                                    </Box>
-                                    {item.description?.split('.').map((item, index) => {
-                                        return (
-                                            <Typography variant="body2" className={styles.caption} component="p" key={index}>
-                                                {item}
+                            <div className={styles.mainContainerGrid} key={index}>
+                                <div >
+                                    <Image src={image.url ? image.url : image} height={heightImage} width={widthImage} quality={100} />
+                                    <div className={styles.containerFlex} >
+                                        <div className={styles.text}>
+                                            <Typography gutterBottom variant="p" component="p" className={styles.heading}>
+                                                {item.title}
                                             </Typography>
-                                        )
-                                    })}
+                                        </div>
 
-                                    <CustomizedButtons type={"getFreeQuoteBtn"} buttonText={getFreeQuoteBtn.text} />
-                                    {/* {
-                                        item.carratings[0] ?
-                                            <Box className={styles.ratingBox}>
-                                                <Card className={styles.rating}>
-                                                    <CardHeader className={styles.ratingHeader}
-                                                        avatar={
-                                                            <Avatar sx={{ bgcolor: red[500] }} aria-label="profileImage" className={styles.avatar}>
-                                                                <Image src={item.carratings[0].profileimagepath[0].url} width={item.carratings[0].profileimagepath[0].width} height={item.carratings[0].profileimagepath[0].height} layout="responsive" objectFit="fill" alt={item.carratings[0].name} />
-                                                            </Avatar>
-                                                        }
-                                                        title={
-                                                            <Rating name="read-only" value={item.carratings[0].rate} readOnly className={styles.rating.value} />
-                                                        } />
-                                                    <CardContent className={styles.ratingContent}>
-                                                        <Typography className={styles.content}>
-                                                            {item.carratings[0].comment}
-                                                        </Typography>
-                                                        <Typography className={styles.subContent}>
-                                                            {item.carratings[0].name}
-                                                        </Typography>
-                                                    </CardContent>
-                                                </Card>
-                                            </Box> : <Box />
-                                    } */}
-                                    {
-                                        tripadvisors[0] ?
-                                            <Box className={styles.tripBox}>
-                                                <Card className={styles.tripAdvisor}>
-                                                    <CardHeader title={
-                                                        <Typography className={styles.tripAdvisor.title}>
-                                                            {tripadvisors[0].content}
-                                                        </Typography>
-                                                    }
+                                        {item.description?.split('.').map((item, index) => {
+                                            return (
+                                                <div className={styles.text} key={index}>
+                                                    <Typography variant="P" className={styles.subheading} component="p" >
+                                                        {item}
+                                                    </Typography>
+                                                </div>
+                                            )
+                                        })}
+                                        <div className={styles.text}>
+                                            <CustomizedButtons type={"getFreeQuoteBtn"} buttonText={getFreeQuoteBtn.text} />
+                                        </div>
+                                    </div>
 
-                                                        avatar={
-                                                            <Avatar sx={{ bgcolor: red[500] }} aria-label="tripadvisorImage" className={styles.avatar}>
-                                                                <Image src={tripadvisors[0].tripadvisorlogopath[0].url} width={30} height={30} layout="responsive" objectFit="fill" alt="tripAdvisor" />
-                                                            </Avatar>
-                                                        } />
-                                                </Card>
-                                            </Box> : null
-                                    }
-                                </FiCardContent>
-                            </FiCard>
+                                </div>
+                            </div>
                         )
                     })}
 
