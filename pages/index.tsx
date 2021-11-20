@@ -5,6 +5,8 @@ import Header from '../sections/homePage/header/header.component'
 import OurServices from '../sections/homePage/ourServices/ourServices.component'
 import FAQ from '../sections/homePage/faq/faq.component'
 import Footer from '../sections/homePage/footer/footer.component'
+import SecondFooter from '../sections/homePage/footer/secondFooter.component'
+
 import cardData from '../components/card/card.data'
 import { useState } from 'react'
 import iCardCar from '../components/card/iCardCar'
@@ -43,6 +45,7 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
       </main>
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
+        <SecondFooter></SecondFooter>
       </div> 
     </div >
   )
