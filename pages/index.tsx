@@ -17,7 +17,35 @@ import ClientSliderSection from '../sections/homePage/ClientSliderRentCar/client
 import OurTravelSection from '../sections/homePage/ourTravelExperts/ourTravelExperts.section.component'
 import { queryClient } from "../services/homePage.service";
 
-
+let data = {
+  logo: {
+      url: '',
+      description: 'We are the specialists for your individual Costa Rica adventure! For 20+ years we have been renting 4×4 cars at economic rates.',
+  },
+  otherLinks: {
+      title: 'Other Links',
+      links:[ {
+        url: '',
+        title: '',   
+      },
+    {
+      url: '',
+      title: '',
+    }],
+  },
+  support: {
+      title: 'Support',
+      phone: 'Phone CR +506-2258-4604',
+      email: 'info@wild-rider.com',
+      whatsapp: 'WhatsApp +506-8973-2759',
+      crTimeText: '* CR Office Tme'
+  },
+  location: {
+      title: 'Location',
+      description: 'Calle Alajuela, behind City Mall, from “Molinos de Costa Rica” 300 meters South. Alajuela, Costa Rica',
+      image: ''
+  }
+}
 const IndexPage: NextPage = ({ locale, homepages }: any) => {
 
   console.log(homepages[0]);
@@ -31,6 +59,8 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
   const [footer, setFooter] = useState(homepages[0].footers);
   const [buttons, setButtons] = useState(homepages[0].buttons);
   const [cards, setCards] = useState<iCardCar[]>(cardData)
+  // const [secondFooter,setSecondFooter] = useState(homepages[0].secondfooter);
+  const [secondFooter,setSecondFooter] = useState(data);
 
   return (
     <div>
@@ -45,7 +75,7 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
       </main>
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
-        <SecondFooter></SecondFooter>
+        <SecondFooter footer={secondFooter} ></SecondFooter>
       </div> 
     </div >
   )

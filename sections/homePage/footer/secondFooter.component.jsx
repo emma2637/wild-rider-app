@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { makeStyles } from '@mui/styles';
 import { fontSize, grid, lineHeight } from '@mui/system';
 
-import logo from '../../../public/WildRiderLogo_Footer.webp';
+import wildRiderLogo from '../../../public/WildRiderLogo_Footer.webp';
 import location from '../../../public/mapFooter_Desktop@2x.webp';
 const useStyles = makeStyles(theme => ({
     root: {
@@ -65,21 +65,28 @@ const useStyles = makeStyles(theme => ({
         marginTop: '1rem',
     }
 }));
-const SecondFooter = () => {
 
 
+
+const SecondFooter = (props) => {
+    const { logo,otherLinks,support,location } = props.footer;
     const classes = useStyles();
     return (
         <footer className={classes.footer}>
             <div>
                 <div className={classes.logo}>
-                    <Image src={logo} alt="footer Logo" />
+                    <Image src={wildRiderLogo} alt="footer Logo" /> 
                 </div>
-                <span className={classes.text}>We are the specialists for your individual Costa Rica adventure! For 20+ years we have been renting 4×4 cars at economic rates.</span>
+                <span className={classes.text}>{logo.description}</span>
             </div>
             <div>
-                <h3>Other Links</h3>
+                <h3>{otherLinks.title}</h3>
                 <nav className={classes.otherMenuLinks}>
+                    {otherLinks.subLink.map((link, index) => {
+                        return (
+                            <a href={link.url} key={index}>{link.name}</a>
+                        )
+                    })}
                     <a href="#">Home</a>
                     <a href="#">Cars & Rates</a>
                     <a href="#">Insurance</a>
@@ -105,7 +112,7 @@ const SecondFooter = () => {
                     <p>Calle Alajuela, behind City Mall, from “Molinos de Costa Rica” 300 meters South. Alajuela, Costa Rica</p>
                 </span>
                 <div className="locationImage">
-                    <Image src={location} alt='location'></Image>
+                    {/* <Image src={location} alt='location'></Image> */}
                 </div>
             </div>
         </footer>
@@ -113,3 +120,31 @@ const SecondFooter = () => {
 }
 
 export default SecondFooter;
+
+
+// let data = {
+//     sections: {
+//         logo: {
+//             url: '',
+//             description: '',
+//         },
+//         otherLinks: {
+//             title: '',
+//             subLinks: {
+//                 title: '',
+//             }
+//         },
+//         support: {
+//             title: '',
+//             phone: '',
+//             email: '',
+//             whatsapp: '',
+//             crTimeText: ''
+//         },
+//         location: {
+//             title: '',
+//             description: '',
+//             image: ''
+//         }
+//     }
+// }
