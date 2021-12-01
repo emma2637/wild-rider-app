@@ -325,9 +325,9 @@ const CompanyRelation = (props) => {
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
-        const urlImgMobile = cardInfo.imagepath.find((x) => x.alternativeText == "mobile").url;
-        const urlImgWebSmall = cardInfo.imagepath.find((x) => x.alternativeText == "webSmall").url;
-        const urlImgWeb = cardInfo.imagepath.find((x) => x.alternativeText == "webSmall").url;;
+        const urlImgMobile = cardInfo.imagepath.find((x) => x.alternativeText == "mobile")?.url;
+        const urlImgWebSmall = cardInfo.imagepath.find((x) => x.alternativeText == "webSmall")?.url;
+        const urlImgWeb = cardInfo.imagepath.find((x) => x.alternativeText == "webSmall")?.url;;
 
         return (
             <Box>
