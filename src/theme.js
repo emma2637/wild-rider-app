@@ -54,8 +54,8 @@ const theme = createTheme({
     }
   },
   fonts: {
-    primary: "Roboto",
-    secondary: "Roboto",
+    primary: "Montserrat",
+    secondary: "Raleway",
   },
   
 
