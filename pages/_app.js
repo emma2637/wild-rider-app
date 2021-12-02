@@ -25,10 +25,6 @@ function MyApp(props) {
       <Head>
         <title>Wild Riders</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <meta name="description" content="This is page for renting cars" />
-        <meta name="robots" content="follow" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com"  />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@600;800&display=swap" rel="stylesheet"></link>
       </Head>
       <ThemeProvider theme={theme}>
