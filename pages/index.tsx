@@ -16,7 +16,7 @@ import CarSliderSection from '../sections/homePage/carSlider/carSliderSection.co
 import ClientSliderSection from '../sections/homePage/ClientSliderRentCar/clientSliderSection.component'
 import OurTravelSection from '../sections/homePage/ourTravelExperts/ourTravelExperts.section.component'
 import { queryClient } from "../services/homePage.service";
-
+import Head from 'next/head'
 
 const IndexPage: NextPage = ({ locale, homepages }: any) => {
 
@@ -34,14 +34,17 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
 
   return (
     <div>
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@600;800&display=swap" rel="stylesheet"></link>
+      </Head>
       <Header data={{ header, locale }} />
       <main >
         <CarSliderSection cars={carsD} button={buttons} ></CarSliderSection>
         <ClientSliderSection data={clientsliders} button={buttons} />
         <OurServices ourservicesD={ourServices} />
-        <CompanyRelation companyrelationD={companyRelation}  button={buttons}/>
+        <CompanyRelation companyrelationD={companyRelation} button={buttons} />
         <FAQ faq={faqD} button={buttons} />
-        <OurTravelSection data={otExperts} /> 
+        <OurTravelSection data={otExperts} />
       </main>
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
