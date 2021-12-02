@@ -97,15 +97,27 @@ const useStyles = makeStyles((theme) => ({
 }), { name: 'MuiOurTravelExperts' });
 
 
-const OurTravelSection = ({data}) => {
+const OurTravelSection = ({ data }) => {
     const classes = useStyles();
     const { title, otexpertsinfos, teamimagepath } = data;
-   
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down(425));
+    const isTablet = useMediaQuery(theme.breakpoints.down(1024));
+
+    let imageSrc = validateImage();
+    let imgSize = isMobile? { width: imageSrc.width, height: imageSrc.height } : { width: '1120px', height: '410px' };
+
+    function validateImage() {
+        return isMobile ?
+            teamimagepath.find(image => image.alternativeText === "mobile") :
+            teamimagepath.find(image => image.alternativeText === "web");
+    }
+
     function TravelExpertsCard({ infoSection }) {
         return (
             <Card className={classes.card}>
                 <CardMedia>
-                    <Image className={classes.cardImg} src={infoSection.imagepath[0].url} height={242} width={350}  alt="carSection"/> 
+                    <Image className={classes.cardImg} src={infoSection.imagepath[0].url} height={242} width={350} alt="carSection" />
                 </CardMedia>
                 <CardContent className={classes.cardContent}>
                     <Box className={classes.cardTextContainer}>
@@ -134,10 +146,11 @@ const OurTravelSection = ({data}) => {
                                     </Box>)
                             })
                         }
-
                     </Box>
                     <Box className={classes.cardsContainer}>
-                         <Image src={teamimagepath[0].url} height={410} width={1020} alt={title} />
+                        <div style={{ width: imgSize.width, height: imgSize.height }}>
+                            <Image src={imageSrc.url} height={imgSize.height} width={imgSize.width} alt={title} layout='responsive' quality='100' />
+                        </div>
                     </Box>
                 </Box>
             </Box>

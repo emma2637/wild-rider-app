@@ -34,7 +34,7 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
 
   return (
     <div>
-       {/* <Header data={{header, locale}} /> */}
+      <Header data={{ header, locale }} />
       <main >
         <CarSliderSection cars={carsD}button={buttons} ></CarSliderSection>
         <ClientSliderSection data={clientsliders}   button={buttons}/>
@@ -45,8 +45,8 @@ const IndexPage: NextPage = ({ locale, homepages }: any) => {
       </main>
       <div>
         <Footer footer={footer} button={buttons} ></Footer>
-        <SecondFooter></SecondFooter>
-      </div> 
+        {/* <SecondFooter></SecondFooter> */}
+      </div>
     </div >
   )
 }
