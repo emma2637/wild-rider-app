@@ -45,8 +45,8 @@ const CarSliderSection = (props) => {
     const { button, cars } = props;
     const { tripadvisors, carsliderinfos } = cars;
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down(425));
-    const isTablet = useMediaQuery(theme.breakpoints.down(1024));
+    const isMobile = useMediaQuery(theme.breakpoints.down(600));
+    const isTablet = useMediaQuery(theme.breakpoints.down(900));
     const getFreeQuoteBtn = button.find(item => item.type.includes("QUOTE"));
 
     // console.log('carsliderinfos',carsliderinfos);
@@ -99,15 +99,19 @@ const CarSliderSection = (props) => {
                                 item.imagepath.find(image => image.alternativeText === "web");
 
 
-                        let heightImage = isMobile ? '731px !important' : isTablet ? '688px !important' : '720px !important';
-                        let widthImage = isMobile ? '375px !important' : isTablet ? '1024px !important' : '1440px !important';
+                        
+                        let imageSize = isMobile ? {width:image.width, height:image.height} : 
+                                        isTablet ? {width:'1024px  !important', height:'688px !important'} : 
+                                        {width:image.width, height:image.height};
+
+                        let imageAdvisor = tripadvisors[0].tripadvisorlogopath.find(image => image.alternativeText === "mobile");
 
                         // let image = isMobile ? heroMobile : isTablet ? heroTablet : hero;
                         return (
 
                             <div className={styles.mainContainerGrid} key={index}>
                                 <div >
-                                    <Image src={image.url ? image.url : image} height={heightImage} width={widthImage} quality={100} />
+                                    <Image src={image.url ? image.url : image} height={imageSize.height} width={imageSize.width} quality={100} />
                                     <div className={styles.containerFlex} >
                                         <div className={styles.text}>
                                             <Typography gutterBottom variant="p" component="p" className={styles.heading}>
@@ -126,6 +130,16 @@ const CarSliderSection = (props) => {
                                         })}
                                         <div className={styles.text}>
                                             <CustomizedButtons type={"getFreeQuoteBtn"} buttonText={getFreeQuoteBtn.text} />
+                                        </div>
+                                        <div className={styles.publicyContainer} >
+                                            <div className={styles.publicyImage}>
+                                                <Image src={imageAdvisor.url} height={imageAdvisor.height} width={imageAdvisor.width} quality={100} layout='responsive' />
+                                            </div>
+                                            <div >
+                                                <Typography variant="p" className={styles.publicyText} component="p" >
+                                                    {tripadvisors[0].content}
+                                                </Typography>
+                                            </div>
                                         </div>
                                     </div>
 

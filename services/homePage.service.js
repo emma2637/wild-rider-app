@@ -28,6 +28,7 @@ export async function queryClient(language) {
                       url
                       width
                       height
+                      alternativeText
                     }
                   }
                   carssliders{
@@ -47,6 +48,7 @@ export async function queryClient(language) {
                           url
                           width
                           height
+                          alternativeText
                         }
                         comment
                         name
@@ -57,6 +59,7 @@ export async function queryClient(language) {
                         url
                         width
                         height
+                        alternativeText
                       }
                       content
                       url
@@ -69,6 +72,7 @@ export async function queryClient(language) {
                         url
                         width
                         height
+                        alternativeText
                       }
                       title
                       description
@@ -96,6 +100,7 @@ export async function queryClient(language) {
                         url
                         width
                         height
+                        alternativeText
                       }
                       comment
                       name
@@ -116,12 +121,14 @@ export async function queryClient(language) {
                       url
                       width
                       height
+                      alternativeText
                     }
                     otexpertsinfos{
                       imagepath {
                         url
                         width
                         height
+                        alternativeText
                       }
                       description
                     }
@@ -133,8 +140,8 @@ export async function queryClient(language) {
                     type
                     text
                   }
-                  }    
-            }
+                }    
+              }
         `
   });
 }
