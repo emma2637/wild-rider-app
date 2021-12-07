@@ -325,9 +325,9 @@ const CompanyRelation = (props) => {
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
-        const urlImgMobile = cardInfo.imagepath.find((x) => x.alternativeText == "mobile").url;
-        const urlImgWebSmall = cardInfo.imagepath.find((x) => x.alternativeText == "webSmall").url;
-        const urlImgWeb = cardInfo.imagepath.find((x) => x.alternativeText == "webSmall").url;;
+        const urlImgMobile = cardInfo.imagepath.find((x) => x.alternativeText == "popupMobile")?.url;
+        const urlImgWebSmall = cardInfo.imagepath.find((x) => x.alternativeText == "thumbnailDesktop")?.url;
+        const urlImgWeb = cardInfo.imagepath.find((x) => x.alternativeText == "popupDesktop")?.url;;
 
         return (
             <Box>
@@ -413,7 +413,7 @@ const CompanyRelation = (props) => {
 
     //#region Card
     function CompanyRelationCard({ cardInfo }) {
-        const urlImgCard = cardInfo.imagepath.find((x) => x.alternativeText == "card").url;
+        const urlImgCard = cardInfo.imagepath.find((x) => x.alternativeText == "thumbnailDesktop")?.url;
         return (
             <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
