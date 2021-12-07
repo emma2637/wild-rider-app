@@ -116,7 +116,7 @@ const useStyles = makeStyles(theme => ({
         paddingTop: '16px'
     },
     learnMoreModal: {
-        minHeight: '288px',
+        minHeight: '300px',
         position: 'absolute',
         top: '50%',
         transform: 'translate(-50%, -50%)',
@@ -180,7 +180,7 @@ const useStyles = makeStyles(theme => ({
     imageContainer: {
         [theme.breakpoints.down(mobileModeWidth)]: {
             width: '100%',
-            height: '160px',
+            height: '180px',
             position: 'relative',
             image: {
                 width: '100%',
@@ -191,7 +191,7 @@ const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.up(desktopSmallModeWith)]: {
             width: '360px',
-            height: '220px',
+            height: '240px',
             
             image: {
                 width: '100%',
@@ -202,7 +202,7 @@ const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.between(mobileModeWidth, desktopSmallModeWith)]: {
             width: '300px',
-            height: '180px',
+            height: '200px',
             image: {
                 width: '100%',
                 height: '100%',
@@ -318,7 +318,6 @@ const CompanyRelation = (props) => {
     const theme = useTheme();
     const classes = useStyles();
     const isMobile = useMediaQuery(theme.breakpoints.down(mobileModeWidth));
-    const isDesktopS = useMediaQuery(theme.breakpoints.down(desktopSmallModeWith));
 
     //#region Modal
     function LearnMoreModal({ cardInfo }) {
@@ -326,7 +325,6 @@ const CompanyRelation = (props) => {
         const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
         const urlImgMobile = cardInfo.imagepath.find((x) => x.alternativeText == "popupMobile")?.url;
-        const urlImgWebSmall = cardInfo.imagepath.find((x) => x.alternativeText == "thumbnailDesktop")?.url;
         const urlImgWeb = cardInfo.imagepath.find((x) => x.alternativeText == "popupDesktop")?.url;;
 
         return (
@@ -343,17 +341,11 @@ const CompanyRelation = (props) => {
                                             <Image className={classes.modalImage} src={urlImgMobile} layout="fill" alt={cardInfo.title} />                                            
                                         </Box>
                                     </>) :
-                                    isDesktopS ?
-                                        (<>
-                                            <Box className={classes.imageContainer }>
-                                                <Image className={classes.modalImage} src={urlImgWebSmall} layout="fill" alt={cardInfo.title} />                                            
-                                            </Box>
-                                        </>) :
-                                        (<>
-                                            <Box className={classes.imageContainer }>
-                                                <Image className={classes.modalImage} src={urlImgWeb} layout="fill" alt={cardInfo.title} />
-                                            </Box>
-                                        </>) 
+                                    (<>
+                                        <Box className={classes.imageContainer }>
+                                            <Image className={classes.modalImage} src={urlImgWeb} layout="fill" alt={cardInfo.title} />
+                                        </Box>
+                                    </>) 
                                  }
                              </Box>
                              <Box className={classes.learnMoreTextContent}>
@@ -375,44 +367,11 @@ const CompanyRelation = (props) => {
             </Box>
         )
     }
-    //     return (
-    //         <Box className={classes.learnMoreContainer}>
-    //             <Typography className={classes.learnMoreTxt} onClick={handleOpen}>{learnMoreButton.text}</Typography>
-    //             <Modal open={open} onClose={handleClose} closeAfterTransition BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
-    //                 <Fade in={open}>
-    //                     <Box className={classes.learnMoreModal}>
-    //                         <CloseIcon className={classes.closeModalBtn} onClick={handleClose} />
-    //                         <Box className={classes.modalImage}>
-    //                             {isSmallScreen ?
-    //                                     (<>
-    //                                         <Image className={classes.cardImg} src={cardInfo.imagepath[1].url} height={200} width={340} alt={cardInfo.title} />
-    //                                     </>) :
-    //                                     (<>
-    //                                         <Image className={classes.cardImg} src={cardInfo.imagepath[0].url} height={259} width={414} alt={cardInfo.title} />
-    //                                     </>) 
-    //                             }
-    //                         </Box>
-    //                         <Box className={classes.learnMoreTextContent}>
-    //                             <Typography className={classes.modalTitle}>
-    //                                 {cardInfo.title}
-    //                             </Typography>
-    //                             <Divider className={classes.divider} />
-    //                             <Box className={classes.modalDescBox}>
-    //                                 <Typography className={classes.modalDescription}>
-    //                                     {cardInfo.longdescription}
-    //                                 </Typography>
-    //                             </Box>
-    //                         </Box>
-    //                     </Box>
-    //                 </Fade>
-    //             </Modal>
-    //         </Box>
-    //     )
-    // }
     //#endregion Modal
 
     //#region Card
     function CompanyRelationCard({ cardInfo }) {
+        console.log('aqui aqui aqui ------> ', cardInfo);
         const urlImgCard = cardInfo.imagepath.find((x) => x.alternativeText == "thumbnailDesktop")?.url;
         return (
             <Card className={classes.card}>
