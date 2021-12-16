@@ -61,6 +61,7 @@ const useStyles = makeStyles(theme => ({
         margin: '0 auto',
     },
     cardDescription: { 
+        maxWidth: '200px',
         fontDisplay: 'optional',
         fontFamily: 'Montserrat',
         fontSize: '14px',
