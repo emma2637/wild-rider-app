@@ -20,7 +20,6 @@ import Head from 'next/head'
 
 const IndexPage: NextPage = ({ locale, homepages }: any) => {
 
-  console.log(homepages[0]);
   const [header, setHeader] = useState(homepages[0].headers);
   const [carsD, setCarsD] = useState(homepages[0].carssliders[0]);
   const [ourServices, setOurServices] = useState(homepages[0].ourservices[0]);
@@ -61,9 +60,7 @@ export default IndexPage
 export async function getStaticProps(locale: any) {
 
   // const language = getLanguange();
-  console.log("local: ", locale.locale)
   const { data } = await queryClient(locale.locale);
-  console.log("data: ", data.homepages)
   return {
     props: {
       locale,

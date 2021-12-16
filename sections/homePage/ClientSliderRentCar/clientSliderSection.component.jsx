@@ -100,7 +100,6 @@ const ClientSliderSection = ( props ) => {
     const classes = useStyles();
     const readMoreBtn = button.find(item => item.type.includes("READ"));
 
-    console.log(button);
     const CustomDot = ({ onMove, index, onClick, active }) => {
         // onMove means if dragging or swiping in progress.
         // active is provided by this lib for checking if the item is active or not.

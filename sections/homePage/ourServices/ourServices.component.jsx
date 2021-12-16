@@ -9,12 +9,14 @@ import { makeStyles } from '@mui/styles';
 //#region Styles
 const useStyles = makeStyles(theme => ({
     container: { 
+        backgroundColor: '#f3f3f3',
         display: 'block',
         maxWidth: 'unset',
         padding: '21px 20px 190px 20px'
     },
     card: { 
-        flexBasis: '16%',
+        backgroundColor: '#f3f3f3',
+        flexBasis: '25%',
         boxShadow: "unset",
         [theme.breakpoints.down(1030)]: {
             flexBasis: '26%',

@@ -95,12 +95,10 @@ const useStyles = makeStyles(theme => ({
 //#endregion Styles
 
 const FAQ = (props) => {
-    console.log(props);
     const classes = useStyles();
      const {faq, button}=props;
      const {description, faqoptions, title} = faq[0];
     const readMoreBtn = button.find(item => item.type.includes("READ"));
-    
     return (
         <Box className={classes.mainContainer}>
             <Typography className={classes.title}>{title}</Typography>

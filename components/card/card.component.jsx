@@ -12,7 +12,6 @@ import theme from '../../src/theme'
 
 const CardExperience = (props) => {
 
-    console.log(props);
     let title = props.Title.text.toUpperCase();
     let styles = theme.palette.cards;
     return (

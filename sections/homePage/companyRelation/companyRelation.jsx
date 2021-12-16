@@ -308,9 +308,6 @@ const useStyles = makeStyles(theme => ({
     , { name: "MuiCompanyRelationComponent" });
 
 const CompanyRelation = (props) => {
-
-    console.log("CompanyRelation props", props);
-
     const { button, companyrelationD } = props;
     const { thrustworthycarrentalinfos, title, Shorttitle } = companyrelationD;
     const learnMoreButton = button.find((x) => x.type === "LEARN MORE");
@@ -371,7 +368,6 @@ const CompanyRelation = (props) => {
 
     //#region Card
     function CompanyRelationCard({ cardInfo }) {
-        console.log('aqui aqui aqui ------> ', cardInfo);
         const urlImgCard = cardInfo.imagepath.find((x) => x.alternativeText == "thumbnailDesktop")?.url;
         return (
             <Card className={classes.card}>

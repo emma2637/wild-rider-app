@@ -422,7 +422,6 @@ const Header = ({ data }) => {
     const [currentLanguageCode, setcurrentLanguageCode] = React.useState(locale);
     const [languageMenuOpen, setLanguageMenuOpen] = React.useState(null);
     const open = Boolean(languageMenuOpen);
-    //console.log("CurrentInit: " + currentLanguageCode)
     //#endregion
 
     //#region Functions
