@@ -347,7 +347,7 @@ const useStyles = makeStyles(theme => ({
 
 const Header = ({ data }) => {
   const { languages, logopath, menuoptions } = data.header[0];
-  const locale = data.locale.locale;
+  const locale = data.language;
   //#region Const
   const classes = useStyles();
   const theme = useTheme();

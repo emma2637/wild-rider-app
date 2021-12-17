@@ -1,27 +1,15 @@
 import React from 'react';
 import Image from 'next/image'
+import Link from 'next/link';
 import Carousel from 'react-multi-carousel';
-import Avatar from '@mui/material/Avatar';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Rating from '@mui/material/Rating';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material';
 
-import { red } from '@mui/material/colors';
-
 import CustomizedButtons from '../../../components/customizedButton/customizedButton.component';
-import { FiCard, FiCardContent, FiCardMedia } from '../../../components/FullImageCard/FullImageCard';
 
 import 'react-multi-carousel/lib/styles.css';
 import styles from '../../../styles/carSlider.module.scss';
-import hero from '../../../public/hero@2x.png'
-import heroTablet from '../../../public/hero-tablet@2x.jpg'
-import heroMobile from '../../../public/carousel_Mobile@2x.jpg'
-import { flexbox, grid, width } from '@mui/system';
 
 const responsive = {
     desktop: {
@@ -49,8 +37,7 @@ const CarSliderSection = (props) => {
     const isTablet = useMediaQuery(theme.breakpoints.down(900));
     const getFreeQuoteBtn = button.find(item => item.type.includes("QUOTE"));
 
-    // console.log('carsliderinfos',carsliderinfos);
-
+    console.log(tripadvisors);
 
     const CustomDot = ({ onMove, index, onClick, active }) => {
         // onMove means if dragging or swiping in progress.
@@ -77,7 +64,6 @@ const CarSliderSection = (props) => {
                     draggable
                     focusOnSelect={false}
                     infinite
-                    // itemClass={styles.itemClass}
                     keyBoardControl
                     minimumTouchDrag={80}
                     renderButtonGroupOutside={false}
@@ -94,19 +80,18 @@ const CarSliderSection = (props) => {
                         let image = isMobile ?
                             item.imagepath.find(image => image.alternativeText === "mobile") :
                             isTablet ?
-                                // item.imagepath.find(image => image.alternativeText === "tablet") 
-                                heroTablet :
+                                item.imagepath.find(image => image.alternativeText === "tablet")
+                                :
                                 item.imagepath.find(image => image.alternativeText === "web");
 
 
-                        
-                        let imageSize = isMobile ? {width:image.width, height:image.height} : 
-                                        isTablet ? {width:'1024px  !important', height:'688px !important'} : 
-                                        {width:image.width, height:image.height};
+
+                        let imageSize = isMobile ? { width: image.width, height: image.height } :
+                            isTablet ? { width: '1024px  !important', height: '688px !important' } :
+                                { width: image.width, height: image.height };
 
                         let imageAdvisor = tripadvisors[0].tripadvisorlogopath.find(image => image.alternativeText === "mobile");
 
-                        // let image = isMobile ? heroMobile : isTablet ? heroTablet : hero;
                         return (
 
                             <div className={styles.mainContainerGrid} key={index}>
@@ -133,7 +118,11 @@ const CarSliderSection = (props) => {
                                         </div>
                                         <div className={styles.publicyContainer} >
                                             <div className={styles.publicyImage}>
-                                                <Image src={imageAdvisor.url} height={imageAdvisor.height} width={imageAdvisor.width} quality={100} layout='responsive' />
+                                                <Link href={tripadvisors[0].url}>
+                                                    <a>
+                                                        <Image src={imageAdvisor.url} height={imageAdvisor.height} width={imageAdvisor.width} quality={100} layout='responsive' />
+                                                    </a>
+                                                </Link>
                                             </div>
                                             <div >
                                                 <Typography variant="p" className={styles.publicyText} component="p" >

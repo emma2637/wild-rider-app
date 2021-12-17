@@ -1,12 +1,11 @@
 import React from 'react';
 import Image from 'next/image'
+import Link from 'next/link';
 import Carousel from 'react-multi-carousel';
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
@@ -16,6 +15,7 @@ import { makeStyles } from '@mui/styles';
 import CustomizedButtons from '../../../components/customizedButton/customizedButton.component'
 import styles from '../../../styles/ratingCustom.module.scss'
 import { red } from '@mui/material/colors';
+
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -94,9 +94,9 @@ const responsive = {
 };
 
 
-const ClientSliderSection = ( props ) => {
-    const {data,button} = props;
-    const { title, clientopinions } =data
+const ClientSliderSection = ({ clientsliders, button }) => {
+    console.log(clientsliders);
+    const { title, clientopinions } = clientsliders[0]
     const classes = useStyles();
     const readMoreBtn = button.find(item => item.type.includes("READ"));
 
